@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will Labo セミナーアーカイブ</title>
+<style>
+/* ===== CSS Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg: #1a2332;
+  --hero-bg-light: #0f172a;
+  --accent: #2dd4bf;
+  --accent-hover: #14b8a6;
+  --accent-dim: rgba(45, 212, 191, 0.15);
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --card-shadow-hover: 0 10px 25px rgba(0,0,0,0.1), 0 4px 10px rgba(0,0,0,0.06);
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --bg-page: #f8fafc;
+  --bg-section: #ffffff;
+  --bg-filter: #f1f5f9;
+  --border-color: #e2e8f0;
+  --chip-bg: #e5e7eb;
+  --chip-text: #374151;
+  --tag-bg: #f0fdf4;
+  --tag-text: #166534;
+  --skeleton-bg: #e5e7eb;
+  --skeleton-shine: #f3f4f6;
+  --scroll-thumb: #cbd5e1;
+  --year-2020: #f59e0b;
+  --year-2021: #3b82f6;
+  --year-2022: #8b5cf6;
+  --year-2023: #ef4444;
+  --year-2024: #10b981;
+  --cat-筋解剖学: #dc2626;
+  --cat-姿勢制御: #7c3aed;
+  --cat-上肢機能: #2563eb;
+  --cat-小脳神経: #db2777;
+  --cat-評価分析: #ea580c;
+  --cat-疾患病態: #0891b2;
+  --cat-歩行移動: #16a34a;
+  --cat-感覚知覚: #ca8a04;
+  --cat-セミナー: #4f46e5;
+  --cat-ケース: #be185d;
+  --cat-認知心理: #059669;
+  --cat-リハビリ: #7c2d12;
+  --cat-嚥下口腔: #6d28d9;
+}
+
+[data-theme="dark"] {
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --card-shadow-hover: 0 10px 25px rgba(0,0,0,0.4), 0 4px 10px rgba(0,0,0,0.3);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --bg-page: #0f172a;
+  --bg-section: #1e293b;
+  --bg-filter: #1e293b;
+  --border-color: #334155;
+  --chip-bg: #334155;
+  --chip-text: #e2e8f0;
+  --tag-bg: rgba(16, 185, 129, 0.15);
+  --tag-text: #6ee7b7;
+  --skeleton-bg: #334155;
+  --skeleton-shine: #475569;
+  --scroll-thumb: #475569;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif, system-ui;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  background: linear-gradient(135deg, var(--hero-bg) 0%, #0f2027 50%, var(--hero-bg-light) 100%);
+  color: #fff;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(45, 212, 191, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+  animation: heroGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2%, -2%) rotate(3deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero .subtitle {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-container svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 48px 14px 48px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.15);
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.search-clear:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.search-clear.visible {
+  display: flex;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar {
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* ===== Filter Section ===== */
+.filter-section {
+  background: var(--bg-section);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.filter-section.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] .filter-section.scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.filter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Year tabs */
+.year-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.year-tab {
+  padding: 6px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.year-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.year-tab.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Month filter */
+.month-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+  padding-bottom: 4px;
+}
+
+.month-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.month-row::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 2px;
+}
+
+.month-btn {
+  padding: 4px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.month-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.month-btn.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Category tags */
+.cat-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.cat-tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: none;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.cat-tag:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.cat-tag.active {
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+/* Filter controls row */
+.filter-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  animation: chipIn 0.2s ease;
+}
+
+@keyframes chipIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.chip button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+}
+
+.chip button:hover {
+  color: var(--text-primary);
+}
+
+.sort-select {
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.series-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.series-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.series-toggle.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.clear-all-btn {
+  padding: 5px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.clear-all-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* ===== Related Banner ===== */
+.related-banner {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 1rem auto;
+  max-width: 1200px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.related-banner.visible {
+  display: flex;
+}
+
+.related-banner-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.related-banner-text strong {
+  color: var(--accent);
+}
+
+.related-banner-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.related-banner-close:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+/* ===== Results Area ===== */
+.results-area {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.results-count {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.results-count strong {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+  min-height: 200px;
+}
+
+@media (max-width: 740px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Single Card */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: cardIn 0.3s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.date-badge {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.date-badge[data-year="2020"] { background: var(--year-2020); }
+.date-badge[data-year="2021"] { background: var(--year-2021); }
+.date-badge[data-year="2022"] { background: var(--year-2022); }
+.date-badge[data-year="2023"] { background: var(--year-2023); }
+.date-badge[data-year="2024"] { background: var(--year-2024); }
+
+.series-badge {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.card-theme {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.card-content {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.card-cat {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.btn-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-watch:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+button.btn-watch {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.btn-watch svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-related {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 14px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-related:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  grid-column: 1 / -1;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ===== Skeleton ===== */
+.skeleton-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: linear-gradient(90deg, var(--skeleton-bg) 25%, var(--skeleton-shine) 50%, var(--skeleton-bg) 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 10px;
+}
+
+.skeleton-line:nth-child(1) { width: 30%; height: 10px; }
+.skeleton-line:nth-child(2) { width: 80%; height: 16px; }
+.skeleton-line:nth-child(3) { width: 60%; }
+.skeleton-line:nth-child(4) { width: 40%; height: 10px; }
+.skeleton-line:nth-child(5) { width: 50%; height: 28px; margin-top: 8px; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== Scroll to Top ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  z-index: 200;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--hero-bg);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.footer strong {
+  color: var(--accent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .hero { padding: 2rem 1rem 1.5rem; }
+  .stats-inner { gap: 1.2rem; }
+  .stat-number { font-size: 1.2rem; }
+  .filter-section { padding: 0.75rem 1rem; }
+  .results-area { padding: 0.75rem 1rem 2rem; }
+  .card-grid { gap: 0.75rem; }
+  .card { padding: 1rem; }
+  .card-theme { font-size: 0.95rem; }
+  .filter-controls { gap: 6px; }
+  .year-tabs { gap: 4px; }
+  .year-tab { padding: 5px 12px; font-size: 0.8rem; }
+}
+
+/* Highlight search matches */
+mark {
+  background: rgba(45, 212, 191, 0.25);
+  color: inherit;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+/* ===== Print ===== */
+@media print {
+  .hero, .stats-bar, .filter-section, .scroll-top, .footer { display: none; }
+  .card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <button class="theme-toggle" id="themeToggle" aria-label="テーマ切替">
+    <span id="themeIcon">&#9790;</span>
+  </button>
+  <div class="hero-content">
+    <h1>Will Labo <span>セミナーアーカイブ</span></h1>
+    <p class="subtitle">690本の講義動画データベース &#x2502; 2020年7月〜2024年3月</p>
+    <div class="search-container">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="テーマ・内容・キーワードで検索...">
+      <button class="search-clear" id="searchClear" aria-label="検索クリア">&times;</button>
+    </div>
+  </div>
+</header>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number" data-target="690" id="statTotal">0</div>
+      <div class="stat-label">セミナー総数</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="5" id="statYears">0</div>
+      <div class="stat-label">年間</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="13" id="statCats">0</div>
+      <div class="stat-label">カテゴリ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="59" id="statSeries">0</div>
+      <div class="stat-label">シリーズ</div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section class="filter-section" id="filterSection">
+  <div class="filter-inner">
+    <div class="year-tabs" id="yearTabs"></div>
+    <div class="month-row" id="monthRow"></div>
+    <div class="cat-tags-row" id="catTags"></div>
+    <div class="filter-controls">
+      <div class="active-chips" id="activeChips"></div>
+      <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;flex-wrap:wrap;">
+        <button class="series-toggle" id="seriesTogle">&#x1F4DA; シリーズ一覧</button>
+        <select class="sort-select" id="sortSelect">
+          <option value="date-desc">日付順（新しい順）</option>
+          <option value="date-asc">日付順（古い順）</option>
+          <option value="theme-asc">テーマ（あいうえお順）</option>
+        </select>
+        <button class="clear-all-btn" id="clearAllBtn">リセット</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Banner -->
+<div class="related-banner" id="relatedBanner">
+  <span class="related-banner-text" id="relatedBannerText"></span>
+  <button class="related-banner-close" id="relatedBannerClose">&times;</button>
+</div>
+
+<!-- Results Area -->
+<main class="results-area">
+  <div class="results-header">
+    <div class="results-count" id="resultsCount"></div>
+  </div>
+  <div class="card-grid" id="cardGrid"></div>
+</main>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="トップへ">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Will Labo</strong> セミナースタジオ &mdash; 講義動画アーカイブ <strong id="footerCount">690</strong> 本収録</p>
+</footer>
+
+<script>
+/* ===================================================================
+   DATA (690 entries embedded)
+   =================================================================== */
+const SEMINARS = [{"date":"2020年7月1日","theme":"講義ビデオ①","content":"片麻痺者の上肢機能","link":"https://www.facebook.com/minoru.yamada.90/videos/3025146114247892","year":2020,"month":7,"day":1,"date_sort":"2020-07-01","date_display":"2020年7月1日","id":1,"categories":["上肢機能"]},{"date":"7月1日","theme":"講義ビデオ②","content":"片麻痺者の上肢機能","link":"https://www.facebook.com/minoru.yamada.90/videos/3025276070901563","year":2020,"month":7,"day":1,"date_sort":"2020-07-01","date_display":"2020年7月1日","id":2,"categories":["上肢機能"]},{"date":"7月2日","theme":"頭部外傷","content":"頭部外傷の障害","link":"https://www.facebook.com/minoru.yamada.90/videos/3027534677342369","year":2020,"month":7,"day":2,"date_sort":"2020-07-02","date_display":"2020年7月2日","id":3,"categories":[]},{"date":"7月3日","theme":"姿勢コントロール①","content":"姿勢とは？？","link":"https://vimeo.com/434672218/253d3735cb","year":2020,"month":7,"day":3,"date_sort":"2020-07-03","date_display":"2020年7月3日","id":4,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月4日","theme":"姿勢コントロール②","content":"神経系の働き","link":"https://vimeo.com/435176786/81a6dbf1fb","year":2020,"month":7,"day":4,"date_sort":"2020-07-04","date_display":"2020年7月4日","id":5,"categories":["姿勢制御・姿勢緊張","小脳・神経系"]},{"date":"7月5日","theme":"姿勢コントロール(実際)","content":"亜脱臼を姿勢から理解する","link":"https://vimeo.com/435383602/085886b466","year":2020,"month":7,"day":5,"date_sort":"2020-07-05","date_display":"2020年7月5日","id":6,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月6日","theme":"リハビリ理念","content":"根本的な考え方","link":"https://vimeo.com/435565929/aa852b89c7","year":2020,"month":7,"day":6,"date_sort":"2020-07-06","date_display":"2020年7月6日","id":7,"categories":["リハビリ概論"]},{"date":"7月7日","theme":"姿勢アライメントの見方","content":"姿勢の評価に向けて","link":"https://vimeo.com/435904341/fce90d49d8","year":2020,"month":7,"day":7,"date_sort":"2020-07-07","date_display":"2020年7月7日","id":8,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"7月12日","theme":"姿勢","content":"亜脱臼と姿勢の関係","link":"https://vimeo.com/437499350/14ae53f325","year":2020,"month":7,"day":12,"date_sort":"2020-07-12","date_display":"2020年7月12日","id":9,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月15日","theme":"亜脱臼","content":"姿勢との関係で考える","link":"https://vimeo.com/438357485/4ae29ca82c","year":2020,"month":7,"day":15,"date_sort":"2020-07-15","date_display":"2020年7月15日","id":10,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月16日","theme":"上肢を考える①","content":"骨格","link":"https://vimeo.com/438707243/9290139ca0","year":2020,"month":7,"day":16,"date_sort":"2020-07-16","date_display":"2020年7月16日","id":11,"categories":["上肢機能"]},{"date":"7月17日","theme":"上肢を考える②","content":"末梢のアライメント","link":"https://vimeo.com/439083131/7550ad764a","year":2020,"month":7,"day":17,"date_sort":"2020-07-17","date_display":"2020年7月17日","id":12,"categories":["姿勢制御・姿勢緊張","上肢機能"]},{"date":"7月18日","theme":"上肢を考える③","content":"身体から離れる手","link":"https://vimeo.com/439424277/45bad64993","year":2020,"month":7,"day":18,"date_sort":"2020-07-18","date_display":"2020年7月18日","id":13,"categories":["上肢機能"]},{"date":"7月20日","theme":"上肢を考える④","content":"上肢の基礎知識","link":"https://vimeo.com/439817162/fcaff19b04","year":2020,"month":7,"day":20,"date_sort":"2020-07-20","date_display":"2020年7月20日","id":14,"categories":["上肢機能"]},{"date":"7月21日","theme":"上肢を考える⑤","content":"リーチング①","link":"https://vimeo.com/440149219/c6bc5dfab5","year":2020,"month":7,"day":21,"date_sort":"2020-07-21","date_display":"2020年7月21日","id":15,"categories":["上肢機能"]},{"date":"7月22日","theme":"上肢を考える⑤","content":"リーチング②","link":"https://vimeo.com/440490952/55a0bc1001","year":2020,"month":7,"day":22,"date_sort":"2020-07-22","date_display":"2020年7月22日","id":16,"categories":["上肢機能"]},{"date":"7月23日","theme":"上肢を考える⑥","content":"リウマチから考える機能解剖","link":"https://vimeo.com/440823692/3e0875b479","year":2020,"month":7,"day":23,"date_sort":"2020-07-23","date_display":"2020年7月23日","id":17,"categories":["上肢機能","筋・解剖学"]},{"date":"7月24日","theme":"上肢を考える⑦","content":"リウマチから考える②","link":"https://vimeo.com/440594909/5e96f7e134","year":2020,"month":7,"day":24,"date_sort":"2020-07-24","date_display":"2020年7月24日","id":18,"categories":["上肢機能"]},{"date":"7月25日","theme":"リーチングの練習","content":"身体図式","link":"https://vimeo.com/441471181/038e628b29","year":2020,"month":7,"day":25,"date_sort":"2020-07-25","date_display":"2020年7月25日","id":19,"categories":["上肢機能","感覚・知覚"]},{"date":"7月26日","theme":"リーチングの練習","content":"目と手の協調","link":"https://vimeo.com/441680871/48ecd1b8fc","year":2020,"month":7,"day":26,"date_sort":"2020-07-26","date_display":"2020年7月26日","id":20,"categories":["上肢機能"]},{"date":"7月27日","theme":"障害の構造","content":"姿勢緊張と運動障害","link":"https://vimeo.com/441865479/e911990519","year":2020,"month":7,"day":27,"date_sort":"2020-07-27","date_display":"2020年7月27日","id":21,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月28日","theme":"姿勢緊張","content":"姿勢緊張を支える構造","link":"https://vimeo.com/442187903/8fcc7f88b4","year":2020,"month":7,"day":28,"date_sort":"2020-07-28","date_display":"2020年7月28日","id":22,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月29日","theme":"姿勢緊張","content":"影響因子","link":"https://vimeo.com/442305737/48d09f7fd9","year":2020,"month":7,"day":29,"date_sort":"2020-07-29","date_display":"2020年7月29日","id":23,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月30日","theme":"姿勢緊張を理解する①","content":"整理","link":"https://vimeo.com/442861210/da67fb5d7f","year":2020,"month":7,"day":30,"date_sort":"2020-07-30","date_display":"2020年7月30日","id":24,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月31日","theme":"姿勢緊張を理解する②","content":"深堀り","link":"https://vimeo.com/443195964/78e7d3155a","year":2020,"month":7,"day":31,"date_sort":"2020-07-31","date_display":"2020年7月31日","id":25,"categories":["姿勢制御・姿勢緊張"]},{"date":"8月1日","theme":"パーキンソン病","content":"大脳基底核の機能とその障害","link":"https://vimeo.com/443516923/e3a57a6cc9","year":2020,"month":8,"day":1,"date_sort":"2020-08-01","date_display":"2020年8月1日","id":26,"categories":["小脳・神経系"]},{"date":"8月3日","theme":"パーキンソン病","content":"大脳基底核の役割","link":"https://vimeo.com/444079594/60b5d0be40","year":2020,"month":8,"day":3,"date_sort":"2020-08-03","date_display":"2020年8月3日","id":27,"categories":["小脳・神経系"]},{"date":"8月4日","theme":"パーキンソン病","content":"大脳基底核の働き①","link":"https://vimeo.com/444382776/a78b3f2fa3","year":2020,"month":8,"day":4,"date_sort":"2020-08-04","date_display":"2020年8月4日","id":28,"categories":["小脳・神経系"]},{"date":"8月5日","theme":"パーキンソン病","content":"大脳基底核の働き②","link":"https://vimeo.com/444707865/182e0fa77a","year":2020,"month":8,"day":5,"date_sort":"2020-08-05","date_display":"2020年8月5日","id":29,"categories":["小脳・神経系"]},{"date":"8月6日","theme":"パーキンソン病","content":"中枢神経疾患のリハビリテーション３つの考え方","link":"https://vimeo.com/444817429/da368da9c8","year":2020,"month":8,"day":6,"date_sort":"2020-08-06","date_display":"2020年8月6日","id":30,"categories":["小脳・神経系"]},{"date":"8月7日","theme":"パーキンソン病","content":"運動療法の有効性(論文紹介)","link":"https://vimeo.com/445366866/e2ef7aa943","year":2020,"month":8,"day":7,"date_sort":"2020-08-07","date_display":"2020年8月7日","id":31,"categories":[]},{"date":"8月8日","theme":"パーキンソン病","content":"神経難病のリハビリテーション","link":"https://vimeo.com/445517356/229bfc37ca","year":2020,"month":8,"day":8,"date_sort":"2020-08-08","date_display":"2020年8月8日","id":32,"categories":["小脳・神経系"]},{"date":"8月10日","theme":"姿勢分析・動作分析","content":"姿勢分析の基礎","link":"https://vimeo.com/446221723/553dc8fae3","year":2020,"month":8,"day":10,"date_sort":"2020-08-10","date_display":"2020年8月10日","id":33,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"8月11日","theme":"姿勢分析・動作分析","content":"姿勢分析②","link":"https://vimeo.com/446622913/70b8e6b881","year":2020,"month":8,"day":11,"date_sort":"2020-08-11","date_display":"2020年8月11日","id":34,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"8月12日","theme":"姿勢分析(実例)","content":"対象者を姿勢を分析する","link":"https://vimeo.com/446802893/19f86b5e33","year":2020,"month":8,"day":12,"date_sort":"2020-08-12","date_display":"2020年8月12日","id":35,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"8月13日","theme":"姿勢分析(実例)②","content":"筋緊張を読み解く","link":"https://vimeo.com/447291555/3361bd61d9","year":2020,"month":8,"day":13,"date_sort":"2020-08-13","date_display":"2020年8月13日","id":36,"categories":["姿勢制御・姿勢緊張","筋・解剖学","評価・分析"]},{"date":"8月14日","theme":"姿勢分析・動作分析","content":"正常姿勢調整・正常運動要素","link":"https://vimeo.com/447627583/a34320352e","year":2020,"month":8,"day":14,"date_sort":"2020-08-14","date_display":"2020年8月14日","id":37,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"8月15日","theme":"姿勢分析・動作分析","content":"歩行の正常要素","link":"https://vimeo.com/447963038/15e3c64492","year":2020,"month":8,"day":15,"date_sort":"2020-08-15","date_display":"2020年8月15日","id":38,"categories":["姿勢制御・姿勢緊張","歩行・移動","評価・分析"]},{"date":"8月17日","theme":"姿勢分析・動作分析","content":"着衣","link":"https://vimeo.com/448367924/a2199b332d","year":2020,"month":8,"day":17,"date_sort":"2020-08-17","date_display":"2020年8月17日","id":39,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"８月18日","theme":"姿勢分析・動作分析","content":"起居動作①","link":"https://vimeo.com/448698248/0eea0ec751","year":2020,"month":8,"day":18,"date_sort":"2020-08-18","date_display":"2020年8月18日","id":40,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"８月19日","theme":"姿勢分析・動作分析","content":"起居動作②","link":"https://vimeo.com/449063176/e2523ad31c","year":2020,"month":8,"day":19,"date_sort":"2020-08-19","date_display":"2020年8月19日","id":41,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"８月20日","theme":"姿勢分析・動作分析","content":"起居動作③","link":"https://vimeo.com/449446572/b19dfe0625","year":2020,"month":8,"day":20,"date_sort":"2020-08-20","date_display":"2020年8月20日","id":42,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"８月21日","theme":"実技","content":"小指外転筋からのSLR","link":"https://vimeo.com/449870501/80db8eaebf","year":2020,"month":8,"day":21,"date_sort":"2020-08-21","date_display":"2020年8月21日","id":43,"categories":["筋・解剖学","セミナー・実技"]},{"date":"８月22日","theme":"立位・歩行の分析から治療計画の立案","content":"立位の分析","link":"https://vimeo.com/450280753/8afc34a9ce","year":2020,"month":8,"day":22,"date_sort":"2020-08-22","date_display":"2020年8月22日","id":44,"categories":["歩行・移動","評価・分析"]},{"date":"８月23日","theme":"座位・立ち上がりの姿勢・動作分析","content":"全体像","link":"https://vimeo.com/450596152/5cd9be4d4d","year":2020,"month":8,"day":23,"date_sort":"2020-08-23","date_display":"2020年8月23日","id":45,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"８月24日","theme":"寝起きから座位・立ち上がりの共通項","content":"寝起きの動作分析","link":"https://vimeo.com/450923692/b6aba04ec9","year":2020,"month":8,"day":24,"date_sort":"2020-08-24","date_display":"2020年8月24日","id":46,"categories":["評価・分析"]},{"date":"８月25日","theme":"左片麻痺の歩行分析の初歩","content":"歩行の全体像","link":"https://vimeo.com/451048135/7e1dadbd90","year":2020,"month":8,"day":25,"date_sort":"2020-08-25","date_display":"2020年8月25日","id":47,"categories":["歩行・移動","評価・分析"]},{"date":"８月26日","theme":"治療とは仮説検証作業","content":"支持性の確認と注意機能の影響","link":"https://vimeo.com/451651342/a8e5736cc8","year":2020,"month":8,"day":26,"date_sort":"2020-08-26","date_display":"2020年8月26日","id":48,"categories":[]},{"date":"８月27日","theme":"仮説検証　障害像の本質","content":"立ち上がりのどこで失敗しているのか","link":"https://vimeo.com/452008015/674ed62b27","year":2020,"month":8,"day":27,"date_sort":"2020-08-27","date_display":"2020年8月27日","id":49,"categories":[]},{"date":"８月28日","theme":"仮説検証","content":"右肩甲帯の固定介助","link":"https://vimeo.com/452366433/bd94134338","year":2020,"month":8,"day":28,"date_sort":"2020-08-28","date_display":"2020年8月28日","id":50,"categories":["上肢機能"]},{"date":"8月29日","theme":"評価から治療展開の思考","content":"右上肢の固定は何由来？","link":"https://vimeo.com/452716514/1f19fa2bd8","year":2020,"month":8,"day":29,"date_sort":"2020-08-29","date_display":"2020年8月29日","id":51,"categories":["上肢機能","評価・分析"]},{"date":"8月31日","theme":"橋梗塞","content":"基礎知識","link":"https://vimeo.com/453111568/9d165ae4d7","year":2020,"month":8,"day":31,"date_sort":"2020-08-31","date_display":"2020年8月31日","id":52,"categories":[]},{"date":"9月1日","theme":"橋","content":"橋の機能","link":"https://vimeo.com/453451323/fae4c4cb43","year":2020,"month":9,"day":1,"date_sort":"2020-09-01","date_display":"2020年9月1日","id":53,"categories":[]},{"date":"9月2日","theme":"筋緊張①","content":"現象について","link":"https://vimeo.com/453828837/0adb21aac1","year":2020,"month":9,"day":2,"date_sort":"2020-09-02","date_display":"2020年9月2日","id":54,"categories":["筋・解剖学"]},{"date":"9月3日","theme":"筋緊張②","content":"筋緊張と障害像","link":"https://vimeo.com/454021281/066b6db36f","year":2020,"month":9,"day":3,"date_sort":"2020-09-03","date_display":"2020年9月3日","id":55,"categories":["筋・解剖学"]},{"date":"9月4日","theme":"筋緊張③","content":"脳の部位別に見る筋緊張の特性","link":"https://vimeo.com/454554540/c06677dc60","year":2020,"month":9,"day":4,"date_sort":"2020-09-04","date_display":"2020年9月4日","id":56,"categories":["筋・解剖学"]},{"date":"9月5日","theme":"筋緊張④","content":"筋緊張を調整する","link":"https://vimeo.com/454904235/c017a4e94a","year":2020,"month":9,"day":5,"date_sort":"2020-09-05","date_display":"2020年9月5日","id":57,"categories":["筋・解剖学"]},{"date":"9月7日","theme":"運動学習①","content":"治療介入の前に知っておきたい","link":"https://vimeo.com/455317738/c5f804779a","year":2020,"month":9,"day":7,"date_sort":"2020-09-07","date_display":"2020年9月7日","id":58,"categories":["筋・解剖学","認知・心理"]},{"date":"9月9日","theme":"運動学習②","content":"内部モデル","link":"https://vimeo.com/455955943/05ce0d6317","year":2020,"month":9,"day":9,"date_sort":"2020-09-09","date_display":"2020年9月9日","id":59,"categories":["筋・解剖学","認知・心理"]},{"date":"9月11日","theme":"運動学習③","content":"順モデルと逆モデル","link":"https://vimeo.com/456737243/6802b5144b","year":2020,"month":9,"day":11,"date_sort":"2020-09-11","date_display":"2020年9月11日","id":60,"categories":["筋・解剖学","認知・心理"]},{"date":"9月14日","theme":"フィードバック誤差学習","content":"逆ダイナミクス構築","link":"https://vimeo.com/457558264/0771b39f0f","year":2020,"month":9,"day":14,"date_sort":"2020-09-14","date_display":"2020年9月14日","id":61,"categories":[]},{"date":"9月16日","theme":"小脳に逆ダイナミクスモデルがある証拠","content":"前庭動眼反射","link":"https://vimeo.com/458333175/d21b6fe27a","year":2020,"month":9,"day":16,"date_sort":"2020-09-16","date_display":"2020年9月16日","id":62,"categories":["小脳・神経系"]},{"date":"9月18日","theme":"視覚機能とフィードバック誤差学習","content":"前庭動眼反射(VOR)と視機性眼球運動(OKR)","link":"https://vimeo.com/459164252/98d2d9fac7","year":2020,"month":9,"day":18,"date_sort":"2020-09-18","date_display":"2020年9月18日","id":63,"categories":["小脳・神経系","感覚・知覚"]},{"date":"9月20日","theme":"言葉の意味","content":"プルキンエ細胞","link":"https://vimeo.com/459768076/1319538ae2","year":2020,"month":9,"day":20,"date_sort":"2020-09-20","date_display":"2020年9月20日","id":64,"categories":[]},{"date":"9月22日","theme":"小脳の構造","content":"小脳の統一モデル","link":"https://vimeo.com/460056705/3da4882ab2","year":2020,"month":9,"day":22,"date_sort":"2020-09-22","date_display":"2020年9月22日","id":65,"categories":["小脳・神経系"]},{"date":"9月24日","theme":"小脳","content":"小脳の逆ダイナミクスモデルの存在","link":"https://vimeo.com/460873113/2ea399a26d","year":2020,"month":9,"day":24,"date_sort":"2020-09-24","date_display":"2020年9月24日","id":66,"categories":["小脳・神経系"]},{"date":"9月26日","theme":"川人論文","content":"見まねによる学習","link":"https://vimeo.com/462000328/7e0877f7b1","year":2020,"month":9,"day":26,"date_sort":"2020-09-26","date_display":"2020年9月26日","id":67,"categories":[]},{"date":"9月29日","theme":"川人論文(最終回)","content":"軌道計画の最適化","link":"https://vimeo.com/462821654/a41e6257e5","year":2020,"month":9,"day":29,"date_sort":"2020-09-29","date_display":"2020年9月29日","id":68,"categories":[]},{"date":"10月1日","theme":"大腿骨頭頚部骨折","content":"基礎知識と初期評価","link":"https://vimeo.com/463614679/b0d5d98ffd","year":2020,"month":10,"day":1,"date_sort":"2020-10-01","date_display":"2020年10月1日","id":69,"categories":["評価・分析"]},{"date":"10月3日","theme":"股関節の知識","content":"可動域と動作の関係","link":"https://vimeo.com/464377743/e08f64acd3","year":2020,"month":10,"day":3,"date_sort":"2020-10-03","date_display":"2020年10月3日","id":70,"categories":["筋・解剖学"]},{"date":"10月5日","theme":"股関節","content":"股関節と骨盤の関係","link":"https://vimeo.com/464809924/f7051b0184","year":2020,"month":10,"day":5,"date_sort":"2020-10-05","date_display":"2020年10月5日","id":71,"categories":["筋・解剖学"]},{"date":"10月11日","theme":"股関節の使い方","content":"立って靴下を履く動作","link":"https://vimeo.com/466956589/14f2f290e5","year":2020,"month":10,"day":11,"date_sort":"2020-10-11","date_display":"2020年10月11日","id":72,"categories":["筋・解剖学"]},{"date":"10月13日","theme":"股関節の支持性","content":"骨と筋の関係","link":"https://vimeo.com/467524872/ed62dafe3f","year":2020,"month":10,"day":13,"date_sort":"2020-10-13","date_display":"2020年10月13日","id":73,"categories":["筋・解剖学"]},{"date":"10月15日","theme":"股関節の機能","content":"入浴動作で考える","link":"https://vimeo.com/468323184/1b2e46e28f","year":2020,"month":10,"day":15,"date_sort":"2020-10-15","date_display":"2020年10月15日","id":74,"categories":["筋・解剖学"]},{"date":"10月17日","theme":"股関節の日常動作","content":"公共交通機関の乗り降り","link":"https://vimeo.com/469118165/3a7b1a7f30","year":2020,"month":10,"day":17,"date_sort":"2020-10-17","date_display":"2020年10月17日","id":75,"categories":["筋・解剖学"]},{"date":"10月19日","theme":"股関節の正常運動","content":"解剖","link":"https://vimeo.com/469569048/a15915e6b6","year":2020,"month":10,"day":19,"date_sort":"2020-10-19","date_display":"2020年10月19日","id":76,"categories":["筋・解剖学"]},{"date":"10月21日","theme":"股関節の正常運動②","content":"股関節マルチアライメントと腰椎","link":"https://vimeo.com/470075747/2fc45953c5","year":2020,"month":10,"day":21,"date_sort":"2020-10-21","date_display":"2020年10月21日","id":77,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"10月23日","theme":"筋緊張①","content":"筋力≠筋緊張","link":"https://vimeo.com/471183261/cf591f5666","year":2020,"month":10,"day":23,"date_sort":"2020-10-23","date_display":"2020年10月23日","id":78,"categories":["筋・解剖学"]},{"date":"10月26日","theme":"筋緊張②","content":"臨床的解釈","link":"https://vimeo.com/472006042/08cadc7e22","year":2020,"month":10,"day":26,"date_sort":"2020-10-26","date_display":"2020年10月26日","id":79,"categories":["筋・解剖学"]},{"date":"10月28日","theme":"筋緊張③","content":"評価・尺度を理解する","link":"https://vimeo.com/472816132/0ee9c0ccf1","year":2020,"month":10,"day":28,"date_sort":"2020-10-28","date_display":"2020年10月28日","id":80,"categories":["筋・解剖学","評価・分析"]},{"date":"10月30日","theme":"大腿骨頚部骨折","content":"まとめ","link":"https://vimeo.com/473616621/139753a443","year":2020,"month":10,"day":30,"date_sort":"2020-10-30","date_display":"2020年10月30日","id":81,"categories":[]},{"date":"11月2日","theme":"リハビリテーションサービスを意味付ける","content":"共通認識","link":"https://vimeo.com/474467330/c9e6bababc","year":2020,"month":11,"day":2,"date_sort":"2020-11-02","date_display":"2020年11月2日","id":82,"categories":[]},{"date":"11月4日","theme":"正常運動と動作分析①","content":"寝起き","link":"https://vimeo.com/475239796/db4bdac87e","year":2020,"month":11,"day":4,"date_sort":"2020-11-04","date_display":"2020年11月4日","id":83,"categories":["評価・分析"]},{"date":"11月6日","theme":"正常運動と動作分析②","content":"寝起き(人はなぜ動けるのか)","link":"https://vimeo.com/475810516/2a89430abf","year":2020,"month":11,"day":6,"date_sort":"2020-11-06","date_display":"2020年11月6日","id":84,"categories":["評価・分析"]},{"date":"11月8日","theme":"正常運動と動作分析③","content":"寝起き(姿勢調整機構)","link":"https://vimeo.com/476707640/50c3746335","year":2020,"month":11,"day":8,"date_sort":"2020-11-08","date_display":"2020年11月8日","id":85,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"11月10日","theme":"正常運動と動作分析④","content":"寝起き(動作は、筋活動が先か、感覚が先か)","link":"https://vimeo.com/477338107/3755571917","year":2020,"month":11,"day":10,"date_sort":"2020-11-10","date_display":"2020年11月10日","id":86,"categories":["感覚・知覚","筋・解剖学","評価・分析"]},{"date":"11月12日","theme":"姿勢調整のためのシステムコントロール","content":"中枢神経系は全体を通して一つの課題を実行する","link":"https://vimeo.com/478030230/1b74ca97e3","year":2020,"month":11,"day":12,"date_sort":"2020-11-12","date_display":"2020年11月12日","id":87,"categories":["姿勢制御・姿勢緊張","小脳・神経系"]},{"date":"11月14日","theme":"基底核の機能と筋緊張","content":"基底核の機能を考える","link":"https://vimeo.com/479108038/26e85e48ff","year":2020,"month":11,"day":14,"date_sort":"2020-11-14","date_display":"2020年11月14日","id":88,"categories":["小脳・神経系","筋・解剖学"]},{"date":"11月16日","theme":"成長過程での運動学習と成長してからの学習","content":"人は何を学習してきているのか","link":"https://vimeo.com/479495387/0c22a630fd","year":2020,"month":11,"day":16,"date_sort":"2020-11-16","date_display":"2020年11月16日","id":89,"categories":["筋・解剖学","認知・心理"]},{"date":"11月18日","theme":"認知面にフォーカスした動作分析の知識","content":"自身の身体について知る","link":"https://vimeo.com/480228249/f8008d151a","year":2020,"month":11,"day":18,"date_sort":"2020-11-18","date_display":"2020年11月18日","id":90,"categories":["評価・分析","認知・心理"]},{"date":"11月20日","theme":"支持基底面","content":"基礎知識","link":"https://vimeo.com/481440766/f766b57d47","year":2020,"month":11,"day":20,"date_sort":"2020-11-20","date_display":"2020年11月20日","id":91,"categories":[]},{"date":"11月22日","theme":"統合と解釈","content":"症例をもとに理解する","link":"https://vimeo.com/482018960/d4c2798add","year":2020,"month":11,"day":22,"date_sort":"2020-11-22","date_display":"2020年11月22日","id":92,"categories":["評価・分析","ケーススタディ"]},{"date":"11月24日","theme":"随意運動・動作の出力過程と特徴","content":"動作開始後は修正できない","link":"https://vimeo.com/482617120/23e537243f","year":2020,"month":11,"day":24,"date_sort":"2020-11-24","date_display":"2020年11月24日","id":93,"categories":[]},{"date":"11月26日","theme":"11月のケース(まとめ)","content":"硬さの要因　考察①","link":"https://vimeo.com/483775329/058f15143a","year":2020,"month":11,"day":26,"date_sort":"2020-11-26","date_display":"2020年11月26日","id":94,"categories":["ケーススタディ"]},{"date":"11月28日","theme":"11月のケース(振り返る)","content":"身体の硬さ","link":"https://vimeo.com/484303949/581ed6e906","year":2020,"month":11,"day":28,"date_sort":"2020-11-28","date_display":"2020年11月28日","id":95,"categories":["ケーススタディ"]},{"date":"12月1日","theme":"麻痺側上肢機能①","content":"概論編","link":"https://vimeo.com/485699323/362290c8ee","year":2020,"month":12,"day":1,"date_sort":"2020-12-01","date_display":"2020年12月1日","id":96,"categories":["上肢機能","リハビリ概論"]},{"date":"12月3日","theme":"麻痺側上肢機能②","content":"上肢の身体に対する役割","link":"https://vimeo.com/486587354/973b748df1","year":2020,"month":12,"day":3,"date_sort":"2020-12-03","date_display":"2020年12月3日","id":97,"categories":["上肢機能"]},{"date":"12月5日","theme":"麻痺側上肢機能③","content":"上肢に介入するための基礎知識","link":"https://vimeo.com/487419679/adcde1803e","year":2020,"month":12,"day":5,"date_sort":"2020-12-05","date_display":"2020年12月5日","id":98,"categories":["上肢機能"]},{"date":"12月7日","theme":"公開講義(12月6日)","content":"麻痺側上肢に介入するための正常運動と評価","link":"https://vimeo.com/487881851/ca6b6d5da2","year":2020,"month":12,"day":7,"date_sort":"2020-12-07","date_display":"2020年12月7日","id":99,"categories":["上肢機能","評価・分析"]},{"date":"12月9日","theme":"手指","content":"評価","link":"https://vimeo.com/488473361/a233ea0402","year":2020,"month":12,"day":9,"date_sort":"2020-12-09","date_display":"2020年12月9日","id":100,"categories":["上肢機能","評価・分析"]},{"date":"12月11日","theme":"リガード(注視)","content":"「見る」という行為について","link":"https://vimeo.com/489594393/a84926c325","year":2020,"month":12,"day":11,"date_sort":"2020-12-11","date_display":"2020年12月11日","id":101,"categories":[]},{"date":"12月14日","theme":"リーチ(到達運動)","content":"リーチングの実際・正常運動","link":"https://vimeo.com/490509193/efe88f97b9","year":2020,"month":12,"day":14,"date_sort":"2020-12-14","date_display":"2020年12月14日","id":102,"categories":["上肢機能"]},{"date":"12月16日","theme":"グラスプ(把持)","content":"手の形","link":"https://vimeo.com/491114068/3a8d2baa1a","year":2020,"month":12,"day":16,"date_sort":"2020-12-16","date_display":"2020年12月16日","id":103,"categories":[]},{"date":"12月18日","theme":"納豆を掻き混ぜる","content":"対象の操作(持つ、開ける、混ぜる)","link":"https://vimeo.com/491922964/fc3194ca29","year":2020,"month":12,"day":18,"date_sort":"2020-12-18","date_display":"2020年12月18日","id":104,"categories":[]},{"date":"12月20日","theme":"臨床力を向上させるために必要な心構え","content":"技術に頼ってはいけない理由","link":"https://vimeo.com/492732347/88abdb2e2b","year":2020,"month":12,"day":20,"date_sort":"2020-12-20","date_display":"2020年12月20日","id":105,"categories":[]},{"date":"12月22日","theme":"麻痺側上肢","content":"解剖学・運動学(広背筋・大胸筋・大円筋)","link":"https://vimeo.com/493519870/8e6681ff92","year":2020,"month":12,"day":22,"date_sort":"2020-12-22","date_display":"2020年12月22日","id":106,"categories":["上肢機能","筋・解剖学"]},{"date":"12月24日","theme":"フォースカップル(肩甲骨と上腕骨)","content":"解剖学・運動学","link":"https://vimeo.com/494247022/f1152b5dae","year":2020,"month":12,"day":24,"date_sort":"2020-12-24","date_display":"2020年12月24日","id":107,"categories":["上肢機能","筋・解剖学"]},{"date":"12月25日","theme":"特別企画","content":"セラピストへのメッセージ","link":"https://www.youtube.com/watch?v=km2ic7-Di-w&feature=share&fbclid=IwAR0AOh33KNP6-HCKP1LnXkssyP2WqhQ9tKDsz28yUKBk4ZSBDvOkqxn8ZYw","year":2020,"month":12,"day":25,"date_sort":"2020-12-25","date_display":"2020年12月25日","id":108,"categories":[]},{"date":"12月26日","theme":"肘関節の選択運動","content":"手関節の安定・手指の分離","link":"https://vimeo.com/494696342/caea3d9715","year":2020,"month":12,"day":26,"date_sort":"2020-12-26","date_display":"2020年12月26日","id":109,"categories":["上肢機能","筋・解剖学"]},{"date":"12月28日","theme":"上肢機能の土台","content":"姿勢調整","link":"https://vimeo.com/494962870/b8ef418558","year":2020,"month":12,"day":28,"date_sort":"2020-12-28","date_display":"2020年12月28日","id":110,"categories":["姿勢制御・姿勢緊張","上肢機能"]},{"date":"12月30日","theme":"リハビリを介入する際の雰囲気","content":"プロフェッショナルのスキル","link":"https://vimeo.com/495450642/3fd1e5b3fe","year":2020,"month":12,"day":30,"date_sort":"2020-12-30","date_display":"2020年12月30日","id":111,"categories":[]},{"date":"2021年1月1日","theme":"睡眠障害","content":"睡眠という現象","link":"https://vimeo.com/496119598","year":2021,"month":1,"day":1,"date_sort":"2021-01-01","date_display":"2021年1月1日","id":112,"categories":[]},{"date":"1月3日","theme":"睡眠障害","content":"レム睡眠・ノンレム睡眠","link":"https://vimeo.com/496474021/f7c82f3668","year":2021,"month":1,"day":3,"date_sort":"2021-01-03","date_display":"2021年1月3日","id":113,"categories":[]},{"date":"1月5日","theme":"睡眠を科学する","content":"「睡眠」について基礎知識","link":"https://vimeo.com/497050298/85476ce364","year":2021,"month":1,"day":5,"date_sort":"2021-01-05","date_display":"2021年1月5日","id":114,"categories":[]},{"date":"1月7日","theme":"睡眠障害","content":"サーカディアンリズムと自律神経症状","link":"https://vimeo.com/497620534/f1c7fac982","year":2021,"month":1,"day":7,"date_sort":"2021-01-07","date_display":"2021年1月7日","id":115,"categories":["小脳・神経系"]},{"date":"1月9日","theme":"睡眠と覚醒のスイッチング","content":"視床下部の機能","link":"https://vimeo.com/498499763/6e7872f5b2","year":2021,"month":1,"day":9,"date_sort":"2021-01-09","date_display":"2021年1月9日","id":116,"categories":[]},{"date":"1月11日","theme":"評価って何ですか？","content":"何が知りたいのか・どんな評価方法を選択するか","link":"https://vimeo.com/499001030/c5555ea006","year":2021,"month":1,"day":11,"date_sort":"2021-01-11","date_display":"2021年1月11日","id":117,"categories":["評価・分析"]},{"date":"1月13日","theme":"疼痛の要因","content":"筋スパズム","link":"https://vimeo.com/499550950/8f2c0a82d7","year":2021,"month":1,"day":13,"date_sort":"2021-01-13","date_display":"2021年1月13日","id":118,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月15日","theme":"慢性疼痛症候群","content":"痛みを発する要因","link":"https://vimeo.com/500390934/378059c669","year":2021,"month":1,"day":15,"date_sort":"2021-01-15","date_display":"2021年1月15日","id":119,"categories":["疾患・病態"]},{"date":"1月19日","theme":"上腕三頭筋が可動性を失うと何が起こるか","content":"疼痛と筋・関節の変化によるスイッチング","link":"https://vimeo.com/501618150/9c56f61f42","year":2021,"month":1,"day":19,"date_sort":"2021-01-19","date_display":"2021年1月19日","id":120,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月21日","theme":"筋緊張","content":"筋の硬さをどう解決するか","link":"https://vimeo.com/502789154/ea6959aeb8","year":2021,"month":1,"day":21,"date_sort":"2021-01-21","date_display":"2021年1月21日","id":121,"categories":["筋・解剖学"]},{"date":"1月23日","theme":"座位姿勢を分析する視点","content":"健常者と片麻痺者の姿勢を比較","link":"https://vimeo.com/503653308/00c8853208","year":2021,"month":1,"day":23,"date_sort":"2021-01-23","date_display":"2021年1月23日","id":122,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"1月25日","theme":"筋緊張","content":"片麻痺者の筋緊張の特徴①","link":"https://vimeo.com/504064429/4f08299c2e","year":2021,"month":1,"day":25,"date_sort":"2021-01-25","date_display":"2021年1月25日","id":123,"categories":["筋・解剖学"]},{"date":"1月27日","theme":"筋緊張","content":"片麻痺者の筋緊張の特徴②","link":"https://vimeo.com/504974897/ce38c187fc","year":2021,"month":1,"day":27,"date_sort":"2021-01-27","date_display":"2021年1月27日","id":124,"categories":["筋・解剖学"]},{"date":"1月29日","theme":"肩の疼痛","content":"肩の疼痛を考える２つの方向性","link":"https://vimeo.com/505607719/399dcafdbb","year":2021,"month":1,"day":29,"date_sort":"2021-01-29","date_display":"2021年1月29日","id":125,"categories":["疾患・病態"]},{"date":"2月1日","theme":"プレゼンを学ぶ","content":"一般情報から何を読み取るか？","link":"https://vimeo.com/506854087/6d7113effd","year":2021,"month":2,"day":1,"date_sort":"2021-02-01","date_display":"2021年2月1日","id":126,"categories":[]},{"date":"2月2日","theme":"プレゼンを学ぶ","content":"一般情報から何を読み取ろう①","link":"https://vimeo.com/507063978/5cff2a5763","year":2021,"month":2,"day":2,"date_sort":"2021-02-02","date_display":"2021年2月2日","id":127,"categories":[]},{"date":"2月4日","theme":"プレゼンを学ぶ","content":"一般情報から分かること②","link":"https://vimeo.com/507803931/e069ac11b9","year":2021,"month":2,"day":4,"date_sort":"2021-02-04","date_display":"2021年2月4日","id":128,"categories":[]},{"date":"2月6日","theme":"情報の取捨・選択・加工には許容量がある","content":"記憶について(Working Memory)","link":"https://vimeo.com/509027037/9fea5bf7da","year":2021,"month":2,"day":6,"date_sort":"2021-02-06","date_display":"2021年2月6日","id":129,"categories":[]},{"date":"2月8日","theme":"姿勢と運動","content":"必要な情報と不要な情報を分ける","link":"https://vimeo.com/509556610/1b04e79b2c","year":2021,"month":2,"day":8,"date_sort":"2021-02-08","date_display":"2021年2月8日","id":130,"categories":["姿勢制御・姿勢緊張"]},{"date":"2月10日","theme":"全体像の必須項目","content":"重要な情報源「表情」","link":"https://vimeo.com/510164301/1ee8d6644c","year":2021,"month":2,"day":10,"date_sort":"2021-02-10","date_display":"2021年2月10日","id":131,"categories":[]},{"date":"2月12日","theme":"情報収集","content":"何を知らなきゃいけないか？","link":"https://vimeo.com/511092305/24f581f9ee","year":2021,"month":2,"day":12,"date_sort":"2021-02-12","date_display":"2021年2月12日","id":132,"categories":[]},{"date":"2月14日","theme":"姿勢分析","content":"そこから何を読み取る？","link":"https://vimeo.com/511916967/20f88a87b2","year":2021,"month":2,"day":14,"date_sort":"2021-02-14","date_display":"2021年2月14日","id":133,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"２月16日","theme":"姿勢分析の基礎","content":"立位編","link":"https://vimeo.com/512405870/44eb1346f3","year":2021,"month":2,"day":16,"date_sort":"2021-02-16","date_display":"2021年2月16日","id":134,"categories":["姿勢制御・姿勢緊張","歩行・移動","評価・分析"]},{"date":"2月18日","theme":"姿勢分析の基礎","content":"筋肉編","link":"https://vimeo.com/513377563/dfdbeede3f","year":2021,"month":2,"day":18,"date_sort":"2021-02-18","date_display":"2021年2月18日","id":135,"categories":["姿勢制御・姿勢緊張","筋・解剖学","評価・分析"]},{"date":"2月20日","theme":"姿勢分析の基礎","content":"調整編","link":"https://vimeo.com/514154832/8bbba07581","year":2021,"month":2,"day":20,"date_sort":"2021-02-20","date_display":"2021年2月20日","id":136,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"2月22日","theme":"姿勢分析の基礎","content":"解剖・運動学編","link":"https://vimeo.com/514901092/0e0354b20c","year":2021,"month":2,"day":22,"date_sort":"2021-02-22","date_display":"2021年2月22日","id":137,"categories":["姿勢制御・姿勢緊張","筋・解剖学","評価・分析"]},{"date":"2月24日","theme":"姿勢分析の実際","content":"立ち座り","link":"https://vimeo.com/515758890/2b5b0f81c5","year":2021,"month":2,"day":24,"date_sort":"2021-02-24","date_display":"2021年2月24日","id":138,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"2月26日","theme":"姿勢分析の実際②","content":"食事の課題","link":"https://vimeo.com/516895359/90510a700e","year":2021,"month":2,"day":26,"date_sort":"2021-02-26","date_display":"2021年2月26日","id":139,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"3月1日","theme":"具体的な介入方法を考慮するための思考","content":"ケーススタディ(2月28日)","link":"https://vimeo.com/517768591/2008233507","year":2021,"month":3,"day":1,"date_sort":"2021-03-01","date_display":"2021年3月1日","id":140,"categories":["ケーススタディ"]},{"date":"3月2日","theme":"高緊張の背景となる問題","content":"硬さの要因","link":"https://vimeo.com/518009168/4ac03b8519","year":2021,"month":3,"day":2,"date_sort":"2021-03-02","date_display":"2021年3月2日","id":141,"categories":[]},{"date":"3月4日","theme":"高緊張の背景","content":"高緊張の医学的側面","link":"https://vimeo.com/518932768/2b654e3925","year":2021,"month":3,"day":4,"date_sort":"2021-03-04","date_display":"2021年3月4日","id":142,"categories":[]},{"date":"3月6日","theme":"バケッドハンドルモーション","content":"呼吸時の横隔膜の動き","link":"https://vimeo.com/519838808/24c6b2e65e","year":2021,"month":3,"day":6,"date_sort":"2021-03-06","date_display":"2021年3月6日","id":143,"categories":[]},{"date":"3月8日","theme":"左上肢の屈曲傾向から理由を読み解く","content":"臨床に役立つ知識","link":"https://vimeo.com/520695244/c6c1b54f72","year":2021,"month":3,"day":8,"date_sort":"2021-03-08","date_display":"2021年3月8日","id":144,"categories":["上肢機能"]},{"date":"3月10日","theme":"3月7日ケーススタディ","content":"両側性片麻痺","link":"https://vimeo.com/521152289/300fd37aad","year":2021,"month":3,"day":10,"date_sort":"2021-03-10","date_display":"2021年3月10日","id":145,"categories":["ケーススタディ"]},{"date":"3月10日","theme":"嚥下の正常運動","content":"口腔周辺の機能","link":"https://vimeo.com/521603933/dfe200ad5e","year":2021,"month":3,"day":10,"date_sort":"2021-03-10","date_display":"2021年3月10日","id":146,"categories":["嚥下・口腔"]},{"date":"3月12日","theme":"嚥下の正常運動要素①","content":"認知期","link":"https://vimeo.com/522537318/b960762927","year":2021,"month":3,"day":12,"date_sort":"2021-03-12","date_display":"2021年3月12日","id":147,"categories":["嚥下・口腔","認知・心理"]},{"date":"3月14日","theme":"嚥下の正常運動要素②","content":"口腔準備期","link":"https://vimeo.com/523141170/56e445cf09","year":2021,"month":3,"day":14,"date_sort":"2021-03-14","date_display":"2021年3月14日","id":148,"categories":["嚥下・口腔"]},{"date":"3月16日","theme":"嚥下の正常運動③","content":"口腔期","link":"https://vimeo.com/523754424/ffff3d1961","year":2021,"month":3,"day":16,"date_sort":"2021-03-16","date_display":"2021年3月16日","id":149,"categories":["嚥下・口腔"]},{"date":"3月18日","theme":"発声のメカニズム","content":"基礎知識","link":"https://vimeo.com/525197638/6704952acd","year":2021,"month":3,"day":18,"date_sort":"2021-03-18","date_display":"2021年3月18日","id":150,"categories":["嚥下・口腔"]},{"date":"3月20日","theme":"声帯の構造とメカニズム","content":"基礎知識","link":"https://vimeo.com/526351773/bbe9f09392","year":2021,"month":3,"day":20,"date_sort":"2021-03-20","date_display":"2021年3月20日","id":151,"categories":[]},{"date":"3月22日","theme":"発声のメカニズム","content":"症例から解説","link":"https://vimeo.com/527018520/11974ca67f","year":2021,"month":3,"day":22,"date_sort":"2021-03-22","date_display":"2021年3月22日","id":152,"categories":["ケーススタディ","嚥下・口腔"]},{"date":"3月24日","theme":"嚥下反射","content":"基礎知識","link":"https://vimeo.com/527739093/76dbc9c29d","year":2021,"month":3,"day":24,"date_sort":"2021-03-24","date_display":"2021年3月24日","id":153,"categories":["嚥下・口腔"]},{"date":"3月26日","theme":"症例 僧帽筋下部線維の短縮","content":"私の考察","link":"https://vimeo.com/528796186/d729acc75e","year":2021,"month":3,"day":26,"date_sort":"2021-03-26","date_display":"2021年3月26日","id":154,"categories":["筋・解剖学","ケーススタディ"]},{"date":"3月28日","theme":"姿勢調整","content":"まとめ①","link":"https://vimeo.com/529823702/960806af0c","year":2021,"month":3,"day":28,"date_sort":"2021-03-28","date_display":"2021年3月28日","id":155,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月30日","theme":"姿勢調整","content":"まとめ②","link":"https://vimeo.com/530298812/516bfe58ea","year":2021,"month":3,"day":30,"date_sort":"2021-03-30","date_display":"2021年3月30日","id":156,"categories":["姿勢制御・姿勢緊張"]},{"date":"4月1日","theme":"リハビリテーション概論①","content":"初回評価の心得","link":"https://vimeo.com/531493317/80581c9fb6","year":2021,"month":4,"day":1,"date_sort":"2021-04-01","date_display":"2021年4月1日","id":157,"categories":["評価・分析","リハビリ概論"]},{"date":"4月3日","theme":"リハビリテーション概論②","content":"基礎知識","link":"https://vimeo.com/532275418/6de92eff09","year":2021,"month":4,"day":3,"date_sort":"2021-04-03","date_display":"2021年4月3日","id":158,"categories":["リハビリ概論"]},{"date":"4月5日","theme":"リハビリテーション概論③","content":"基本動作の確認","link":"https://vimeo.com/532817045/c8a7a93b60","year":2021,"month":4,"day":5,"date_sort":"2021-04-05","date_display":"2021年4月5日","id":159,"categories":["リハビリ概論"]},{"date":"4月6日","theme":"4月のケーススタディ","content":"左片麻痺","link":"https://vimeo.com/533380086/aee53e8b72","year":2021,"month":4,"day":6,"date_sort":"2021-04-06","date_display":"2021年4月6日","id":160,"categories":["ケーススタディ"]},{"date":"4月7日","theme":"リハビリテーション概論④","content":"基礎知識②","link":"https://vimeo.com/533738205/092c73923b","year":2021,"month":4,"day":7,"date_sort":"2021-04-07","date_display":"2021年4月7日","id":161,"categories":["リハビリ概論"]},{"date":"4月9日","theme":"リハビリテーション概論⑤","content":"姿勢制御は必要なのか","link":"https://vimeo.com/534389777/e0e8366666","year":2021,"month":4,"day":9,"date_sort":"2021-04-09","date_display":"2021年4月9日","id":162,"categories":["姿勢制御・姿勢緊張","リハビリ概論"]},{"date":"4月11日","theme":"リハビリテーション概論⑥","content":"片麻痺者の障害像と姿勢制御","link":"https://vimeo.com/535199466/67616bc6c7","year":2021,"month":4,"day":11,"date_sort":"2021-04-11","date_display":"2021年4月11日","id":163,"categories":["姿勢制御・姿勢緊張","リハビリ概論"]},{"date":"4月13日","theme":"リハビリテーション概論⑦","content":"片麻痺者の基本的な身体構造","link":"https://vimeo.com/536076858/f02aa3262e","year":2021,"month":4,"day":13,"date_sort":"2021-04-13","date_display":"2021年4月13日","id":164,"categories":["リハビリ概論"]},{"date":"4月15日","theme":"リハビリテーション概論⑧","content":"バランスと姿勢緊張","link":"https://vimeo.com/536703652/e443187e0d","year":2021,"month":4,"day":15,"date_sort":"2021-04-15","date_display":"2021年4月15日","id":165,"categories":["姿勢制御・姿勢緊張","リハビリ概論"]},{"date":"4月17日","theme":"リハビリテーション概論⑨","content":"静的バランス・動的バランス","link":"https://vimeo.com/537688087/974f3b9023","year":2021,"month":4,"day":17,"date_sort":"2021-04-17","date_display":"2021年4月17日","id":166,"categories":["リハビリ概論"]},{"date":"4月19日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動①","link":"https://vimeo.com/538285964/d020c60c99","year":2021,"month":4,"day":19,"date_sort":"2021-04-19","date_display":"2021年4月19日","id":167,"categories":["上肢機能","リハビリ概論"]},{"date":"4月21日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動②","link":"https://vimeo.com/539049808/f33f9be82d","year":2021,"month":4,"day":21,"date_sort":"2021-04-21","date_display":"2021年4月21日","id":168,"categories":["上肢機能","リハビリ概論"]},{"date":"4月23日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動③","link":"https://vimeo.com/540103602/0a1ba3f8fc","year":2021,"month":4,"day":23,"date_sort":"2021-04-23","date_display":"2021年4月23日","id":169,"categories":["上肢機能","リハビリ概論"]},{"date":"4月25日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動④","link":"https://vimeo.com/541134302/fc3595d528","year":2021,"month":4,"day":25,"date_sort":"2021-04-25","date_display":"2021年4月25日","id":170,"categories":["上肢機能","リハビリ概論"]},{"date":"4月27日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動⑤","link":"https://vimeo.com/541858849/4acda19141","year":2021,"month":4,"day":27,"date_sort":"2021-04-27","date_display":"2021年4月27日","id":171,"categories":["上肢機能","リハビリ概論"]},{"date":"4月29日","theme":"リハビリテーション概論⑩","content":"上肢機能の正常運動⑥","link":"https://vimeo.com/542890506/d2c769bb1b","year":2021,"month":4,"day":29,"date_sort":"2021-04-29","date_display":"2021年4月29日","id":172,"categories":["上肢機能","リハビリ概論"]},{"date":"5月1日","theme":"4月ケースのまとめ","content":"動画で確認","link":"https://vimeo.com/543829714/f890458987","year":2021,"month":5,"day":1,"date_sort":"2021-05-01","date_display":"2021年5月1日","id":173,"categories":["ケーススタディ"]},{"date":"5月3日","theme":"臨床像の現象を深堀シリーズ①","content":"振戦","link":"https://vimeo.com/544231059/f7c5f8711d","year":2021,"month":5,"day":3,"date_sort":"2021-05-03","date_display":"2021年5月3日","id":174,"categories":[]},{"date":"5月5日","theme":"臨床像の現象を深堀シリーズ②","content":"大脳皮質と下位機構","link":"https://vimeo.com/545031626/2aa7e9956f","year":2021,"month":5,"day":5,"date_sort":"2021-05-05","date_display":"2021年5月5日","id":175,"categories":["小脳・神経系"]},{"date":"5月7日","theme":"臨床像の現象を深堀シリーズ③","content":"基底核と脳幹の関係","link":"https://vimeo.com/545863476/072d395746","year":2021,"month":5,"day":7,"date_sort":"2021-05-07","date_display":"2021年5月7日","id":176,"categories":["小脳・神経系"]},{"date":"5月9日","theme":"臨床像の現象を深堀シリーズ④","content":"末梢の不随意運動","link":"https://vimeo.com/546869310/596f5d6d3c","year":2021,"month":5,"day":9,"date_sort":"2021-05-09","date_display":"2021年5月9日","id":177,"categories":[]},{"date":"5月11日","theme":"文献紹介","content":"末梢の不随意運動","link":"https://vimeo.com/547702084/504d0386c9","year":2021,"month":5,"day":11,"date_sort":"2021-05-11","date_display":"2021年5月11日","id":178,"categories":[]},{"date":"5月13日","theme":"臨床像の現象を深堀シリーズ⑤","content":"上肢の随意性を活かす","link":"https://vimeo.com/548611683/c02fbcaf5a","year":2021,"month":5,"day":13,"date_sort":"2021-05-13","date_display":"2021年5月13日","id":179,"categories":["上肢機能"]},{"date":"5月15日","theme":"上肢機能の正常運動要素","content":"肩甲骨を決める筋活動","link":"https://vimeo.com/549256144/1b097ecaaf","year":2021,"month":5,"day":15,"date_sort":"2021-05-15","date_display":"2021年5月15日","id":180,"categories":["上肢機能","筋・解剖学"]},{"date":"5月17日","theme":"上肢機能の正常運動要素","content":"リーチングの筋活動","link":"https://vimeo.com/551239814/f0ec84959a","year":2021,"month":5,"day":17,"date_sort":"2021-05-17","date_display":"2021年5月17日","id":181,"categories":["上肢機能","筋・解剖学"]},{"date":"5月19日","theme":"上肢機能の正常運動要素","content":"Rotator cuff","link":"https://vimeo.com/552147558/30ee464c3d","year":2021,"month":5,"day":19,"date_sort":"2021-05-19","date_display":"2021年5月19日","id":182,"categories":["上肢機能"]},{"date":"5月20日","theme":"5月ケーススタディ","content":"頭部外傷の末梢の振戦","link":"https://vimeo.com/544427062/c5d3e3281c","year":2021,"month":5,"day":20,"date_sort":"2021-05-20","date_display":"2021年5月20日","id":183,"categories":["ケーススタディ"]},{"date":"5月21日","theme":"リクエスト","content":"亜脱臼への対策","link":"https://vimeo.com/552842680/9919041816","year":2021,"month":5,"day":21,"date_sort":"2021-05-21","date_display":"2021年5月21日","id":184,"categories":[]},{"date":"5月23日","theme":"上肢機能の土台","content":"姿勢緊張と先行随伴性姿勢調整","link":"https://vimeo.com/553689633/87ba0cb8f6","year":2021,"month":5,"day":23,"date_sort":"2021-05-23","date_display":"2021年5月23日","id":185,"categories":["姿勢制御・姿勢緊張","上肢機能"]},{"date":"5月25日","theme":"上肢機能について","content":"上肢の運動・軌道・パターン","link":"https://vimeo.com/554256850/44ab56bf8a","year":2021,"month":5,"day":25,"date_sort":"2021-05-25","date_display":"2021年5月25日","id":186,"categories":["上肢機能"]},{"date":"5月27日","theme":"上肢の正常運動","content":"道具操作と感覚系","link":"https://vimeo.com/555109202/f194bd1b7e","year":2021,"month":5,"day":27,"date_sort":"2021-05-27","date_display":"2021年5月27日","id":187,"categories":["上肢機能","感覚・知覚"]},{"date":"5月29日","theme":"相反神経支配関係","content":"姿勢緊張と上肢の空間保持","link":"https://vimeo.com/556183571/e3905c5583","year":2021,"month":5,"day":29,"date_sort":"2021-05-29","date_display":"2021年5月29日","id":188,"categories":["姿勢制御・姿勢緊張","上肢機能","小脳・神経系"]},{"date":"5月31日","theme":"特別講義","content":"姿勢調整とプレーシング","link":"https://vimeo.com/556827701/5e8a512175","year":2021,"month":5,"day":31,"date_sort":"2021-05-31","date_display":"2021年5月31日","id":189,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月2日","theme":"視床出血","content":"基礎知識①","link":"https://vimeo.com/557538134/2834299a90","year":2021,"month":6,"day":2,"date_sort":"2021-06-02","date_display":"2021年6月2日","id":190,"categories":[]},{"date":"6月3日","theme":"座位姿勢を健常者との比較","content":"姿勢評価","link":"https://vimeo.com/557952217/0d4beeee3f","year":2021,"month":6,"day":3,"date_sort":"2021-06-03","date_display":"2021年6月3日","id":191,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"6月4日","theme":"姿勢調整機構について","content":"なぜ、姿勢保持が出来るか","link":"https://vimeo.com/558753212/4bdb7fd63f","year":2021,"month":6,"day":4,"date_sort":"2021-06-04","date_display":"2021年6月4日","id":192,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月8日","theme":"ケーススタディ（6月6日）","content":"視床出血左片麻痺","link":"https://vimeo.com/559945987/44640035ef","year":2021,"month":6,"day":8,"date_sort":"2021-06-08","date_display":"2021年6月8日","id":193,"categories":["ケーススタディ"]},{"date":"6月8日","theme":"根源的な問いかけシリーズ①","content":"身体のメカニズム","link":"https://vimeo.com/560157833/ea6e34883f","year":2021,"month":6,"day":8,"date_sort":"2021-06-08","date_display":"2021年6月8日","id":194,"categories":[]},{"date":"6月10日","theme":"根源的な問いかけシリーズ②","content":"お辞儀を科学する","link":"https://vimeo.com/561081852/4f9c3ed654","year":2021,"month":6,"day":10,"date_sort":"2021-06-10","date_display":"2021年6月10日","id":195,"categories":[]},{"date":"6月12日","theme":"根源的な問いかけシリーズ③","content":"お辞儀を科学する②","link":"https://vimeo.com/561818549/660deb1c02","year":2021,"month":6,"day":12,"date_sort":"2021-06-12","date_display":"2021年6月12日","id":196,"categories":[]},{"date":"6月14日","theme":"歩行分析","content":"なんで人が歩けるのか","link":"https://vimeo.com/562388749/2ca079ed37","year":2021,"month":6,"day":14,"date_sort":"2021-06-14","date_display":"2021年6月14日","id":197,"categories":["歩行・移動","評価・分析"]},{"date":"6月16日","theme":"歩行分析","content":"正常運動要素","link":"https://vimeo.com/563173306/dd34d4888e","year":2021,"month":6,"day":16,"date_sort":"2021-06-16","date_display":"2021年6月16日","id":198,"categories":["歩行・移動","評価・分析"]},{"date":"6月18日","theme":"リーチング正常運動","content":"下肢に体重移動する","link":"https://vimeo.com/564117896/a672a7daa6","year":2021,"month":6,"day":18,"date_sort":"2021-06-18","date_display":"2021年6月18日","id":199,"categories":["上肢機能","歩行・移動"]},{"date":"6月20日","theme":"肘関節のメカニズム","content":"リーチングの要","link":"https://vimeo.com/565102004/47679127d3","year":2021,"month":6,"day":20,"date_sort":"2021-06-20","date_display":"2021年6月20日","id":200,"categories":["上肢機能","筋・解剖学"]},{"date":"6月22日","theme":"感覚","content":"日常生活の感覚って？","link":"https://vimeo.com/565484517/990be71619","year":2021,"month":6,"day":22,"date_sort":"2021-06-22","date_display":"2021年6月22日","id":201,"categories":["感覚・知覚"]},{"date":"6月24日","theme":"アクティブタッチ","content":"解説","link":"https://vimeo.com/566783123/35fe0e3d86","year":2021,"month":6,"day":24,"date_sort":"2021-06-24","date_display":"2021年6月24日","id":202,"categories":[]},{"date":"6月26日","theme":"感覚系の深堀","content":"ギブソンの研究","link":"https://vimeo.com/567532235/be9b9079c3","year":2021,"month":6,"day":26,"date_sort":"2021-06-26","date_display":"2021年6月26日","id":203,"categories":["感覚・知覚"]},{"date":"6月28日","theme":"アフォーダンス理論","content":"片麻痺者の姿勢緊張","link":"https://vimeo.com/568080602/df8fddaade","year":2021,"month":6,"day":28,"date_sort":"2021-06-28","date_display":"2021年6月28日","id":204,"categories":["姿勢制御・姿勢緊張","感覚・知覚"]},{"date":"6月30日","theme":"6月のまとめ","content":"感覚について","link":"https://vimeo.com/568865557/0a7215f6d1","year":2021,"month":6,"day":30,"date_sort":"2021-06-30","date_display":"2021年6月30日","id":205,"categories":["感覚・知覚"]},{"date":"7月2日","theme":"7月のケース","content":"障害像を理解する","link":"https://vimeo.com/569748674/1abe28ca32","year":2021,"month":7,"day":2,"date_sort":"2021-07-02","date_display":"2021年7月2日","id":206,"categories":["ケーススタディ"]},{"date":"7月4日","theme":"ケーススタディ","content":"左被殻～視床出血","link":"https://www.facebook.com/minoru.yamada.90/videos/334047444831991","year":2021,"month":7,"day":4,"date_sort":"2021-07-04","date_display":"2021年7月4日","id":207,"categories":["ケーススタディ"]},{"date":"7月6日","theme":"姿勢緊張","content":"トーンの問題を見極める","link":"https://vimeo.com/571404126/52d0b18f67","year":2021,"month":7,"day":6,"date_sort":"2021-07-06","date_display":"2021年7月6日","id":208,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月8日","theme":"姿勢緊張と高次機能障害","content":"認知機能と姿勢緊張との関係","link":"https://vimeo.com/572306290/407f2052e1","year":2021,"month":7,"day":8,"date_sort":"2021-07-08","date_display":"2021年7月8日","id":209,"categories":["姿勢制御・姿勢緊張","認知・心理"]},{"date":"7月10日","theme":"知覚・探索が必要な理由","content":"課題の内容と掲示の仕方を工夫する","link":"https://vimeo.com/573204761/40b1efde0d","year":2021,"month":7,"day":10,"date_sort":"2021-07-10","date_display":"2021年7月10日","id":210,"categories":["感覚・知覚"]},{"date":"7月12日","theme":"姿勢緊張","content":"評価・読み取り方","link":"https://vimeo.com/573744564/cbde5da2a5","year":2021,"month":7,"day":12,"date_sort":"2021-07-12","date_display":"2021年7月12日","id":211,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"7月12日","theme":"7月11日オンラインSV 2回目","content":"左被殻～視床出血","link":"https://vimeo.com/573598513/6861f11180","year":2021,"month":7,"day":12,"date_sort":"2021-07-12","date_display":"2021年7月12日","id":212,"categories":["ケーススタディ"]},{"date":"7月14日","theme":"姿勢調整","content":"姿勢調整を練習する具体例","link":"https://vimeo.com/574403475/28118438ae","year":2021,"month":7,"day":14,"date_sort":"2021-07-14","date_display":"2021年7月14日","id":213,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月16日","theme":"基礎的定位システム","content":"起き上り動作","link":"https://vimeo.com/575352123/3ae3f9adf8","year":2021,"month":7,"day":16,"date_sort":"2021-07-16","date_display":"2021年7月16日","id":214,"categories":[]},{"date":"7月18日","theme":"基礎的定位システム","content":"横になる","link":"https://vimeo.com/576132495/8b811eec6d","year":2021,"month":7,"day":18,"date_sort":"2021-07-18","date_display":"2021年7月18日","id":215,"categories":[]},{"date":"7月20日","theme":"生態心理を学ぶ①","content":"アフォーダンス","link":"https://vimeo.com/576932470/7e2dde1b96","year":2021,"month":7,"day":20,"date_sort":"2021-07-20","date_display":"2021年7月20日","id":216,"categories":["感覚・知覚","認知・心理"]},{"date":"7月22日","theme":"生態心理学を学ぶ②","content":"知覚世界","link":"https://vimeo.com/577788450/530a09c170","year":2021,"month":7,"day":22,"date_sort":"2021-07-22","date_display":"2021年7月22日","id":217,"categories":["感覚・知覚","認知・心理"]},{"date":"7月24日","theme":"生態心理学を学ぶ③","content":"光の発見","link":"https://vimeo.com/578303988/73671d02ab","year":2021,"month":7,"day":24,"date_sort":"2021-07-24","date_display":"2021年7月24日","id":218,"categories":["認知・心理"]},{"date":"7月26日","theme":"生態心理学を学ぶ④","content":"包囲光配列①","link":"https://vimeo.com/579052255/015ec3755b","year":2021,"month":7,"day":26,"date_sort":"2021-07-26","date_display":"2021年7月26日","id":219,"categories":["認知・心理"]},{"date":"7月28日","theme":"生態心理学を学ぶ","content":"包囲光配列②","link":"https://vimeo.com/579814373/797c06e620","year":2021,"month":7,"day":28,"date_sort":"2021-07-28","date_display":"2021年7月28日","id":220,"categories":["認知・心理"]},{"date":"8月2日","theme":"亜脱臼に対する考え方","content":"注意機能と筋活動","link":"https://vimeo.com/581755065/ce9bec3921","year":2021,"month":8,"day":2,"date_sort":"2021-08-02","date_display":"2021年8月2日","id":221,"categories":["筋・解剖学"]},{"date":"8月4日","theme":"上肢機能のための土台","content":"基礎知識①","link":"https://vimeo.com/582694103/cdf6668248","year":2021,"month":8,"day":4,"date_sort":"2021-08-04","date_display":"2021年8月4日","id":222,"categories":["上肢機能"]},{"date":"8月6日","theme":"歩行分析から麻痺側下肢の状態を知る","content":"歩行分析の基礎","link":"https://vimeo.com/583578350/daa1700604","year":2021,"month":8,"day":6,"date_sort":"2021-08-06","date_display":"2021年8月6日","id":223,"categories":["歩行・移動","評価・分析"]},{"date":"8月8日","theme":"亜脱臼がある左片麻痺","content":"足関節編","link":"https://vimeo.com/584155727/93faa51b5a","year":2021,"month":8,"day":8,"date_sort":"2021-08-08","date_display":"2021年8月8日","id":224,"categories":["筋・解剖学"]},{"date":"8月10日","theme":"亜脱臼がある左片麻痺","content":"麻痺足への荷重と手の関係","link":"https://vimeo.com/585087249/8c84bfe012","year":2021,"month":8,"day":10,"date_sort":"2021-08-10","date_display":"2021年8月10日","id":225,"categories":[]},{"date":"8月12日","theme":"麻痺手への介入が麻痺足部の支持性","content":"立脚期の筋活動","link":"https://vimeo.com/585688400/a1981c5a82","year":2021,"month":8,"day":12,"date_sort":"2021-08-12","date_display":"2021年8月12日","id":226,"categories":["上肢機能","筋・解剖学"]},{"date":"8月14日","theme":"歩行のフェーズ","content":"正常運動要素","link":"https://vimeo.com/586958835/161fd4d05f","year":2021,"month":8,"day":14,"date_sort":"2021-08-14","date_display":"2021年8月14日","id":227,"categories":["歩行・移動"]},{"date":"8月16日","theme":"バランス","content":"バランスの活動について","link":"https://vimeo.com/587580040/261663bd18","year":2021,"month":8,"day":16,"date_sort":"2021-08-16","date_display":"2021年8月16日","id":228,"categories":[]},{"date":"8月18日","theme":"姿勢緊張","content":"姿勢緊張が変わらない理由①","link":"https://vimeo.com/588276380/d5474f46b3","year":2021,"month":8,"day":18,"date_sort":"2021-08-18","date_display":"2021年8月18日","id":229,"categories":["姿勢制御・姿勢緊張"]},{"date":"8月20日","theme":"姿勢緊張","content":"姿勢緊張が変わらない理由②","link":"https://vimeo.com/589572115/5e1ad5ce6a","year":2021,"month":8,"day":20,"date_sort":"2021-08-20","date_display":"2021年8月20日","id":230,"categories":["姿勢制御・姿勢緊張"]},{"date":"8月22日","theme":"姿勢制御のメカニズム","content":"姿勢・動作分析の視点","link":"https://vimeo.com/590231375/56822103ae","year":2021,"month":8,"day":22,"date_sort":"2021-08-22","date_display":"2021年8月22日","id":231,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"8月24日","theme":"解釈","content":"解釈の一例","link":"https://vimeo.com/591260770/97d1a850c9","year":2021,"month":8,"day":24,"date_sort":"2021-08-24","date_display":"2021年8月24日","id":232,"categories":[]},{"date":"8月26日","theme":"下肢の支持性","content":"基本知識","link":"https://vimeo.com/591874212/075b07d4b0","year":2021,"month":8,"day":26,"date_sort":"2021-08-26","date_display":"2021年8月26日","id":233,"categories":[]},{"date":"8月28日","theme":"歩行分析","content":"分析の視点","link":"https://vimeo.com/593516541/bed34dd82d","year":2021,"month":8,"day":28,"date_sort":"2021-08-28","date_display":"2021年8月28日","id":234,"categories":["歩行・移動","評価・分析"]},{"date":"8月30日","theme":"両手の活動から殿筋を賦活した理由","content":"考察","link":"https://vimeo.com/594091702/bfc84bc798","year":2021,"month":8,"day":30,"date_sort":"2021-08-30","date_display":"2021年8月30日","id":235,"categories":["筋・解剖学"]},{"date":"9月1日","theme":"日常生活の連続性","content":"健常者と片麻痺者との比較","link":"https://vimeo.com/595147612/77c9f5f23c","year":2021,"month":9,"day":1,"date_sort":"2021-09-01","date_display":"2021年9月1日","id":236,"categories":[]},{"date":"9月3日","theme":"正常運動要素","content":"寝起き","link":"https://vimeo.com/596314806/eb5cadc656","year":2021,"month":9,"day":3,"date_sort":"2021-09-03","date_display":"2021年9月3日","id":237,"categories":[]},{"date":"9月5日","theme":"日常生活動作","content":"片麻痺者の動作の非効率","link":"https://vimeo.com/597739241/724b576eaa","year":2021,"month":9,"day":5,"date_sort":"2021-09-05","date_display":"2021年9月5日","id":238,"categories":[]},{"date":"9月7日","theme":"内反・Clowtoeを解剖学的な知見での理解","content":"姿勢緊張","link":"https://vimeo.com/598835234/65fd4e000f","year":2021,"month":9,"day":7,"date_sort":"2021-09-07","date_display":"2021年9月7日","id":239,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"9月9日","theme":"姿勢別の特徴","content":"背臥位","link":"https://vimeo.com/599953534/d03380f409","year":2021,"month":9,"day":9,"date_sort":"2021-09-09","date_display":"2021年9月9日","id":240,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月11日","theme":"姿勢別の特徴","content":"側臥位","link":"https://vimeo.com/601795411/eeb6875985","year":2021,"month":9,"day":11,"date_sort":"2021-09-11","date_display":"2021年9月11日","id":241,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月13日","theme":"姿勢別の特徴","content":"腹臥位","link":"https://vimeo.com/603472840/8e833e1b7e","year":2021,"month":9,"day":13,"date_sort":"2021-09-13","date_display":"2021年9月13日","id":242,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月15日","theme":"姿勢別の特徴","content":"座位","link":"https://vimeo.com/604523625/e946b52f76","year":2021,"month":9,"day":15,"date_sort":"2021-09-15","date_display":"2021年9月15日","id":243,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月17日","theme":"姿勢別の特徴","content":"立位","link":"https://vimeo.com/606902669/a4d7070cea","year":2021,"month":9,"day":17,"date_sort":"2021-09-17","date_display":"2021年9月17日","id":244,"categories":["姿勢制御・姿勢緊張","歩行・移動"]},{"date":"9月19日","theme":"姿勢別の特徴","content":"立位のバリエーション","link":"https://vimeo.com/608523964/6cfba94d78","year":2021,"month":9,"day":19,"date_sort":"2021-09-19","date_display":"2021年9月19日","id":245,"categories":["姿勢制御・姿勢緊張","歩行・移動"]},{"date":"9月21日","theme":"姿勢の特徴・治療場面の提案","content":"half supine","link":"https://vimeo.com/609454329/67ce25e38a","year":2021,"month":9,"day":21,"date_sort":"2021-09-21","date_display":"2021年9月21日","id":246,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月23日","theme":"姿勢を治療に対応","content":"Prone sitting","link":"https://vimeo.com/611357098/4a03f89101","year":2021,"month":9,"day":23,"date_sort":"2021-09-23","date_display":"2021年9月23日","id":247,"categories":["姿勢制御・姿勢緊張"]},{"date":"9月25日","theme":"prone sitting","content":"治療に応用","link":"https://vimeo.com/613977023/d288df68bb","year":2021,"month":9,"day":25,"date_sort":"2021-09-25","date_display":"2021年9月25日","id":248,"categories":[]},{"date":"9月27日","theme":"ハンドリング","content":"本当の意味","link":"https://vimeo.com/615020233/c357f03c9e","year":2021,"month":9,"day":27,"date_sort":"2021-09-27","date_display":"2021年9月27日","id":249,"categories":[]},{"date":"9月29日","theme":"痙性麻痺","content":"痙性の発生要因","link":"https://vimeo.com/616955740/2e39acf1ef","year":2021,"month":9,"day":29,"date_sort":"2021-09-29","date_display":"2021年9月29日","id":250,"categories":["疾患・病態"]},{"date":"10月1日","theme":"痙性について","content":"筋シナジー","link":"https://vimeo.com/619354308/03f9c6cb80","year":2021,"month":10,"day":1,"date_sort":"2021-10-01","date_display":"2021年10月1日","id":251,"categories":["筋・解剖学","疾患・病態"]},{"date":"10月3日","theme":"痙性とは何か","content":"シナジーを考える","link":"https://vimeo.com/621075361/6b668b2b00","year":2021,"month":10,"day":3,"date_sort":"2021-10-03","date_display":"2021年10月3日","id":252,"categories":["疾患・病態"]},{"date":"10月5日","theme":"痙性を減弱させる動作","content":"正常運動と筋シナジー","link":"https://vimeo.com/622360312/95987a8da9","year":2021,"month":10,"day":5,"date_sort":"2021-10-05","date_display":"2021年10月5日","id":253,"categories":["筋・解剖学","疾患・病態"]},{"date":"10月7日","theme":"筋シナジーを考える","content":"共同収縮","link":"https://vimeo.com/624096621/3d44cf61ba","year":2021,"month":10,"day":7,"date_sort":"2021-10-07","date_display":"2021年10月7日","id":254,"categories":["筋・解剖学"]},{"date":"10月9日","theme":"リハビリ専門職はどこに向かうのか","content":"話題づくり","link":"https://vimeo.com/626526258/075f4579a8","year":2021,"month":10,"day":9,"date_sort":"2021-10-09","date_display":"2021年10月9日","id":255,"categories":[]},{"date":"10月11日","theme":"筋シナジー","content":"Bernstein の考え方","link":"https://vimeo.com/628091380/bf36686d62","year":2021,"month":10,"day":11,"date_sort":"2021-10-11","date_display":"2021年10月11日","id":256,"categories":["筋・解剖学"]},{"date":"10月13日","theme":"筋シナジー","content":"痙性という現象を誤学習と仮説したら","link":"https://vimeo.com/630460617/8bd304c997","year":2021,"month":10,"day":13,"date_sort":"2021-10-13","date_display":"2021年10月13日","id":257,"categories":["筋・解剖学","疾患・病態"]},{"date":"10月15日","theme":"話題作り","content":"文化・文芸・芸術に触れる","link":"https://vimeo.com/631777506/8dab6e8e2b","year":2021,"month":10,"day":15,"date_sort":"2021-10-15","date_display":"2021年10月15日","id":258,"categories":[]},{"date":"10月17日","theme":"シナジー","content":"痙性が出現する瞬間","link":"https://vimeo.com/633996663/b86613437d","year":2021,"month":10,"day":17,"date_sort":"2021-10-17","date_display":"2021年10月17日","id":259,"categories":["疾患・病態"]},{"date":"10月19日","theme":"シナジー","content":"痙性を誤学習として経験値を共有","link":"https://vimeo.com/635683368/0f99a4103f","year":2021,"month":10,"day":19,"date_sort":"2021-10-19","date_display":"2021年10月19日","id":260,"categories":["疾患・病態"]},{"date":"10月21日","theme":"痙性を問題をおさらい","content":"痙性も随意性の一部？？","link":"https://vimeo.com/636969632/5827cf78cf","year":2021,"month":10,"day":21,"date_sort":"2021-10-21","date_display":"2021年10月21日","id":261,"categories":["疾患・病態"]},{"date":"10月23日","theme":"話題作り","content":"人生のストーリー","link":"https://vimeo.com/638033055/3f78acacae","year":2021,"month":10,"day":23,"date_sort":"2021-10-23","date_display":"2021年10月23日","id":262,"categories":[]},{"date":"10月23日","theme":"スキルアップセミナー実技","content":"10月17日","link":"https://vimeo.com/637823908/f7b003feb1","year":2021,"month":10,"day":23,"date_sort":"2021-10-23","date_display":"2021年10月23日","id":263,"categories":["セミナー・実技"]},{"date":"10月25日","theme":"小脳機能","content":"小脳機能の整理","link":"https://vimeo.com/638336698/81de752091","year":2021,"month":10,"day":25,"date_sort":"2021-10-25","date_display":"2021年10月25日","id":264,"categories":["小脳・神経系"]},{"date":"10月27日","theme":"小脳機能","content":"小脳機能の整理②","link":"https://vimeo.com/639304595/5b31feb6a6","year":2021,"month":10,"day":27,"date_sort":"2021-10-27","date_display":"2021年10月27日","id":265,"categories":["小脳・神経系"]},{"date":"10月29日","theme":"ローリングと書字","content":"具体的な導入方法と判断基準","link":"https://vimeo.com/640151838/c9dfd89fa0","year":2021,"month":10,"day":29,"date_sort":"2021-10-29","date_display":"2021年10月29日","id":266,"categories":["評価・分析"]},{"date":"10月30日","theme":"モヤモヤ病","content":"症候学的アプローチ","link":"https://vimeo.com/640757258/ca1b30ee95","year":2021,"month":10,"day":30,"date_sort":"2021-10-30","date_display":"2021年10月30日","id":267,"categories":["疾患・病態"]},{"date":"11月1日","theme":"モヤモヤ病","content":"ケース詳細","link":"https://vimeo.com/640842202/db7d12f88c","year":2021,"month":11,"day":1,"date_sort":"2021-11-01","date_display":"2021年11月1日","id":268,"categories":["ケーススタディ","疾患・病態"]},{"date":"11月2日","theme":"筋緊張の高さ","content":"脳の元気度","link":"https://vimeo.com/641007213/94ccaf127a","year":2021,"month":11,"day":2,"date_sort":"2021-11-02","date_display":"2021年11月2日","id":269,"categories":["筋・解剖学"]},{"date":"11月4日","theme":"姿勢分析の前に・・","content":"評価の視点・観点","link":"https://vimeo.com/641826502/13741b2aae","year":2021,"month":11,"day":4,"date_sort":"2021-11-04","date_display":"2021年11月4日","id":270,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"11月6日","theme":"適応性短縮","content":"ハムストリングスの短縮では？","link":"https://vimeo.com/642520831/835c406b19","year":2021,"month":11,"day":6,"date_sort":"2021-11-06","date_display":"2021年11月6日","id":271,"categories":["筋・解剖学"]},{"date":"11月8日","theme":"姿勢分析の判断基準","content":"講師なりの判断基準","link":"https://vimeo.com/643164620/b96a2a256e","year":2021,"month":11,"day":8,"date_sort":"2021-11-08","date_display":"2021年11月8日","id":272,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"11月10日","theme":"姿勢分析のための姿勢制御機能と姿勢トーン","content":"支持基底面に合わせるというはどういう意味？","link":"https://vimeo.com/643759552/f5434ab247","year":2021,"month":11,"day":10,"date_sort":"2021-11-10","date_display":"2021年11月10日","id":273,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"11月12日","theme":"能動的探索活動","content":"知覚探索という身体の活動","link":"https://vimeo.com/644681964/4065c0cd0b","year":2021,"month":11,"day":12,"date_sort":"2021-11-12","date_display":"2021年11月12日","id":274,"categories":["感覚・知覚"]},{"date":"11月14日","theme":"認知機能と姿勢保持","content":"バランスでは認知機能が必要","link":"https://vimeo.com/645500639/6b4c1db7ab","year":2021,"month":11,"day":14,"date_sort":"2021-11-14","date_display":"2021年11月14日","id":275,"categories":["姿勢制御・姿勢緊張","認知・心理"]},{"date":"11月16日","theme":"現象を改善するには・・","content":"振り出しに戻る","link":"https://vimeo.com/645886065/0962e73e9b","year":2021,"month":11,"day":16,"date_sort":"2021-11-16","date_display":"2021年11月16日","id":276,"categories":[]},{"date":"11月18日","theme":"廃用症候群の障害像","content":"どのような発生機序なのか","link":"https://vimeo.com/646777637/d69f72db9b","year":2021,"month":11,"day":18,"date_sort":"2021-11-18","date_display":"2021年11月18日","id":277,"categories":["疾患・病態"]},{"date":"11月20日","theme":"正常運動","content":"ヒトの運動・行動","link":"https://vimeo.com/647530166/d9963fe1e3","year":2021,"month":11,"day":20,"date_sort":"2021-11-20","date_display":"2021年11月20日","id":278,"categories":[]},{"date":"11月22日","theme":"姿勢緊張のアプローチする意味","content":"姿勢制御と運動制御","link":"https://vimeo.com/648151307/2c38632c78","year":2021,"month":11,"day":22,"date_sort":"2021-11-22","date_display":"2021年11月22日","id":279,"categories":["姿勢制御・姿勢緊張"]},{"date":"11月24日","theme":"筋の硬さの理由と介入方法の違い","content":"どのように判断するか？","link":"https://vimeo.com/648868423/8e8918eafb","year":2021,"month":11,"day":24,"date_sort":"2021-11-24","date_display":"2021年11月24日","id":280,"categories":["筋・解剖学"]},{"date":"11月26日","theme":"痙性と廃用性をどう判断するか","content":"アプローチの違い","link":"https://vimeo.com/650096875/9558f9b0d3","year":2021,"month":11,"day":26,"date_sort":"2021-11-26","date_display":"2021年11月26日","id":281,"categories":["疾患・病態"]},{"date":"11月28日","theme":"前頭前野","content":"機能のおさらい","link":"https://vimeo.com/650683231/545c973780","year":2021,"month":11,"day":28,"date_sort":"2021-11-28","date_display":"2021年11月28日","id":282,"categories":[]},{"date":"11月30日","theme":"動作分析に必要な知識","content":"相互関係","link":"https://vimeo.com/651310506/ecccf542e3","year":2021,"month":11,"day":30,"date_sort":"2021-11-30","date_display":"2021年11月30日","id":283,"categories":["評価・分析"]},{"date":"12月2日","theme":"前頭葉機能①","content":"どのようにアプローチするか","link":"https://vimeo.com/651870175/1b04d2e740","year":2021,"month":12,"day":2,"date_sort":"2021-12-02","date_display":"2021年12月2日","id":284,"categories":[]},{"date":"12月4日","theme":"前頭葉機能②","content":"生物の目標","link":"https://vimeo.com/652893576/efacd8008c","year":2021,"month":12,"day":4,"date_sort":"2021-12-04","date_display":"2021年12月4日","id":285,"categories":[]},{"date":"12月6日","theme":"前頭葉機能③","content":"神経活動","link":"https://vimeo.com/653364044/06d06111bc","year":2021,"month":12,"day":6,"date_sort":"2021-12-06","date_display":"2021年12月6日","id":286,"categories":["小脳・神経系"]},{"date":"12月8日","theme":"ゲルストマン症候群からの類推","content":"左右障害、順序、配列、相互関係","link":"https://vimeo.com/654062243/ddd98c7f1b","year":2021,"month":12,"day":8,"date_sort":"2021-12-08","date_display":"2021年12月8日","id":287,"categories":[]},{"date":"12月10日","theme":"トランスファーの正常運動要素","content":"運動に必要な身体要因","link":"https://vimeo.com/654828107/44eec428b5","year":2021,"month":12,"day":10,"date_sort":"2021-12-10","date_display":"2021年12月10日","id":288,"categories":[]},{"date":"12月12日","theme":"姿勢緊張と相互関係","content":"動作の中の姿勢緊張","link":"https://vimeo.com/655550236/6bf82d23c6","year":2021,"month":12,"day":12,"date_sort":"2021-12-12","date_display":"2021年12月12日","id":289,"categories":["姿勢制御・姿勢緊張"]},{"date":"12月14日","theme":"筋トレのアイデア","content":"バイオメカニクスと姿勢コントロール","link":"https://vimeo.com/656329082/18c5c92adf","year":2021,"month":12,"day":14,"date_sort":"2021-12-14","date_display":"2021年12月14日","id":290,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"12月16日","theme":"筋トレのアイデア②","content":"ハムストリングス","link":"https://vimeo.com/656967728/a3309df830","year":2021,"month":12,"day":16,"date_sort":"2021-12-16","date_display":"2021年12月16日","id":291,"categories":["筋・解剖学"]},{"date":"12月18日","theme":"ピボット","content":"動作に必要な身体的条件","link":"https://vimeo.com/657983876/18a63f8e3f","year":2021,"month":12,"day":18,"date_sort":"2021-12-18","date_display":"2021年12月18日","id":292,"categories":[]},{"date":"12月20日","theme":"注意機能と日常生活動作","content":"トランスファー","link":"https://vimeo.com/658304779/a2052c7d45","year":2021,"month":12,"day":20,"date_sort":"2021-12-20","date_display":"2021年12月20日","id":293,"categories":[]},{"date":"12月22日","theme":"感覚とは？？","content":"感覚を理解する知識","link":"https://vimeo.com/659121767/e4f7eff17c","year":2021,"month":12,"day":22,"date_sort":"2021-12-22","date_display":"2021年12月22日","id":294,"categories":["感覚・知覚"]},{"date":"12月24日","theme":"前頭葉機能","content":"気分を上げる介入","link":"https://vimeo.com/659526040/da8caecb2a","year":2021,"month":12,"day":24,"date_sort":"2021-12-24","date_display":"2021年12月24日","id":295,"categories":[]},{"date":"12月26日","theme":"力を入れすぎる片麻痺者","content":"力を弱めることで減弱","link":"https://vimeo.com/660075029/8b6f7be5ec","year":2021,"month":12,"day":26,"date_sort":"2021-12-26","date_display":"2021年12月26日","id":296,"categories":[]},{"date":"12月28日","theme":"麻痺手のアプローチ","content":"論文紹介","link":"https://vimeo.com/660319974/c8402bd100","year":2021,"month":12,"day":28,"date_sort":"2021-12-28","date_display":"2021年12月28日","id":297,"categories":["上肢機能"]},{"date":"2022年1月4日","theme":"脳性小児まひ","content":"目標設定","link":"https://vimeo.com/660590685/77725fac47","year":2022,"month":1,"day":4,"date_sort":"2022-01-04","date_display":"2022年1月4日","id":298,"categories":["疾患・病態"]},{"date":"1月6日","theme":"行動変容を導く思考法","content":"療法士間でも理解の隔たり","link":"https://vimeo.com/662779380/13d0bd513b","year":2022,"month":1,"day":6,"date_sort":"2022-01-06","date_display":"2022年1月6日","id":299,"categories":[]},{"date":"1月8日","theme":"評価を磨き上げる","content":"必要な知識・方法","link":"https://vimeo.com/663211969/762f7b553f","year":2022,"month":1,"day":8,"date_sort":"2022-01-08","date_display":"2022年1月8日","id":300,"categories":["評価・分析"]},{"date":"1月10日","theme":"チンタック","content":"チンタックと体幹筋","link":"https://vimeo.com/664031022/0b396055ea","year":2022,"month":1,"day":10,"date_sort":"2022-01-10","date_display":"2022年1月10日","id":301,"categories":["筋・解剖学"]},{"date":"1月12日","theme":"コミュニケーション","content":"対象者に合わせたコミュニケーション","link":"https://vimeo.com/664602850/90ffc33714","year":2022,"month":1,"day":12,"date_sort":"2022-01-12","date_display":"2022年1月12日","id":302,"categories":[]},{"date":"1月14日","theme":"姿勢緊張の発達","content":"姿勢制御のメカニズム","link":"https://vimeo.com/665566597/a4fa16f941","year":2022,"month":1,"day":14,"date_sort":"2022-01-14","date_display":"2022年1月14日","id":303,"categories":["姿勢制御・姿勢緊張"]},{"date":"1月16日","theme":"抑制性バーストニューロン","content":"彦坂先生の研究","link":"https://vimeo.com/666259443/77a1a02ad2","year":2022,"month":1,"day":16,"date_sort":"2022-01-16","date_display":"2022年1月16日","id":304,"categories":["小脳・神経系"]},{"date":"1月18日","theme":"発達を知る","content":"正常運動","link":"https://vimeo.com/666592254/c316a4e94c","year":2022,"month":1,"day":18,"date_sort":"2022-01-18","date_display":"2022年1月18日","id":305,"categories":[]},{"date":"1月20日","theme":"言語獲得の可能性","content":"必要な知識","link":"https://vimeo.com/667717535/eb1738f603","year":2022,"month":1,"day":20,"date_sort":"2022-01-20","date_display":"2022年1月20日","id":306,"categories":[]},{"date":"1月22日","theme":"学童期のADL","content":"目標設定","link":"https://vimeo.com/668802936/7a861da0b0","year":2022,"month":1,"day":22,"date_sort":"2022-01-22","date_display":"2022年1月22日","id":307,"categories":[]},{"date":"1月24日","theme":"痙直型量麻痺児","content":"身体障害の特徴","link":"https://vimeo.com/669070486/a0420bc161","year":2022,"month":1,"day":24,"date_sort":"2022-01-24","date_display":"2022年1月24日","id":308,"categories":[]},{"date":"1月26日","theme":"トーンを変える","content":"被殻出血例","link":"https://vimeo.com/669682616/17bfc7ccb5","year":2022,"month":1,"day":26,"date_sort":"2022-01-26","date_display":"2022年1月26日","id":309,"categories":["姿勢制御・姿勢緊張"]},{"date":"1月28日","theme":"脳性小児まひ","content":"学習能力とは？？","link":"https://vimeo.com/670654613/757322fd97","year":2022,"month":1,"day":28,"date_sort":"2022-01-28","date_display":"2022年1月28日","id":310,"categories":["疾患・病態"]},{"date":"1月30日","theme":"セラピストの動きの基本","content":"Touchの重要性","link":"https://vimeo.com/671356080/0caa4c6ebe","year":2022,"month":1,"day":30,"date_sort":"2022-01-30","date_display":"2022年1月30日","id":311,"categories":[]},{"date":"2月2日","theme":"関節可動域","content":"他の構造に依存する","link":"https://vimeo.com/672537131/3ff7d4cd52","year":2022,"month":2,"day":2,"date_sort":"2022-02-02","date_display":"2022年2月2日","id":312,"categories":["筋・解剖学"]},{"date":"2月4日","theme":"関節可動域","content":"股関節のROM","link":"https://vimeo.com/673077444/176bd0141d","year":2022,"month":2,"day":4,"date_sort":"2022-02-04","date_display":"2022年2月4日","id":313,"categories":["筋・解剖学"]},{"date":"2月6日","theme":"姿勢コントロールの再学習","content":"腰椎の可動性","link":"https://vimeo.com/673873980/a9f8519357","year":2022,"month":2,"day":6,"date_sort":"2022-02-06","date_display":"2022年2月6日","id":314,"categories":["姿勢制御・姿勢緊張"]},{"date":"2月8日","theme":"成人身体障害者と脳性小児まひとの違い","content":"奇跡の人から考察","link":"https://vimeo.com/674437566/c60546c197","year":2022,"month":2,"day":8,"date_sort":"2022-02-08","date_display":"2022年2月8日","id":315,"categories":["疾患・病態"]},{"date":"2月10日","theme":"動作・行動の最終的選択は何が要因か","content":"全体像の判断基準","link":"https://vimeo.com/675668593/66a89019b1","year":2022,"month":2,"day":10,"date_sort":"2022-02-10","date_display":"2022年2月10日","id":316,"categories":["評価・分析"]},{"date":"2月12日","theme":"発達期の介入は何のため？","content":"知性と社会性があれば自立","link":"https://vimeo.com/676173421/e4adb90d5b","year":2022,"month":2,"day":12,"date_sort":"2022-02-12","date_display":"2022年2月12日","id":317,"categories":[]},{"date":"2月14日","theme":"運動療法とアクティビティ","content":"各々の選択した理由","link":"https://vimeo.com/676760708/b223bdf316","year":2022,"month":2,"day":14,"date_sort":"2022-02-14","date_display":"2022年2月14日","id":318,"categories":[]},{"date":"2月16日","theme":"アテトーゼ型成人CPと両片麻痺","content":"具体的な介入方法①","link":"https://vimeo.com/677520725/a7c89522bd","year":2022,"month":2,"day":16,"date_sort":"2022-02-16","date_display":"2022年2月16日","id":319,"categories":[]},{"date":"2月18日","theme":"前頭葉症状","content":"工夫した点","link":"https://vimeo.com/678596674/410444b456","year":2022,"month":2,"day":18,"date_sort":"2022-02-18","date_display":"2022年2月18日","id":320,"categories":[]},{"date":"2月20日","theme":"脳性小児まひ","content":"発達の理解","link":"https://vimeo.com/679354858/e1625c3051","year":2022,"month":2,"day":20,"date_sort":"2022-02-20","date_display":"2022年2月20日","id":321,"categories":["疾患・病態"]},{"date":"2月22日","theme":"コミュニケーション能力","content":"能力を決める因子","link":"https://vimeo.com/680198130/a29e772f4c","year":2022,"month":2,"day":22,"date_sort":"2022-02-22","date_display":"2022年2月22日","id":322,"categories":[]},{"date":"2月24日","theme":"ミラーニューロン","content":"認知神経リハビリから","link":"https://vimeo.com/680711134/278a73f16c","year":2022,"month":2,"day":24,"date_sort":"2022-02-24","date_display":"2022年2月24日","id":323,"categories":["小脳・神経系","認知・心理"]},{"date":"2月26日","theme":"内言語と知性","content":"大人との積極的なコミュニケーションが重要","link":"https://vimeo.com/681634025/c90a1deace","year":2022,"month":2,"day":26,"date_sort":"2022-02-26","date_display":"2022年2月26日","id":324,"categories":[]},{"date":"2月28日","theme":"CP児の痙縮","content":"エビデンス","link":"https://vimeo.com/682599611/1f459acb43","year":2022,"month":2,"day":28,"date_sort":"2022-02-28","date_display":"2022年2月28日","id":325,"categories":["疾患・病態"]},{"date":"3月2日","theme":"筋緊張の基礎知識①","content":"筋緊張≠筋力","link":"https://vimeo.com/683260288/de747b49ee","year":2022,"month":3,"day":2,"date_sort":"2022-03-02","date_display":"2022年3月2日","id":326,"categories":["筋・解剖学"]},{"date":"3月4日","theme":"筋緊張の基礎知識②","content":"正常と異常","link":"https://vimeo.com/684189775/9278a6801a","year":2022,"month":3,"day":4,"date_sort":"2022-03-04","date_display":"2022年3月4日","id":327,"categories":["筋・解剖学"]},{"date":"3月7日","theme":"筋緊張の基礎知識③","content":"大脳基底核","link":"https://vimeo.com/685252007/f791a13433","year":2022,"month":3,"day":7,"date_sort":"2022-03-07","date_display":"2022年3月7日","id":328,"categories":["小脳・神経系","筋・解剖学"]},{"date":"3月9日","theme":"セラピストが目指すもの①","content":"障害の発生要因","link":"https://vimeo.com/686055155/9ee38a42c6","year":2022,"month":3,"day":9,"date_sort":"2022-03-09","date_display":"2022年3月9日","id":329,"categories":[]},{"date":"3月9日","theme":"3月6日ミーティング","content":"Toneを理解する","link":"https://vimeo.com/685454911/df9f31fa6c","year":2022,"month":3,"day":9,"date_sort":"2022-03-09","date_display":"2022年3月9日","id":330,"categories":[]},{"date":"3月9日","theme":"セラピストが目指すもの②","content":"障害の発生要因①","link":"https://vimeo.com/686055155/9ee38a42c6","year":2022,"month":3,"day":9,"date_sort":"2022-03-09","date_display":"2022年3月9日","id":331,"categories":[]},{"date":"3月11日","theme":"セラピストが目指す②","content":"障害の発生要因②","link":"https://vimeo.com/686899095/19fa4a2763","year":2022,"month":3,"day":11,"date_sort":"2022-03-11","date_display":"2022年3月11日","id":332,"categories":[]},{"date":"3月14日","theme":"大脳基底核疾患","content":"陰性症状・陽性症状","link":"https://vimeo.com/687736113/67925eedcf","year":2022,"month":3,"day":14,"date_sort":"2022-03-14","date_display":"2022年3月14日","id":333,"categories":["小脳・神経系"]},{"date":"3月16日","theme":"身体が硬いと動きづらいという現実","content":"先行随伴性姿勢調整と構え","link":"https://vimeo.com/688608691/10d0975cee","year":2022,"month":3,"day":16,"date_sort":"2022-03-16","date_display":"2022年3月16日","id":334,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月18日","theme":"感覚-知覚-認知","content":"パーセプション","link":"https://vimeo.com/689476502/4887e62f88","year":2022,"month":3,"day":18,"date_sort":"2022-03-18","date_display":"2022年3月18日","id":335,"categories":["感覚・知覚","認知・心理"]},{"date":"3月22日","theme":"基本に戻る①","content":"関節可動域と筋力","link":"https://vimeo.com/690369193/9fd21223e0","year":2022,"month":3,"day":22,"date_sort":"2022-03-22","date_display":"2022年3月22日","id":336,"categories":["筋・解剖学","リハビリ概論"]},{"date":"3月24日","theme":"基本に戻る②","content":"判断基準","link":"https://vimeo.com/691178568/b8cf53cf28","year":2022,"month":3,"day":24,"date_sort":"2022-03-24","date_display":"2022年3月24日","id":337,"categories":["評価・分析","リハビリ概論"]},{"date":"3月26日","theme":"筋緊張と動作の関係","content":"姿勢を変える=筋緊張が変わる","link":"https://vimeo.com/692051384/f19ee5c7b7","year":2022,"month":3,"day":26,"date_sort":"2022-03-26","date_display":"2022年3月26日","id":338,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"3月28日","theme":"基本に戻る④","content":"動作の意味を考える","link":"https://vimeo.com/692783667/a97685786b","year":2022,"month":3,"day":28,"date_sort":"2022-03-28","date_display":"2022年3月28日","id":339,"categories":["リハビリ概論"]},{"date":"3月30日","theme":"基本に戻る⑤","content":"頭の中身を表現する","link":"https://vimeo.com/693355031/502db4c85a","year":2022,"month":3,"day":30,"date_sort":"2022-03-30","date_display":"2022年3月30日","id":340,"categories":["リハビリ概論"]},{"date":"4月1日","theme":"多系統萎縮症とは","content":"基礎知識","link":"https://vimeo.com/694248501/90c8c68ff0","year":2022,"month":4,"day":1,"date_sort":"2022-04-01","date_display":"2022年4月1日","id":341,"categories":[]},{"date":"4月5日","theme":"脊髄小脳変性症","content":"運動療法を振り返る","link":"https://vimeo.com/695893949/b768a63dd5","year":2022,"month":4,"day":5,"date_sort":"2022-04-05","date_display":"2022年4月5日","id":342,"categories":["小脳・神経系","疾患・病態"]},{"date":"4月7日","theme":"脳卒中と脊髄小脳変性症の違い","content":"違いを知る","link":"https://vimeo.com/696506309/1fb70e0d90","year":2022,"month":4,"day":7,"date_sort":"2022-04-07","date_display":"2022年4月7日","id":343,"categories":["小脳・神経系","疾患・病態"]},{"date":"4月9日","theme":"★評価の視点","content":"姿勢制御？または運動制御？","link":"https://vimeo.com/697226095/ea22bb3286","year":2022,"month":4,"day":9,"date_sort":"2022-04-09","date_display":"2022年4月9日","id":344,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"4月11日","theme":"症例：脊髄小脳変性症の姿勢コントロール","content":"姿勢コントロールとは？","link":"https://vimeo.com/697601153/9ce17b2519","year":2022,"month":4,"day":11,"date_sort":"2022-04-11","date_display":"2022年4月11日","id":345,"categories":["姿勢制御・姿勢緊張","小脳・神経系","ケーススタディ","疾患・病態"]},{"date":"4月13日","theme":"★姿勢緊張の評価","content":"片麻痺と小脳疾患","link":"https://vimeo.com/698634165/dddab6f0cb","year":2022,"month":4,"day":13,"date_sort":"2022-04-13","date_display":"2022年4月13日","id":346,"categories":["姿勢制御・姿勢緊張","小脳・神経系","評価・分析"]},{"date":"4月15日","theme":"食事を考える","content":"口腔周辺機能","link":"https://vimeo.com/699271113/fcc5d981f6","year":2022,"month":4,"day":15,"date_sort":"2022-04-15","date_display":"2022年4月15日","id":347,"categories":["嚥下・口腔"]},{"date":"4月17日","theme":"オンラインSV（4月10日）","content":"4回目","link":"https://vimeo.com/699900640/1b25a9922d","year":2022,"month":4,"day":17,"date_sort":"2022-04-17","date_display":"2022年4月17日","id":348,"categories":["ケーススタディ"]},{"date":"4月18日","theme":"地方巡業セミナー①","content":"片麻痺患者を理解する","link":"https://vimeo.com/700208168/64bd659349","year":2022,"month":4,"day":18,"date_sort":"2022-04-18","date_display":"2022年4月18日","id":349,"categories":["セミナー・実技"]},{"date":"4月19日","theme":"地方巡業セミナー②","content":"片麻痺患者を理解する","link":"https://vimeo.com/700591663/962c45a0f8","year":2022,"month":4,"day":19,"date_sort":"2022-04-19","date_display":"2022年4月19日","id":350,"categories":["セミナー・実技"]},{"date":"4月20日","theme":"地方巡業セミナー③","content":"筋緊張","link":"https://vimeo.com/700695451/09ffa6b713","year":2022,"month":4,"day":20,"date_sort":"2022-04-20","date_display":"2022年4月20日","id":351,"categories":["筋・解剖学","セミナー・実技"]},{"date":"4月21日","theme":"地方巡業セミナー④","content":"症例を考察するための情報整理","link":"https://vimeo.com/701052175/5b6798947b","year":2022,"month":4,"day":21,"date_sort":"2022-04-21","date_display":"2022年4月21日","id":352,"categories":["ケーススタディ","セミナー・実技"]},{"date":"4月21日","theme":"地方巡業セミナー⑤","content":"症例の初回評価","link":"https://vimeo.com/701254568/ad5366b680","year":2022,"month":4,"day":21,"date_sort":"2022-04-21","date_display":"2022年4月21日","id":353,"categories":["評価・分析","ケーススタディ","セミナー・実技"]},{"date":"4月22日","theme":"地方巡業セミナー⑥","content":"介入場面①","link":"https://vimeo.com/701602558/bad50a6cac","year":2022,"month":4,"day":22,"date_sort":"2022-04-22","date_display":"2022年4月22日","id":354,"categories":["セミナー・実技"]},{"date":"4月23日","theme":"地方巡業セミナー⑦","content":"介入場面②","link":"https://vimeo.com/702075573/bd7cc27dc6","year":2022,"month":4,"day":23,"date_sort":"2022-04-23","date_display":"2022年4月23日","id":355,"categories":["セミナー・実技"]},{"date":"4月25日","theme":"脊髄小脳変性症のまとめ","content":"小脳系疾患リハの基本的考え方","link":"https://vimeo.com/702493573/08ed8abd77","year":2022,"month":4,"day":25,"date_sort":"2022-04-25","date_display":"2022年4月25日","id":356,"categories":["小脳・神経系","疾患・病態"]},{"date":"4月27日","theme":"脊髄小脳変性症のまとめ","content":"疾患と解決したい日常生活動作の関係性","link":"https://vimeo.com/703083086/0eb8e04075","year":2022,"month":4,"day":27,"date_sort":"2022-04-27","date_display":"2022年4月27日","id":357,"categories":["小脳・神経系","疾患・病態"]},{"date":"4月29日","theme":"脊髄小脳変性症のまとめ","content":"アライメントとBOS情報と姿勢制御の関係","link":"https://vimeo.com/704137727/a0da36483e","year":2022,"month":4,"day":29,"date_sort":"2022-04-29","date_display":"2022年4月29日","id":358,"categories":["姿勢制御・姿勢緊張","小脳・神経系","疾患・病態"]},{"date":"5月1日","theme":"症例：左視床出血右片麻痺","content":"初期弛緩期","link":"https://vimeo.com/704805761/1ff4366c6c","year":2022,"month":5,"day":1,"date_sort":"2022-05-01","date_display":"2022年5月1日","id":359,"categories":["ケーススタディ"]},{"date":"5月5日","theme":"症例の歩行","content":"歩行の正常要素","link":"https://vimeo.com/706021982/05ff436fa6","year":2022,"month":5,"day":5,"date_sort":"2022-05-05","date_display":"2022年5月5日","id":360,"categories":["歩行・移動","ケーススタディ"]},{"date":"5月7日","theme":"統合と解釈","content":"解説","link":"https://vimeo.com/707118234/ac81623f6f","year":2022,"month":5,"day":7,"date_sort":"2022-05-07","date_display":"2022年5月7日","id":361,"categories":["評価・分析"]},{"date":"5月9日","theme":"視床の機能","content":"感覚処理=感覚→知覚になる過程","link":"https://vimeo.com/707432547/9c31691e37","year":2022,"month":5,"day":9,"date_sort":"2022-05-09","date_display":"2022年5月9日","id":362,"categories":["感覚・知覚"]},{"date":"5月11日","theme":"★統合と解釈","content":"総合力","link":"https://vimeo.com/708063804/41c5bf27ff","year":2022,"month":5,"day":11,"date_sort":"2022-05-11","date_display":"2022年5月11日","id":363,"categories":["評価・分析"]},{"date":"5月13日","theme":"統合と解釈","content":"身体の問題","link":"https://vimeo.com/709012297/7893aba50a","year":2022,"month":5,"day":13,"date_sort":"2022-05-13","date_display":"2022年5月13日","id":364,"categories":["評価・分析"]},{"date":"5月15日","theme":"統合と解釈","content":"失語症と骨盤の偏位","link":"https://vimeo.com/709812107/0734823a37","year":2022,"month":5,"day":15,"date_sort":"2022-05-15","date_display":"2022年5月15日","id":365,"categories":["評価・分析"]},{"date":"5月17日","theme":"小脳機能","content":"小脳機能と姿勢制御","link":"https://vimeo.com/710562925/ba7569f43a","year":2022,"month":5,"day":17,"date_sort":"2022-05-17","date_display":"2022年5月17日","id":366,"categories":["姿勢制御・姿勢緊張","小脳・神経系"]},{"date":"5月19日","theme":"大脳小脳関連","content":"運動学習と自動的な運動メカニズム","link":"https://vimeo.com/711406190/0f6e411f2b","year":2022,"month":5,"day":19,"date_sort":"2022-05-19","date_display":"2022年5月19日","id":367,"categories":["小脳・神経系","筋・解剖学","認知・心理"]},{"date":"5月21日","theme":"歩行","content":"下肢の支持性とアライメント","link":"https://vimeo.com/711962059/86533bbf60","year":2022,"month":5,"day":21,"date_sort":"2022-05-21","date_display":"2022年5月21日","id":368,"categories":["姿勢制御・姿勢緊張","歩行・移動"]},{"date":"5月23日","theme":"★評価は何のためにする？","content":"基本に戻る","link":"https://vimeo.com/712554344/9257fb2bf4","year":2022,"month":5,"day":23,"date_sort":"2022-05-23","date_display":"2022年5月23日","id":369,"categories":["評価・分析","リハビリ概論"]},{"date":"5月25日","theme":"★姿勢制御の評価","content":"脳の機能","link":"https://vimeo.com/713139054/6ca7d1664d","year":2022,"month":5,"day":25,"date_sort":"2022-05-25","date_display":"2022年5月25日","id":370,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"5月27日","theme":"姿勢制御の評価","content":"脳の中で起こっている","link":"https://vimeo.com/714261923/1a3e595015","year":2022,"month":5,"day":27,"date_sort":"2022-05-27","date_display":"2022年5月27日","id":371,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"5月29日","theme":"姿勢制御を具体化","content":"筋緊張の変化","link":"https://vimeo.com/714649639/f150d13a9b","year":2022,"month":5,"day":29,"date_sort":"2022-05-29","date_display":"2022年5月29日","id":372,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"5月31日","theme":"症例2件の違い","content":"要因が異なると介入も変わる","link":"https://vimeo.com/715370045/58ba8702b7","year":2022,"month":5,"day":31,"date_sort":"2022-05-31","date_display":"2022年5月31日","id":373,"categories":["ケーススタディ"]},{"date":"6月2日","theme":"アライメント①","content":"安定と不安定","link":"https://vimeo.com/716190781/d4f552ecf6","year":2022,"month":6,"day":2,"date_sort":"2022-06-02","date_display":"2022年6月2日","id":374,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月4日","theme":"アライメント②","content":"姿勢評価","link":"https://vimeo.com/716595098/26cbef37d2","year":2022,"month":6,"day":4,"date_sort":"2022-06-04","date_display":"2022年6月4日","id":375,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"6月6日","theme":"アライメント③","content":"決定要因1","link":"https://vimeo.com/717329412/1f6e1d4bff","year":2022,"month":6,"day":6,"date_sort":"2022-06-06","date_display":"2022年6月6日","id":376,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月8日","theme":"アライメント④","content":"決定要因２（認知科学的見地）","link":"https://vimeo.com/717694661/62e064a20d","year":2022,"month":6,"day":8,"date_sort":"2022-06-08","date_display":"2022年6月8日","id":377,"categories":["姿勢制御・姿勢緊張","認知・心理"]},{"date":"6月10日","theme":"具体的アライメントを読むトレーニング","content":"見る①","link":"https://vimeo.com/718882536/1258815b88","year":2022,"month":6,"day":10,"date_sort":"2022-06-10","date_display":"2022年6月10日","id":378,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月14日","theme":"オンラインSV","content":"運動力学","link":"https://vimeo.com/719828974/5fc949bcfe","year":2022,"month":6,"day":14,"date_sort":"2022-06-14","date_display":"2022年6月14日","id":379,"categories":["ケーススタディ"]},{"date":"6月16日","theme":"アライメントの条件","content":"維持できるのはなぜ？崩れるのはなぜ？","link":"https://vimeo.com/720574833/2f82a01069","year":2022,"month":6,"day":16,"date_sort":"2022-06-16","date_display":"2022年6月16日","id":380,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月18日","theme":"オンラインSV3回目","content":"アライメントの評価","link":"https://vimeo.com/721476079/ea830d50fa","year":2022,"month":6,"day":18,"date_sort":"2022-06-18","date_display":"2022年6月18日","id":381,"categories":["姿勢制御・姿勢緊張","評価・分析","ケーススタディ"]},{"date":"6月20日","theme":"アライメントが崩れる","content":"骨関節・筋のアライメント","link":"https://vimeo.com/721700146/12c6b24f90","year":2022,"month":6,"day":20,"date_sort":"2022-06-20","date_display":"2022年6月20日","id":382,"categories":["姿勢制御・姿勢緊張","筋・解剖学"]},{"date":"6月22日","theme":"筋肉トレーニング","content":"介入効果ある？","link":"https://vimeo.com/722737120/560659a6d9","year":2022,"month":6,"day":22,"date_sort":"2022-06-22","date_display":"2022年6月22日","id":383,"categories":["筋・解剖学"]},{"date":"6月24日","theme":"姿勢制御とは？①","content":"姿勢制御を正常化にする必要要素","link":"https://vimeo.com/723180206/82681b0e4f","year":2022,"month":6,"day":24,"date_sort":"2022-06-24","date_display":"2022年6月24日","id":384,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月28日","theme":"姿勢正業とは？②","content":"姿勢調整のメカニズム","link":"https://vimeo.com/724299929/e9d3f85886","year":2022,"month":6,"day":28,"date_sort":"2022-06-28","date_display":"2022年6月28日","id":385,"categories":["姿勢制御・姿勢緊張"]},{"date":"6月30日","theme":"オンラインSV","content":"最終回","link":"https://vimeo.com/725457002/0475fb2df0","year":2022,"month":6,"day":30,"date_sort":"2022-06-30","date_display":"2022年6月30日","id":386,"categories":["ケーススタディ"]},{"date":"7月2日","theme":"上肢機能の基礎①","content":"コンテンツの紹介","link":"https://vimeo.com/725887319/8855a66213","year":2022,"month":7,"day":2,"date_sort":"2022-07-02","date_display":"2022年7月2日","id":387,"categories":["上肢機能"]},{"date":"7月4日","theme":"上肢機能の基礎②","content":"肩甲骨","link":"https://vimeo.com/726468798/e5c7435370","year":2022,"month":7,"day":4,"date_sort":"2022-07-04","date_display":"2022年7月4日","id":388,"categories":["上肢機能"]},{"date":"7月7日","theme":"上肢機能の基礎③","content":"肩甲骨と上肢の連結","link":"https://vimeo.com/727312788/940e8c4ffa","year":2022,"month":7,"day":7,"date_sort":"2022-07-07","date_display":"2022年7月7日","id":389,"categories":["上肢機能"]},{"date":"7月9日","theme":"上肢機能の基礎④","content":"前腕・手部・中枢部との関係","link":"https://vimeo.com/728273357/42150ad42e","year":2022,"month":7,"day":9,"date_sort":"2022-07-09","date_display":"2022年7月9日","id":390,"categories":["上肢機能"]},{"date":"7月11日","theme":"上肢の運動学","content":"全身に必要な支持要素","link":"https://vimeo.com/728480443/d14b1fc495","year":2022,"month":7,"day":11,"date_sort":"2022-07-11","date_display":"2022年7月11日","id":391,"categories":["上肢機能","筋・解剖学"]},{"date":"7月13日","theme":"姿勢緊張","content":"toneの反応傾向","link":"https://vimeo.com/729376549/59c48392b6","year":2022,"month":7,"day":13,"date_sort":"2022-07-13","date_display":"2022年7月13日","id":392,"categories":["姿勢制御・姿勢緊張"]},{"date":"7月15日","theme":"APAsの評価","content":"上肢機能とAPAs","link":"https://vimeo.com/730148166/4e7a95ad34","year":2022,"month":7,"day":15,"date_sort":"2022-07-15","date_display":"2022年7月15日","id":393,"categories":["上肢機能","評価・分析"]},{"date":"7月19日","theme":"APAs","content":"ユヅと僕たちの違う","link":"https://vimeo.com/731167234/600a31083f","year":2022,"month":7,"day":19,"date_sort":"2022-07-19","date_display":"2022年7月19日","id":394,"categories":[]},{"date":"7月28日","theme":"評価とは","content":"評価を言語化する","link":"https://vimeo.com/733791874/3835ef6806","year":2022,"month":7,"day":28,"date_sort":"2022-07-28","date_display":"2022年7月28日","id":395,"categories":["評価・分析"]},{"date":"7月29日","theme":"オンラインSV","content":"第4回目","link":"https://vimeo.com/733892560/0dc93f10c0","year":2022,"month":7,"day":29,"date_sort":"2022-07-29","date_display":"2022年7月29日","id":396,"categories":["ケーススタディ"]},{"date":"8月1日","theme":"右被殻出血","content":"僕的な解釈と治療","link":"https://vimeo.com/735260211/9ef981e04c","year":2022,"month":8,"day":1,"date_sort":"2022-08-01","date_display":"2022年8月1日","id":397,"categories":[]},{"date":"8月2日","theme":"当事者の訴え→情報満載","content":"脳機能と臨床像をリンクする","link":"https://vimeo.com/735592660/da95830b3c","year":2022,"month":8,"day":2,"date_sort":"2022-08-02","date_display":"2022年8月2日","id":398,"categories":[]},{"date":"8月4日","theme":"脳卒中の発症初期","content":"脳ショックと小脳機能","link":"https://vimeo.com/736141189/199bd382bf","year":2022,"month":8,"day":4,"date_sort":"2022-08-04","date_display":"2022年8月4日","id":399,"categories":["小脳・神経系","疾患・病態"]},{"date":"8月6日","theme":"論文を読み込む","content":"脳卒中初期の状態理解","link":"https://vimeo.com/737012118/b2cce0a5e9","year":2022,"month":8,"day":6,"date_sort":"2022-08-06","date_display":"2022年8月6日","id":400,"categories":["疾患・病態"]},{"date":"8月8日","theme":"内部モデルにアクセスする","content":"メカニズム","link":"https://vimeo.com/737221309/ddcaf1b623","year":2022,"month":8,"day":8,"date_sort":"2022-08-08","date_display":"2022年8月8日","id":401,"categories":["認知・心理"]},{"date":"8月10日","theme":"内部モデルを深堀する","content":"運動記憶≒内部モデル","link":"https://vimeo.com/737760659/3d4a71dfad","year":2022,"month":8,"day":10,"date_sort":"2022-08-10","date_display":"2022年8月10日","id":402,"categories":["認知・心理"]},{"date":"8月12日","theme":"麻痺側上肢の姿勢・歩行への影響","content":"胸鎖乳突筋の硬さ","link":"https://vimeo.com/738446722/784063cfad","year":2022,"month":8,"day":12,"date_sort":"2022-08-12","date_display":"2022年8月12日","id":403,"categories":["姿勢制御・姿勢緊張","上肢機能","歩行・移動","筋・解剖学"]},{"date":"8月14日","theme":"活舌と上肢の関係","content":"円楽師匠の活舌を良くするには","link":"https://vimeo.com/739193253/d291109679","year":2022,"month":8,"day":14,"date_sort":"2022-08-14","date_display":"2022年8月14日","id":404,"categories":["上肢機能","嚥下・口腔"]},{"date":"8月16日","theme":"手関節背屈への介入","content":"練習","link":"https://vimeo.com/739503440/f0eaf829b5","year":2022,"month":8,"day":16,"date_sort":"2022-08-16","date_display":"2022年8月16日","id":405,"categories":["上肢機能","筋・解剖学"]},{"date":"8月18日","theme":"作業と幸福感","content":"自主トレを色々と変える背景","link":"https://vimeo.com/740180672/b7f662f5d8","year":2022,"month":8,"day":18,"date_sort":"2022-08-18","date_display":"2022年8月18日","id":406,"categories":[]},{"date":"8月20日","theme":"麻痺側上肢の回復段階と脳内処理の考察","content":"どうレベルにアプローチしているか","link":"https://vimeo.com/741264570/2d46debe76","year":2022,"month":8,"day":20,"date_sort":"2022-08-20","date_display":"2022年8月20日","id":407,"categories":["上肢機能"]},{"date":"8月23日","theme":"痙性","content":"痙性の介入はモビライズなのか","link":"https://vimeo.com/742048740/a7980a39af","year":2022,"month":8,"day":23,"date_sort":"2022-08-23","date_display":"2022年8月23日","id":408,"categories":["疾患・病態"]},{"date":"8月25日","theme":"姿勢と運動","content":"介入方法の選択と結果","link":"https://vimeo.com/742491336/a6468861db","year":2022,"month":8,"day":25,"date_sort":"2022-08-25","date_display":"2022年8月25日","id":409,"categories":["姿勢制御・姿勢緊張"]},{"date":"8月27日","theme":"片麻痺者の評価","content":"ROMは何のために必要か","link":"https://vimeo.com/743398698/eaf0667019","year":2022,"month":8,"day":27,"date_sort":"2022-08-27","date_display":"2022年8月27日","id":410,"categories":["筋・解剖学","評価・分析"]},{"date":"8月29日","theme":"介入の糸口","content":"診断名と画像所見、動作パターン、感覚情報への反応","link":"https://vimeo.com/743810066/c316eb66d5","year":2022,"month":8,"day":29,"date_sort":"2022-08-29","date_display":"2022年8月29日","id":411,"categories":["感覚・知覚"]},{"date":"9月1日","theme":"8月31日講義配信","content":"目標：常に生活を置く","link":"https://vimeo.com/745579611/71abc6e0c6","year":2022,"month":9,"day":1,"date_sort":"2022-09-01","date_display":"2022年9月1日","id":412,"categories":[]},{"date":"9月3日","theme":"失調症状","content":"脳の局所と見える症状の乖離","link":"https://vimeo.com/745605404/31ccc6ae84","year":2022,"month":9,"day":3,"date_sort":"2022-09-03","date_display":"2022年9月3日","id":413,"categories":["疾患・病態"]},{"date":"9月5日","theme":"運動失調①","content":"ロンベルグ試験","link":"https://vimeo.com/746227344/54bb0ed878","year":2022,"month":9,"day":5,"date_sort":"2022-09-05","date_display":"2022年9月5日","id":414,"categories":["疾患・病態"]},{"date":"9月7日","theme":"運動失調②","content":"神経内科医の意見","link":"https://vimeo.com/746703899/d946a0c0f2","year":2022,"month":9,"day":7,"date_sort":"2022-09-07","date_display":"2022年9月7日","id":415,"categories":["小脳・神経系","疾患・病態"]},{"date":"9月9日","theme":"空間の測り方","content":"対象物に手が伸ばせるか","link":"https://vimeo.com/747545241/81c72ba734","year":2022,"month":9,"day":9,"date_sort":"2022-09-09","date_display":"2022年9月9日","id":416,"categories":[]},{"date":"9月11日","theme":"★固有感覚情報と身体図式","content":"視覚代償は何をどう代償しているか","link":"https://vimeo.com/748222416/7ab61c4ad5","year":2022,"month":9,"day":11,"date_sort":"2022-09-11","date_display":"2022年9月11日","id":417,"categories":["感覚・知覚"]},{"date":"9月13日","theme":"小脳失調","content":"予測と構え","link":"https://vimeo.com/748956301/4a6e65e04c","year":2022,"month":9,"day":13,"date_sort":"2022-09-13","date_display":"2022年9月13日","id":418,"categories":["小脳・神経系","疾患・病態"]},{"date":"9月15日","theme":"予測と構え","content":"解説","link":"https://vimeo.com/749041596/d7e9d491b7","year":2022,"month":9,"day":15,"date_sort":"2022-09-15","date_display":"2022年9月15日","id":419,"categories":[]},{"date":"9月17日","theme":"徒手介入とアクティビティで変わった理由","content":"考察","link":"https://vimeo.com/750537845/87411a5296","year":2022,"month":9,"day":17,"date_sort":"2022-09-17","date_display":"2022年9月17日","id":420,"categories":[]},{"date":"9月19日","theme":"病態を整理するための基礎知識","content":"視床病変で小脳失調が出現する","link":"https://vimeo.com/750777127/e17b09e740","year":2022,"month":9,"day":19,"date_sort":"2022-09-19","date_display":"2022年9月19日","id":421,"categories":["小脳・神経系","疾患・病態"]},{"date":"9月21日","theme":"★痙縮を考えるための基礎知識","content":"γ運動ニューロンの上位コントール","link":"https://vimeo.com/751460862/df959c5c22","year":2022,"month":9,"day":21,"date_sort":"2022-09-21","date_display":"2022年9月21日","id":422,"categories":["小脳・神経系","疾患・病態"]},{"date":"9月23日","theme":"γ運動ニューロンの過剰興奮はなぜ起きるのか","content":"改善例から考える","link":"https://vimeo.com/752416831/862008f0bb","year":2022,"month":9,"day":23,"date_sort":"2022-09-23","date_display":"2022年9月23日","id":423,"categories":["小脳・神経系"]},{"date":"9月25日","theme":"リハビリテーションが目指すこと","content":"機能の最適化？？","link":"https://vimeo.com/753160872/dbc1f85a35","year":2022,"month":9,"day":25,"date_sort":"2022-09-25","date_display":"2022年9月25日","id":424,"categories":[]},{"date":"9月27日","theme":"小脳失調の種類","content":"状態像を整理する知識","link":"https://vimeo.com/753825661/3029ffee1d","year":2022,"month":9,"day":27,"date_sort":"2022-09-27","date_display":"2022年9月27日","id":425,"categories":["小脳・神経系","疾患・病態"]},{"date":"9月29日","theme":"下部体幹の低緊張","content":"脳活動の低下？","link":"https://vimeo.com/754907883/1ec12a5f03","year":2022,"month":9,"day":29,"date_sort":"2022-09-29","date_display":"2022年9月29日","id":426,"categories":[]},{"date":"10月1日","theme":"身体構造を学ぶ","content":"講義方針","link":"https://vimeo.com/755331501/ad24741bf6","year":2022,"month":10,"day":1,"date_sort":"2022-10-01","date_display":"2022年10月1日","id":427,"categories":[]},{"date":"10月3日","theme":"解剖学・運動学を学ぶ","content":"どう学ぶ？","link":"https://vimeo.com/756031348/3af02dbd1f","year":2022,"month":10,"day":3,"date_sort":"2022-10-03","date_display":"2022年10月3日","id":428,"categories":["筋・解剖学"]},{"date":"10月5日","theme":"立位・歩行①","content":"解剖学・運動学","link":"https://vimeo.com/756610502/ec30326bb1","year":2022,"month":10,"day":5,"date_sort":"2022-10-05","date_display":"2022年10月5日","id":429,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月7日","theme":"立位・歩行②","content":"距腿関節の整合性を保つ筋活動","link":"https://vimeo.com/757760635/54df45d5c6","year":2022,"month":10,"day":7,"date_sort":"2022-10-07","date_display":"2022年10月7日","id":430,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月9日","theme":"立位：膝折れは四頭筋の問題？","content":"立位制御から考える","link":"https://vimeo.com/758150685/d04886f3b5","year":2022,"month":10,"day":9,"date_sort":"2022-10-09","date_display":"2022年10月9日","id":431,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月11日","theme":"歩くための立位","content":"片麻痺者の問題","link":"https://vimeo.com/758599802/b9cfa763fb","year":2022,"month":10,"day":11,"date_sort":"2022-10-11","date_display":"2022年10月11日","id":432,"categories":["歩行・移動"]},{"date":"10月13日","theme":"歩くための立位を解剖学・運動学で理解する","content":"膝関節コントロールは固有感覚が作用する","link":"https://vimeo.com/759338396/28b3873b93","year":2022,"month":10,"day":13,"date_sort":"2022-10-13","date_display":"2022年10月13日","id":433,"categories":["歩行・移動","感覚・知覚","筋・解剖学"]},{"date":"10月15日","theme":"片脚立位","content":"立脚を保証する姿勢アライメント","link":"https://vimeo.com/760103510/7d9f64b30b","year":2022,"month":10,"day":15,"date_sort":"2022-10-15","date_display":"2022年10月15日","id":434,"categories":["姿勢制御・姿勢緊張","歩行・移動"]},{"date":"10月17日","theme":"歩行のためのステッピング","content":"重心移動は移動側から","link":"https://vimeo.com/760674791/2cd1a1da87","year":2022,"month":10,"day":17,"date_sort":"2022-10-17","date_display":"2022年10月17日","id":435,"categories":["歩行・移動"]},{"date":"10月19日","theme":"ステッピングポジションからスウィングへ","content":"股関節過伸展と腸腰筋の活動","link":"https://vimeo.com/761246966/d200dc86e5","year":2022,"month":10,"day":19,"date_sort":"2022-10-19","date_display":"2022年10月19日","id":436,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月21日","theme":"ステッピングポジションから重心移動とバランス①","content":"片麻痺者の失敗ポイント","link":"https://vimeo.com/762234224/b9d4b93f69","year":2022,"month":10,"day":21,"date_sort":"2022-10-21","date_display":"2022年10月21日","id":437,"categories":["歩行・移動"]},{"date":"10月23日","theme":"ステッピングポジションから重心移動とバランス②","content":"スウィングさせる筋活動と重心移動と軌跡","link":"https://vimeo.com/762818452/6adff7ef6b","year":2022,"month":10,"day":23,"date_sort":"2022-10-23","date_display":"2022年10月23日","id":438,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月25日","theme":"ステッピングポジションからの振り出し","content":"内転筋と骨盤","link":"https://vimeo.com/763412268/54ad52ee1b","year":2022,"month":10,"day":25,"date_sort":"2022-10-25","date_display":"2022年10月25日","id":439,"categories":["歩行・移動","筋・解剖学"]},{"date":"10月27日","theme":"感覚－運動","content":"言語、感覚を運動に翻訳する能力","link":"https://vimeo.com/764335481/8563ac6e62","year":2022,"month":10,"day":27,"date_sort":"2022-10-27","date_display":"2022年10月27日","id":440,"categories":["感覚・知覚"]},{"date":"10月29日","theme":"ステッピングポジションで難しいのは？","content":"体幹の移動","link":"https://vimeo.com/764752908/c20ca862f0","year":2022,"month":10,"day":29,"date_sort":"2022-10-29","date_display":"2022年10月29日","id":441,"categories":["歩行・移動"]},{"date":"10月31日","theme":"来月の講義","content":"固有受容感覚と小脳機能","link":"https://vimeo.com/765325292/895e144f1a","year":2022,"month":10,"day":31,"date_sort":"2022-10-31","date_display":"2022年10月31日","id":442,"categories":["小脳・神経系","感覚・知覚"]},{"date":"11月2日","theme":"殿筋のしょぼさは麻痺？","content":"殿筋を研究する","link":"https://vimeo.com/766006959/4a33112df9","year":2022,"month":11,"day":2,"date_sort":"2022-11-02","date_display":"2022年11月2日","id":443,"categories":["筋・解剖学"]},{"date":"11月4日","theme":"形態と区分","content":"大殿筋を研究する①","link":"https://vimeo.com/766792145/8afecdd58f","year":2022,"month":11,"day":4,"date_sort":"2022-11-04","date_display":"2022年11月4日","id":444,"categories":["筋・解剖学"]},{"date":"11月6日","theme":"教科書を鵜呑みにしない","content":"大殿筋を研究する②","link":"https://vimeo.com/767533058/c39a7a0277","year":2022,"month":11,"day":6,"date_sort":"2022-11-06","date_display":"2022年11月6日","id":445,"categories":["筋・解剖学"]},{"date":"11月8日","theme":"大殿筋③","content":"歩行と立ち座りの殿筋活動","link":"https://vimeo.com/768304215/00092d92bf","year":2022,"month":11,"day":8,"date_sort":"2022-11-08","date_display":"2022年11月8日","id":446,"categories":["歩行・移動","筋・解剖学"]},{"date":"11月10日","theme":"大殿筋④","content":"方向転換時のステップと段差昇降","link":"https://vimeo.com/768777985/70a43f80e7","year":2022,"month":11,"day":10,"date_sort":"2022-11-10","date_display":"2022年11月10日","id":447,"categories":["筋・解剖学"]},{"date":"11月12日","theme":"大殿筋⑤","content":"片脚立位と上肢活動","link":"https://vimeo.com/769654197/1d9932973d","year":2022,"month":11,"day":12,"date_sort":"2022-11-12","date_display":"2022年11月12日","id":448,"categories":["上肢機能","歩行・移動","筋・解剖学"]},{"date":"11月14日","theme":"大殿筋⑥","content":"片麻痺者の骨盤","link":"https://vimeo.com/770293391/a1bd7a2971","year":2022,"month":11,"day":14,"date_sort":"2022-11-14","date_display":"2022年11月14日","id":449,"categories":["筋・解剖学"]},{"date":"11月16日","theme":"大殿筋⑦","content":"大殿筋の不活動では何が起こる","link":"https://vimeo.com/771121843/4d7ca2e81b","year":2022,"month":11,"day":16,"date_sort":"2022-11-16","date_display":"2022年11月16日","id":450,"categories":["筋・解剖学"]},{"date":"11月18日","theme":"大殿筋⑧","content":"大殿筋の感覚作用","link":"https://vimeo.com/771921412/9b96f4e7b0","year":2022,"month":11,"day":18,"date_sort":"2022-11-18","date_display":"2022年11月18日","id":451,"categories":["感覚・知覚","筋・解剖学"]},{"date":"11月20日","theme":"大殿筋⑨","content":"大殿筋が大きい理由","link":"https://vimeo.com/772872751/1dc6c0ad6b","year":2022,"month":11,"day":20,"date_sort":"2022-11-20","date_display":"2022年11月20日","id":452,"categories":["筋・解剖学"]},{"date":"11月22日","theme":"大殿筋⑩","content":"ハムストリングスの硬さは短縮ではない","link":"https://vimeo.com/773212602/bc0b89a431","year":2022,"month":11,"day":22,"date_sort":"2022-11-22","date_display":"2022年11月22日","id":453,"categories":["筋・解剖学"]},{"date":"11月24日","theme":"障害の中身","content":"筋肉と神経の立ち位置","link":"https://vimeo.com/774147967/61b68ed08c","year":2022,"month":11,"day":24,"date_sort":"2022-11-24","date_display":"2022年11月24日","id":454,"categories":["小脳・神経系","筋・解剖学"]},{"date":"11月26日","theme":"大殿筋⑪","content":"腹横筋に注目","link":"https://vimeo.com/774898993/37dd245acf","year":2022,"month":11,"day":26,"date_sort":"2022-11-26","date_display":"2022年11月26日","id":455,"categories":["筋・解剖学"]},{"date":"11月28日","theme":"大殿筋のまとめ","content":"筋に触れる意味","link":"https://vimeo.com/775477999/6069dd4048","year":2022,"month":11,"day":28,"date_sort":"2022-11-28","date_display":"2022年11月28日","id":456,"categories":["筋・解剖学"]},{"date":"11月30日","theme":"12月の予告","content":"歩行のための上肢機能","link":"https://vimeo.com/776364616/b04d42484f","year":2022,"month":11,"day":30,"date_sort":"2022-11-30","date_display":"2022年11月30日","id":457,"categories":["上肢機能","歩行・移動"]},{"date":"12月2日","theme":"歩行のための上肢機能①","content":"上肢の位置で歩行は変わるのか","link":"https://vimeo.com/776904512/3d003184fa","year":2022,"month":12,"day":2,"date_sort":"2022-12-02","date_display":"2022年12月2日","id":458,"categories":["上肢機能","歩行・移動"]},{"date":"12月4日","theme":"歩行のための上肢機能②","content":"手の位置で歩容は変わる意味","link":"https://vimeo.com/777697529/7470c5ba2a","year":2022,"month":12,"day":4,"date_sort":"2022-12-04","date_display":"2022年12月4日","id":459,"categories":["上肢機能","歩行・移動"]},{"date":"12月6日","theme":"歩行のための上肢機能③","content":"自由な上肢とブラブラな上肢","link":"https://vimeo.com/778269716/3897461021","year":2022,"month":12,"day":6,"date_sort":"2022-12-06","date_display":"2022年12月6日","id":460,"categories":["上肢機能","歩行・移動"]},{"date":"12月8日","theme":"歩行のための上肢機能④","content":"ぶん回し歩行の解説","link":"https://vimeo.com/778723302/c97bf0164f","year":2022,"month":12,"day":8,"date_sort":"2022-12-08","date_display":"2022年12月8日","id":461,"categories":["上肢機能","歩行・移動"]},{"date":"12月10日","theme":"歩行の上肢機能⑤","content":"ローリングという姿勢変化が促せない","link":"https://vimeo.com/779437372/2737ed74d4","year":2022,"month":12,"day":10,"date_sort":"2022-12-10","date_display":"2022年12月10日","id":462,"categories":["姿勢制御・姿勢緊張","上肢機能","歩行・移動"]},{"date":"12月12日","theme":"歩行のための上肢機能⑥","content":"上肢機能とバランス1","link":"https://vimeo.com/780090251/129367f569","year":2022,"month":12,"day":12,"date_sort":"2022-12-12","date_display":"2022年12月12日","id":463,"categories":["上肢機能","歩行・移動"]},{"date":"12月14日","theme":"歩行のための上肢機能⑦","content":"上肢機能とバランス2","link":"https://vimeo.com/780585572/2514f85238","year":2022,"month":12,"day":14,"date_sort":"2022-12-14","date_display":"2022年12月14日","id":464,"categories":["上肢機能","歩行・移動"]},{"date":"12月16日","theme":"歩行のための上肢機能⑧","content":"非麻痺側上肢の固定が足部の内反を作る","link":"https://vimeo.com/781416469/9ec0527387","year":2022,"month":12,"day":16,"date_sort":"2022-12-16","date_display":"2022年12月16日","id":465,"categories":["上肢機能","歩行・移動"]},{"date":"12月18日","theme":"歩行のための上肢機能⑨","content":"脳の変化を期待する","link":"https://vimeo.com/781998360/d3895712d5","year":2022,"month":12,"day":18,"date_sort":"2022-12-18","date_display":"2022年12月18日","id":466,"categories":["上肢機能","歩行・移動"]},{"date":"12月20日","theme":"歩行のための上肢機能⑩","content":"まとめ","link":"https://vimeo.com/782696439/52bf4e86b6","year":2022,"month":12,"day":20,"date_sort":"2022-12-20","date_display":"2022年12月20日","id":467,"categories":["上肢機能","歩行・移動"]},{"date":"12月22日","theme":"技術伝達①","content":"股関節伸展","link":"https://vimeo.com/783100155/73963ca8d2","year":2022,"month":12,"day":22,"date_sort":"2022-12-22","date_display":"2022年12月22日","id":468,"categories":["筋・解剖学","セミナー・実技"]},{"date":"12月24日","theme":"技術伝達②","content":"肩甲骨の可動性とセッティング","link":"https://vimeo.com/783934058/bd961d6256","year":2022,"month":12,"day":24,"date_sort":"2022-12-24","date_display":"2022年12月24日","id":469,"categories":["上肢機能","セミナー・実技"]},{"date":"12月26日","theme":"技術伝達③","content":"僧帽筋上部繊維と体幹筋との関係","link":"https://vimeo.com/784184442/e7e37f98c2","year":2022,"month":12,"day":26,"date_sort":"2022-12-26","date_display":"2022年12月26日","id":470,"categories":["筋・解剖学","セミナー・実技"]},{"date":"12月28日","theme":"技術伝達④","content":"上肢からの座位バランスと麻痺側下肢への荷重感","link":"https://vimeo.com/784431885/f1bc1e5a56","year":2022,"month":12,"day":28,"date_sort":"2022-12-28","date_display":"2022年12月28日","id":471,"categories":["上肢機能","セミナー・実技"]},{"date":"12月30日","theme":"技術伝達⑤","content":"歩行誘導","link":"https://vimeo.com/784948235/f3aa721781","year":2022,"month":12,"day":30,"date_sort":"2022-12-30","date_display":"2022年12月30日","id":472,"categories":["歩行・移動","セミナー・実技"]},{"date":"2023年1月4日","theme":"今年の抱負とテーマ","content":"目標","link":"https://vimeo.com/786102214/08641b0284","year":2023,"month":1,"day":4,"date_sort":"2023-01-04","date_display":"2023年1月4日","id":473,"categories":[]},{"date":"1月5日","theme":"PCのキーボード入力","content":"分析","link":"https://vimeo.com/786405980/91e2922a74","year":2023,"month":1,"day":5,"date_sort":"2023-01-05","date_display":"2023年1月5日","id":474,"categories":["評価・分析"]},{"date":"1月7日","theme":"タイピングの考察","content":"キーを打つ","link":"https://vimeo.com/786852708/f2ec6708ec","year":2023,"month":1,"day":7,"date_sort":"2023-01-07","date_display":"2023年1月7日","id":475,"categories":[]},{"date":"1月9日","theme":"タイピングで達したいこと","content":"正常要素","link":"https://vimeo.com/787395247/1bf9ed8859","year":2023,"month":1,"day":9,"date_sort":"2023-01-09","date_display":"2023年1月9日","id":476,"categories":[]},{"date":"1月11日","theme":"手指の分離運動①","content":"手根関節","link":"https://vimeo.com/787845438/efea0e5924","year":2023,"month":1,"day":11,"date_sort":"2023-01-11","date_display":"2023年1月11日","id":477,"categories":["上肢機能","筋・解剖学"]},{"date":"1月13日","theme":"手指の分離運動②","content":"手根中央関節","link":"https://vimeo.com/788807845/5ad33b8847","year":2023,"month":1,"day":13,"date_sort":"2023-01-13","date_display":"2023年1月13日","id":478,"categories":["上肢機能","筋・解剖学"]},{"date":"1月15日","theme":"手指の分離運動③","content":"手関節の知識を応用する","link":"https://vimeo.com/789336351/dd77eadb9a","year":2023,"month":1,"day":15,"date_sort":"2023-01-15","date_display":"2023年1月15日","id":479,"categories":["上肢機能","筋・解剖学"]},{"date":"1月17日","theme":"手関節の知識の応用","content":"介入の解説","link":"https://vimeo.com/789584077/c0ecf76100","year":2023,"month":1,"day":17,"date_sort":"2023-01-17","date_display":"2023年1月17日","id":480,"categories":["上肢機能","筋・解剖学"]},{"date":"1月19日","theme":"失調症状","content":"構えについて","link":"https://vimeo.com/790227240/ce4f15df21","year":2023,"month":1,"day":19,"date_sort":"2023-01-19","date_display":"2023年1月19日","id":481,"categories":["疾患・病態"]},{"date":"1月21日","theme":"★麻痺手の介入　解説","content":"手関節背屈と頭骨遠位端の可動性","link":"https://vimeo.com/791133230/32461406ff","year":2023,"month":1,"day":21,"date_sort":"2023-01-21","date_display":"2023年1月21日","id":482,"categories":["上肢機能","筋・解剖学"]},{"date":"1月23日","theme":"★麻痺手の介入","content":"アクティビティの紹介","link":"https://vimeo.com/791583387/caf6420f78","year":2023,"month":1,"day":23,"date_sort":"2023-01-23","date_display":"2023年1月23日","id":483,"categories":["上肢機能"]},{"date":"1月25日","theme":"★麻痺手の介入する目的","content":"達成目標","link":"https://vimeo.com/792141674/887ffa1138","year":2023,"month":1,"day":25,"date_sort":"2023-01-25","date_display":"2023年1月25日","id":484,"categories":["上肢機能"]},{"date":"１月27日","theme":"★手指の状態が姿勢緊張に影響する","content":"母指内転筋と殿筋","link":"https://vimeo.com/792900032/73982af4a8","year":2023,"month":1,"day":27,"date_sort":"2023-01-27","date_display":"2023年1月27日","id":485,"categories":["姿勢制御・姿勢緊張","上肢機能","筋・解剖学"]},{"date":"1月29日","theme":"★手指の分離","content":"手内在筋と外在筋との協調性","link":"https://vimeo.com/793515147/3c00f3cc65","year":2023,"month":1,"day":29,"date_sort":"2023-01-29","date_display":"2023年1月29日","id":486,"categories":["上肢機能","筋・解剖学"]},{"date":"1月31日","theme":"★手指の随意性と肩甲骨の安定","content":"手関節掌屈の背景","link":"https://vimeo.com/794100710/772e73f127","year":2023,"month":1,"day":31,"date_sort":"2023-01-31","date_display":"2023年1月31日","id":487,"categories":["上肢機能","筋・解剖学"]},{"date":"2023年2月2日","theme":"嚥下の5期モデル","content":"基本知識","link":"https://vimeo.com/794882179/bc5289959d","year":2023,"month":2,"day":2,"date_sort":"2023-02-02","date_display":"2023年2月2日","id":488,"categories":["嚥下・口腔"]},{"date":"2月4日","theme":"★嚥下の５期モデル①","content":"認知期","link":"https://vimeo.com/795430977/86e899715f","year":2023,"month":2,"day":4,"date_sort":"2023-02-04","date_display":"2023年2月4日","id":489,"categories":["嚥下・口腔","認知・心理"]},{"date":"2月6日","theme":"★嚥下の5期モデル②","content":"水分を口腔内を陰圧する","link":"https://vimeo.com/795960729/4391d3d544","year":2023,"month":2,"day":6,"date_sort":"2023-02-06","date_display":"2023年2月6日","id":490,"categories":["嚥下・口腔"]},{"date":"2月8日","theme":"★嚥下の5期モデル","content":"捕食期","link":"https://vimeo.com/796583223/b2d5476b6c","year":2023,"month":2,"day":8,"date_sort":"2023-02-08","date_display":"2023年2月8日","id":491,"categories":["嚥下・口腔"]},{"date":"2月10日","theme":"★嚥下の5期モデル","content":"口腔期～喉頭期～咽頭期","link":"https://vimeo.com/797200613/e23f55eed8","year":2023,"month":2,"day":10,"date_sort":"2023-02-10","date_display":"2023年2月10日","id":492,"categories":["嚥下・口腔"]},{"date":"2月12日","theme":"大脳基底核の機能","content":"基底核の反応と小脳の反応の違い","link":"https://vimeo.com/797952828/0cfbe40142","year":2023,"month":2,"day":12,"date_sort":"2023-02-12","date_display":"2023年2月12日","id":493,"categories":["小脳・神経系"]},{"date":"2月14日","theme":"大脳基底核の仕事","content":"硬さの理由","link":"https://vimeo.com/798248117/9283952a41","year":2023,"month":2,"day":14,"date_sort":"2023-02-14","date_display":"2023年2月14日","id":494,"categories":["小脳・神経系"]},{"date":"2月16日","theme":"リーチングの基礎知識","content":"小脳・基底核の関与","link":"https://vimeo.com/799276224/236796cb34","year":2023,"month":2,"day":16,"date_sort":"2023-02-16","date_display":"2023年2月16日","id":495,"categories":["上肢機能","小脳・神経系"]},{"date":"2月18日","theme":"大脳基底核の仕事","content":"基底核の機能不全と過剰抑制","link":"https://vimeo.com/799829339/9fe9df77b8","year":2023,"month":2,"day":18,"date_sort":"2023-02-18","date_display":"2023年2月18日","id":496,"categories":["小脳・神経系"]},{"date":"2月21日","theme":"下関セミナー講義①","content":"片麻痺者の障害像の理解する①","link":"https://vimeo.com/800672929/68ad1054fe","year":2023,"month":2,"day":21,"date_sort":"2023-02-21","date_display":"2023年2月21日","id":497,"categories":["セミナー・実技"]},{"date":"2月23日","theme":"下関セミナー②","content":"片麻痺者の障害像を理解する②","link":"https://vimeo.com/801044480/0479e5034f","year":2023,"month":2,"day":23,"date_sort":"2023-02-23","date_display":"2023年2月23日","id":498,"categories":["セミナー・実技"]},{"date":"2月25日","theme":"下関セミナー③","content":"バランスの中身","link":"https://vimeo.com/801787937/5c9f9c7a2b","year":2023,"month":2,"day":25,"date_sort":"2023-02-25","date_display":"2023年2月25日","id":499,"categories":["セミナー・実技"]},{"date":"2月27日","theme":"下関セミナー④","content":"学習性不使用と恐怖感による姿勢緊張への悪影響","link":"https://vimeo.com/802342368/cae9eeb4ee","year":2023,"month":2,"day":27,"date_sort":"2023-02-27","date_display":"2023年2月27日","id":500,"categories":["姿勢制御・姿勢緊張","セミナー・実技"]},{"date":"2023年3月2日","theme":"地方巡業セミナー補足講義","content":"姿勢の意味","link":"https://vimeo.com/803259026/e4332525db","year":2023,"month":3,"day":2,"date_sort":"2023-03-02","date_display":"2023年3月2日","id":501,"categories":["姿勢制御・姿勢緊張","セミナー・実技"]},{"date":"3月3日","theme":"地方巡業セミナー講義録","content":"片麻痺者が動けない理由","link":"https://vimeo.com/803867313/6fb156d36f","year":2023,"month":3,"day":3,"date_sort":"2023-03-03","date_display":"2023年3月3日","id":502,"categories":["セミナー・実技"]},{"date":"3月5日","theme":"麻痺側上肢機能　時期別達成目標","content":"どこに、なぜ介入しているか","link":"https://vimeo.com/804566075/7ce3a0ef6f","year":2023,"month":3,"day":5,"date_sort":"2023-03-05","date_display":"2023年3月5日","id":503,"categories":["上肢機能"]},{"date":"3月7日","theme":"toneという現象を中心に時期別傾向の介入方法","content":"ざっくりした目標を立てる指標","link":"https://vimeo.com/804984335/8da96d5603","year":2023,"month":3,"day":7,"date_sort":"2023-03-07","date_display":"2023年3月7日","id":504,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月9日","theme":"toneの再考①","content":"超急性期","link":"https://vimeo.com/806116274/522f5ccd7c?fbclid=IwAR06ZH9nhWH2q6R1CZLYz-MMjqEXNGsr2TSr-oz6x14QnjjMYMi3-Z0E0d0","year":2023,"month":3,"day":9,"date_sort":"2023-03-09","date_display":"2023年3月9日","id":505,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月11日","theme":"toneの再考②","content":"急性期","link":"https://vimeo.com/806546926/91b3a4ab45","year":2023,"month":3,"day":11,"date_sort":"2023-03-11","date_display":"2023年3月11日","id":506,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月13日","theme":"toneの再考③","content":"なぜ褥瘡ができるの？","link":"https://vimeo.com/807142931/d51f0a917a","year":2023,"month":3,"day":13,"date_sort":"2023-03-13","date_display":"2023年3月13日","id":507,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月15日","theme":"toneの再考④","content":"亜急性期","link":"https://vimeo.com/807746933/dcffca8b33","year":2023,"month":3,"day":15,"date_sort":"2023-03-15","date_display":"2023年3月15日","id":508,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月17日","theme":"toneの再考⑤","content":"回復期","link":"https://vimeo.com/808619667/0f5eb357ba","year":2023,"month":3,"day":17,"date_sort":"2023-03-17","date_display":"2023年3月17日","id":509,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月19日","theme":"toneの再考⑥","content":"生活期","link":"https://vimeo.com/809250583/f46b5e3e69","year":2023,"month":3,"day":19,"date_sort":"2023-03-19","date_display":"2023年3月19日","id":510,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月21日","theme":"toneの再考⑦","content":"姿勢緊張の適応的変化","link":"https://vimeo.com/809942250/2c9036b04c","year":2023,"month":3,"day":21,"date_sort":"2023-03-21","date_display":"2023年3月21日","id":511,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月23日","theme":"姿勢緊張機能の再学習する","content":"臥位で学ぶ座位の姿勢調整","link":"https://vimeo.com/810532843/dfbcb7db56","year":2023,"month":3,"day":23,"date_sort":"2023-03-23","date_display":"2023年3月23日","id":512,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月25日","theme":"toneの再考","content":"麻痺側上下肢の連結","link":"https://vimeo.com/811157191/976b8ad591","year":2023,"month":3,"day":25,"date_sort":"2023-03-25","date_display":"2023年3月25日","id":513,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月27日","theme":"toneの再考","content":"抗重力伸展活動①","link":"https://vimeo.com/811678571/5630ab35b7","year":2023,"month":3,"day":27,"date_sort":"2023-03-27","date_display":"2023年3月27日","id":514,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月29日","theme":"toneの再考","content":"抗重力伸展活動②","link":"https://vimeo.com/812303742/edcf20c06c","year":2023,"month":3,"day":29,"date_sort":"2023-03-29","date_display":"2023年3月29日","id":515,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月31日","theme":"抗重力伸展活動の実例","content":"仮説と治療のアイデンティティ","link":"https://vimeo.com/813363277/30e52ccf1c","year":2023,"month":3,"day":31,"date_sort":"2023-03-31","date_display":"2023年3月31日","id":516,"categories":[]},{"date":"2023年4月2日","theme":"怖い要因①","content":"サルコペニア","link":"https://vimeo.com/813825468/b6af272ea7","year":2023,"month":4,"day":2,"date_sort":"2023-04-02","date_display":"2023年4月2日","id":517,"categories":[]},{"date":"4月4日","theme":"怖い要因②","content":"支持性とは","link":"https://vimeo.com/814411306/69ef0418e7","year":2023,"month":4,"day":4,"date_sort":"2023-04-04","date_display":"2023年4月4日","id":518,"categories":[]},{"date":"4月6日","theme":"怖い要因③","content":"支持性が発揮される条件","link":"https://vimeo.com/814865241/dfe2fddf14","year":2023,"month":4,"day":6,"date_sort":"2023-04-06","date_display":"2023年4月6日","id":519,"categories":[]},{"date":"4月8日","theme":"怖い要因④","content":"バランス「姿勢調整」の感覚要素と比重","link":"https://vimeo.com/815503902/b2d41d61e4","year":2023,"month":4,"day":8,"date_sort":"2023-04-08","date_display":"2023年4月8日","id":520,"categories":["姿勢制御・姿勢緊張","感覚・知覚"]},{"date":"4月10日","theme":"怖い要因⑤","content":"姿勢調整機能を賦活させるためにできること","link":"https://vimeo.com/816120422/379b79ac44","year":2023,"month":4,"day":10,"date_sort":"2023-04-10","date_display":"2023年4月10日","id":521,"categories":["姿勢制御・姿勢緊張"]},{"date":"4月12日","theme":"怖い要因⑥","content":"視覚的情報への恐怖","link":"https://vimeo.com/816567853/db42f7c6d5","year":2023,"month":4,"day":12,"date_sort":"2023-04-12","date_display":"2023年4月12日","id":522,"categories":["感覚・知覚"]},{"date":"4月14日","theme":"怖い要因⑦","content":"姿勢緊張の変容性を確認する","link":"https://vimeo.com/817225200/d9d4bfd145","year":2023,"month":4,"day":14,"date_sort":"2023-04-14","date_display":"2023年4月14日","id":523,"categories":["姿勢制御・姿勢緊張"]},{"date":"4月16日","theme":"怖い要因⑧","content":"アライメント不良とその要因と結果","link":"https://vimeo.com/817828825/9e726ff338","year":2023,"month":4,"day":16,"date_sort":"2023-04-16","date_display":"2023年4月16日","id":524,"categories":["姿勢制御・姿勢緊張"]},{"date":"4月18日","theme":"怖い要因⑨","content":"選択運動と姿勢制御","link":"https://vimeo.com/818253404/d6bfd03508","year":2023,"month":4,"day":18,"date_sort":"2023-04-18","date_display":"2023年4月18日","id":525,"categories":["姿勢制御・姿勢緊張"]},{"date":"4月20日","theme":"怖い要因⑩","content":"中枢神経系疾患を整理する","link":"https://vimeo.com/819289007/18c4eda5cc","year":2023,"month":4,"day":20,"date_sort":"2023-04-20","date_display":"2023年4月20日","id":526,"categories":["小脳・神経系"]},{"date":"4月22日","theme":"怖い要因⑪","content":"固有受容感覚と発声の関連","link":"https://vimeo.com/819811724/20cbc28cc6","year":2023,"month":4,"day":22,"date_sort":"2023-04-22","date_display":"2023年4月22日","id":527,"categories":["感覚・知覚","嚥下・口腔"]},{"date":"4月24日","theme":"怖い要因⑫","content":"介入の解説","link":"https://vimeo.com/820169668/054aae17b8","year":2023,"month":4,"day":24,"date_sort":"2023-04-24","date_display":"2023年4月24日","id":528,"categories":[]},{"date":"4月26日","theme":"怖い要因⑬","content":"姿勢緊張の変化のなさをどう評価するか","link":"https://vimeo.com/821066766/39d84c6a99","year":2023,"month":4,"day":26,"date_sort":"2023-04-26","date_display":"2023年4月26日","id":529,"categories":["姿勢制御・姿勢緊張","評価・分析"]},{"date":"4月28日","theme":"怖い要因⑭","content":"BOS上の寝返り介入","link":"https://vimeo.com/821597159/32b0187b99","year":2023,"month":4,"day":28,"date_sort":"2023-04-28","date_display":"2023年4月28日","id":530,"categories":[]},{"date":"4月30日","theme":"怖い要因⑮","content":"支持性と姿勢制御どちらを練習するか","link":"https://vimeo.com/822212442/9e25ae6221","year":2023,"month":4,"day":30,"date_sort":"2023-04-30","date_display":"2023年4月30日","id":531,"categories":["姿勢制御・姿勢緊張"]},{"date":"2023年5月2日","theme":"小脳①","content":"勉強するにあたって","link":"https://vimeo.com/822823048/375f782749","year":2023,"month":5,"day":2,"date_sort":"2023-05-02","date_display":"2023年5月2日","id":532,"categories":["小脳・神経系"]},{"date":"5月4日","theme":"小脳②","content":"勉強を阻害する要因","link":"https://vimeo.com/823188559/c0e1bd5898","year":2023,"month":5,"day":4,"date_sort":"2023-05-04","date_display":"2023年5月4日","id":533,"categories":["小脳・神経系"]},{"date":"5月6日","theme":"小脳③","content":"小脳と目の動き","link":"https://vimeo.com/824241548/8867086985","year":2023,"month":5,"day":6,"date_sort":"2023-05-06","date_display":"2023年5月6日","id":534,"categories":["小脳・神経系"]},{"date":"5月8日","theme":"小脳④","content":"感覚と視床と小脳の関係","link":"https://vimeo.com/824459192/884162263a","year":2023,"month":5,"day":8,"date_sort":"2023-05-08","date_display":"2023年5月8日","id":535,"categories":["小脳・神経系","感覚・知覚"]},{"date":"5月10日","theme":"小脳⑤","content":"随意運動に対して何をしている","link":"https://vimeo.com/825265695/b6972cce63","year":2023,"month":5,"day":10,"date_sort":"2023-05-10","date_display":"2023年5月10日","id":536,"categories":["小脳・神経系"]},{"date":"5月12日","theme":"小脳⑥","content":"入出力を整理する","link":"https://vimeo.com/825816220/ced89b6081","year":2023,"month":5,"day":12,"date_sort":"2023-05-12","date_display":"2023年5月12日","id":537,"categories":["小脳・神経系"]},{"date":"5月13日","theme":"治療場面共有","content":"BOSの変化に合わせたtone調節","link":"https://vimeo.com/826155680/04765558ce","year":2023,"month":5,"day":13,"date_sort":"2023-05-13","date_display":"2023年5月13日","id":538,"categories":["姿勢制御・姿勢緊張"]},{"date":"5月14日","theme":"小脳⑦","content":"前庭小脳","link":"https://vimeo.com/826378465/ffc6a286c8","year":2023,"month":5,"day":14,"date_sort":"2023-05-14","date_display":"2023年5月14日","id":539,"categories":["小脳・神経系"]},{"date":"5月16日","theme":"小脳⑧","content":"前庭小脳と脊髄小脳","link":"https://vimeo.com/827065016/6d4e1dda22","year":2023,"month":5,"day":16,"date_sort":"2023-05-16","date_display":"2023年5月16日","id":540,"categories":["小脳・神経系"]},{"date":"5月18日","theme":"小脳⑨","content":"神経系の作用と小脳の入出力","link":"https://vimeo.com/827516993/c01b6fbd95","year":2023,"month":5,"day":18,"date_sort":"2023-05-18","date_display":"2023年5月18日","id":541,"categories":["小脳・神経系"]},{"date":"5月20日","theme":"小脳⑩","content":"遠心性コピーと小脳機能と運動出力の関係","link":"https://vimeo.com/828322428/f0d6ae8452","year":2023,"month":5,"day":20,"date_sort":"2023-05-20","date_display":"2023年5月20日","id":542,"categories":["小脳・神経系"]},{"date":"5月22日","theme":"小脳⑪","content":"遠心性コピーと小脳機能を詳細に検討する","link":"https://vimeo.com/828845289/1084be2e68","year":2023,"month":5,"day":22,"date_sort":"2023-05-22","date_display":"2023年5月22日","id":543,"categories":["小脳・神経系"]},{"date":"5月24日","theme":"小脳⑫","content":"運動記憶とフィードフォワード制御は同じ機能か","link":"https://vimeo.com/829433670/c2360815db","year":2023,"month":5,"day":24,"date_sort":"2023-05-24","date_display":"2023年5月24日","id":544,"categories":["小脳・神経系"]},{"date":"5月26日","theme":"小脳⑬","content":"発症期から運動記憶に介入する","link":"https://vimeo.com/830365857/81dc46f991","year":2023,"month":5,"day":26,"date_sort":"2023-05-26","date_display":"2023年5月26日","id":545,"categories":["小脳・神経系"]},{"date":"5月28日","theme":"弛緩性麻痺の上肢","content":"小脳機能で考える","link":"https://vimeo.com/830731954/3c519ee59a","year":2023,"month":5,"day":28,"date_sort":"2023-05-28","date_display":"2023年5月28日","id":546,"categories":["上肢機能","小脳・神経系"]},{"date":"2023年6月2日","theme":"麻痺って何？","content":"随意運動の位置付け","link":"https://vimeo.com/832427277/f38756be12","year":2023,"month":6,"day":2,"date_sort":"2023-06-02","date_display":"2023年6月2日","id":547,"categories":[]},{"date":"6月4日","theme":"麻痺って何？","content":"あくびと上肢の動きの関係","link":"https://vimeo.com/832804954/2f394ac258","year":2023,"month":6,"day":4,"date_sort":"2023-06-04","date_display":"2023年6月4日","id":548,"categories":["上肢機能"]},{"date":"6月6日","theme":"麻痺って何？","content":"上肢を身体化する理由","link":"https://vimeo.com/833254549/9ce3981e79","year":2023,"month":6,"day":6,"date_sort":"2023-06-06","date_display":"2023年6月6日","id":549,"categories":["上肢機能"]},{"date":"6月8日","theme":"弛緩性麻痺","content":"動かない→萎縮","link":"https://vimeo.com/834210695/ec379e46ae","year":2023,"month":6,"day":8,"date_sort":"2023-06-08","date_display":"2023年6月8日","id":550,"categories":[]},{"date":"6月10日","theme":"左片麻痺例の「本当の麻痺」とは？","content":"見極める療法士の目","link":"https://vimeo.com/834902949/046c005530","year":2023,"month":6,"day":10,"date_sort":"2023-06-10","date_display":"2023年6月10日","id":551,"categories":[]},{"date":"6月12日","theme":"★麻痺って何？","content":"随意性運動麻痺","link":"https://vimeo.com/835089556/f16a00c4c6","year":2023,"month":6,"day":12,"date_sort":"2023-06-12","date_display":"2023年6月12日","id":552,"categories":[]},{"date":"6月14日","theme":"麻痺って何？","content":"筋肉レベルの麻痺？","link":"https://vimeo.com/835971019/144fae219e","year":2023,"month":6,"day":14,"date_sort":"2023-06-14","date_display":"2023年6月14日","id":553,"categories":["筋・解剖学"]},{"date":"6月16日","theme":"手関節掌屈をどう理解する？","content":"前腕回内外の誘導","link":"https://vimeo.com/836404959/d86a9683af","year":2023,"month":6,"day":16,"date_sort":"2023-06-16","date_display":"2023年6月16日","id":554,"categories":["上肢機能","筋・解剖学"]},{"date":"6月18日","theme":"道具操作と身体図式","content":"小脳に参照できる指標を提供する","link":"https://vimeo.com/837052599/a2d40ef845","year":2023,"month":6,"day":18,"date_sort":"2023-06-18","date_display":"2023年6月18日","id":555,"categories":["小脳・神経系","感覚・知覚"]},{"date":"6月20日","theme":"上肢の随意性","content":"麻痺側上肢に介入する順序と方法","link":"https://vimeo.com/837723221/0f7c0a3f20","year":2023,"month":6,"day":20,"date_sort":"2023-06-20","date_display":"2023年6月20日","id":556,"categories":["上肢機能"]},{"date":"6月22日","theme":"痙性麻痺をどう考える？","content":"積極的に動かす","link":"https://vimeo.com/838263354/1483c695e2","year":2023,"month":6,"day":22,"date_sort":"2023-06-22","date_display":"2023年6月22日","id":557,"categories":["疾患・病態"]},{"date":"6月24日","theme":"三角筋賦活","content":"解剖・生理学","link":"https://vimeo.com/838851567/04d892d2ca","year":2023,"month":6,"day":24,"date_sort":"2023-06-24","date_display":"2023年6月24日","id":558,"categories":["上肢機能","筋・解剖学"]},{"date":"6月26日","theme":"筋活動を高める方法","content":"肩甲骨周囲筋の賦活","link":"https://vimeo.com/839534520/9bc63494b1","year":2023,"month":6,"day":26,"date_sort":"2023-06-26","date_display":"2023年6月26日","id":559,"categories":["上肢機能","筋・解剖学"]},{"date":"6月28日","theme":"随意性＝神経系の興奮","content":"興奮伝道・興奮調整の障害","link":"https://vimeo.com/839949887/4d7d60bedc","year":2023,"month":6,"day":28,"date_sort":"2023-06-28","date_display":"2023年6月28日","id":560,"categories":["小脳・神経系"]},{"date":"6月30日","theme":"麻痺って何？","content":"興奮・筋活動・レンジの狭さの関係","link":"https://vimeo.com/840644093/d337cea212","year":2023,"month":6,"day":30,"date_sort":"2023-06-30","date_display":"2023年6月30日","id":561,"categories":["筋・解剖学"]},{"date":"2023年7月2日","theme":"ROMを学ぶ①","content":"歴史からROMの意義","link":"https://vimeo.com/841429412/c36be83278","year":2023,"month":7,"day":2,"date_sort":"2023-07-02","date_display":"2023年7月2日","id":562,"categories":["筋・解剖学"]},{"date":"7月4日","theme":"ROMを学ぶ②","content":"ROMが意味を持つためのには全体像が必要","link":"https://vimeo.com/842001859/34a49b3a35","year":2023,"month":7,"day":4,"date_sort":"2023-07-04","date_display":"2023年7月4日","id":563,"categories":["筋・解剖学"]},{"date":"7月6日","theme":"ROMを学ぶ③","content":"変形性関節症と疼痛とROMの関係","link":"https://vimeo.com/842655394/626512377c","year":2023,"month":7,"day":6,"date_sort":"2023-07-06","date_display":"2023年7月6日","id":564,"categories":["筋・解剖学","疾患・病態"]},{"date":"7月8日","theme":"ROMを学ぶ④","content":"メカニカルストレスと筋活動パターンの破綻","link":"https://vimeo.com/843041469/7d3a076a02","year":2023,"month":7,"day":8,"date_sort":"2023-07-08","date_display":"2023年7月8日","id":565,"categories":["筋・解剖学"]},{"date":"7月10日","theme":"ROMを学ぶ⑤","content":"筋トレとモーメント","link":"https://vimeo.com/843542524/d87a8716c5","year":2023,"month":7,"day":10,"date_sort":"2023-07-10","date_display":"2023年7月10日","id":566,"categories":["筋・解剖学"]},{"date":"7月12日","theme":"ROMを学ぶ⑥","content":"疼痛をモーメントで解釈する","link":"https://vimeo.com/844102151/36203dab25","year":2023,"month":7,"day":12,"date_sort":"2023-07-12","date_display":"2023年7月12日","id":567,"categories":["筋・解剖学","疾患・病態"]},{"date":"7月14日","theme":"ROMを学ぶ⑦","content":"ROMex","link":"https://vimeo.com/844826408/24aa468388","year":2023,"month":7,"day":14,"date_sort":"2023-07-14","date_display":"2023年7月14日","id":568,"categories":["筋・解剖学"]},{"date":"7月16日","theme":"ROMを学ぶ⑧","content":"姿勢アライメントは上肢から","link":"https://vimeo.com/845452669/7177086ad8","year":2023,"month":7,"day":16,"date_sort":"2023-07-16","date_display":"2023年7月16日","id":569,"categories":["姿勢制御・姿勢緊張","上肢機能","筋・解剖学"]},{"date":"7月18日","theme":"ROMを学ぶ⑨","content":"下肢の運動を保証する","link":"https://vimeo.com/845793855/f78c24db9f","year":2023,"month":7,"day":18,"date_sort":"2023-07-18","date_display":"2023年7月18日","id":570,"categories":["筋・解剖学"]},{"date":"7月20日","theme":"ROMを学ぶ⑩","content":"変形性関節症では可動域が問題になる","link":"https://vimeo.com/846767160/26f63885aa","year":2023,"month":7,"day":20,"date_sort":"2023-07-20","date_display":"2023年7月20日","id":571,"categories":["筋・解剖学"]},{"date":"7月22日","theme":"膝関節のROMに影響する要因①","content":"関節包","link":"https://vimeo.com/847340409/6e29d7ec9f","year":2023,"month":7,"day":22,"date_sort":"2023-07-22","date_display":"2023年7月22日","id":572,"categories":["筋・解剖学"]},{"date":"7月24日","theme":"膝関節のROMに影響する要因②","content":"腹直筋","link":"https://vimeo.com/847678438/4d0603b2ab","year":2023,"month":7,"day":24,"date_sort":"2023-07-24","date_display":"2023年7月24日","id":573,"categories":["筋・解剖学"]},{"date":"7月26日","theme":"ROMを見てもわからない状態","content":"腸腰筋の不活動","link":"https://vimeo.com/848248683/e0e373ca7b","year":2023,"month":7,"day":26,"date_sort":"2023-07-26","date_display":"2023年7月26日","id":574,"categories":["筋・解剖学"]},{"date":"7月28日","theme":"ROMと運動と筋力","content":"殿筋の活動は膝伸展では得られない","link":"https://vimeo.com/848933718/d74086f9d8","year":2023,"month":7,"day":28,"date_sort":"2023-07-28","date_display":"2023年7月28日","id":575,"categories":["筋・解剖学"]},{"date":"2023年8月1日","theme":"運動学習を考える","content":"身体機能を潜在化させる認知機能","link":"https://vimeo.com/850360267/2b4d806ac3","year":2023,"month":8,"day":1,"date_sort":"2023-08-01","date_display":"2023年8月1日","id":576,"categories":["筋・解剖学","認知・心理"]},{"date":"8月3日","theme":"自己効力感とリハビリの関係","content":"自己効力感を高めるには","link":"https://vimeo.com/850822013/1a81c59565","year":2023,"month":8,"day":3,"date_sort":"2023-08-03","date_display":"2023年8月3日","id":577,"categories":["認知・心理"]},{"date":"8月5日","theme":"自己身体の認識","content":"身体保持感と運動主体感","link":"https://vimeo.com/851469175/5a8aa20a05","year":2023,"month":8,"day":5,"date_sort":"2023-08-05","date_display":"2023年8月5日","id":578,"categories":[]},{"date":"8月7日","theme":"自己身体の認識を俎上に載せる","content":"セロトニン","link":"https://vimeo.com/852168240/c75917426b","year":2023,"month":8,"day":7,"date_sort":"2023-08-07","date_display":"2023年8月7日","id":579,"categories":[]},{"date":"8月9日","theme":"伸展作用は運動主体感を生じる","content":"手の動きをどう感じる","link":"https://vimeo.com/852526645/56b993f2b2","year":2023,"month":8,"day":9,"date_sort":"2023-08-09","date_display":"2023年8月9日","id":580,"categories":[]},{"date":"8月11日","theme":"認知機能と運動・行動","content":"自己効力感とtone","link":"https://vimeo.com/853232626/e0100107d8","year":2023,"month":8,"day":11,"date_sort":"2023-08-11","date_display":"2023年8月11日","id":581,"categories":["姿勢制御・姿勢緊張","認知・心理"]},{"date":"8月13日","theme":"認知機能と脳機能の知識を統合する","content":"目で見える現象は脳の問題かも","link":"https://vimeo.com/854036799/4d20795994","year":2023,"month":8,"day":13,"date_sort":"2023-08-13","date_display":"2023年8月13日","id":582,"categories":["認知・心理"]},{"date":"8月15日","theme":"ボールを手に置く活動","content":"側方抑制と身体認知のための末梢感覚・知覚","link":"https://vimeo.com/854506152/9098c1f3fb","year":2023,"month":8,"day":15,"date_sort":"2023-08-15","date_display":"2023年8月15日","id":583,"categories":["感覚・知覚","認知・心理"]},{"date":"8月17日","theme":"ADLの分析","content":"お椀を持つ","link":"https://vimeo.com/854855126/b2c5f399a6","year":2023,"month":8,"day":17,"date_sort":"2023-08-17","date_display":"2023年8月17日","id":584,"categories":["評価・分析"]},{"date":"8月19日","theme":"肩甲下筋研究","content":"上肢の空間保持と末梢の操作性を保証する","link":"https://vimeo.com/855547824/f2eff8ce1f","year":2023,"month":8,"day":19,"date_sort":"2023-08-19","date_display":"2023年8月19日","id":585,"categories":["上肢機能","筋・解剖学"]},{"date":"8月22日","theme":"神経系の抑制メカニズム","content":"肩甲下筋を緩めるためにどんな技術を使ったか","link":"https://vimeo.com/856567954/58cdb9296d","year":2023,"month":8,"day":22,"date_sort":"2023-08-22","date_display":"2023年8月22日","id":586,"categories":["上肢機能","小脳・神経系","筋・解剖学"]},{"date":"8月24日","theme":"実技セミナー①","content":"共通認識","link":"https://vimeo.com/857144834/7c9d73c2ca","year":2023,"month":8,"day":24,"date_sort":"2023-08-24","date_display":"2023年8月24日","id":587,"categories":["セミナー・実技"]},{"date":"8月26日","theme":"実技セミナー②","content":"時期別の臨床像と介入方針","link":"https://vimeo.com/858051437/612b1f13ab","year":2023,"month":8,"day":26,"date_sort":"2023-08-26","date_display":"2023年8月26日","id":588,"categories":["セミナー・実技"]},{"date":"8月28日","theme":"実技セミナー③","content":"回復期の理解と姿勢緊張","link":"https://vimeo.com/858280459/56f74456be","year":2023,"month":8,"day":28,"date_sort":"2023-08-28","date_display":"2023年8月28日","id":589,"categories":["姿勢制御・姿勢緊張","セミナー・実技"]},{"date":"8月30日","theme":"実技セミナー④","content":"適応的姿勢保持ができる理由とその知識に基づいた立ち座り","link":"https://vimeo.com/858842122/3f7ad8d2f7","year":2023,"month":8,"day":30,"date_sort":"2023-08-30","date_display":"2023年8月30日","id":590,"categories":["姿勢制御・姿勢緊張","セミナー・実技"]},{"date":"2023年9月1日","theme":"視知覚と上肢機能","content":"奥行き知覚と上腕三頭筋","link":"https://vimeo.com/859964810/c385908c13","year":2023,"month":9,"day":1,"date_sort":"2023-09-01","date_display":"2023年9月1日","id":591,"categories":["上肢機能","感覚・知覚","筋・解剖学"]},{"date":"9月3日","theme":"セミナーの共有化⑤","content":"片麻痺者の模擬体験と不安定性と安定性を促す実技","link":"https://vimeo.com/860547346/75e38c4ba4","year":2023,"month":9,"day":3,"date_sort":"2023-09-03","date_display":"2023年9月3日","id":592,"categories":["セミナー・実技"]},{"date":"9月5日","theme":"セミナーの共有化⑥","content":"立位バランスのための殿筋の賦活","link":"https://vimeo.com/861047106/b729ba9592","year":2023,"month":9,"day":5,"date_sort":"2023-09-05","date_display":"2023年9月5日","id":593,"categories":["歩行・移動","筋・解剖学","セミナー・実技"]},{"date":"9月7日","theme":"セミナー共有化⑦","content":"ケースの歩行観察","link":"https://vimeo.com/861811627/5d9eecd34b","year":2023,"month":9,"day":7,"date_sort":"2023-09-07","date_display":"2023年9月7日","id":594,"categories":["歩行・移動","ケーススタディ","セミナー・実技"]},{"date":"9月9日","theme":"セミナーの共有化番外編①","content":"歩行分析","link":"https://vimeo.com/862549112/b3b9b0bed8","year":2023,"month":9,"day":9,"date_sort":"2023-09-09","date_display":"2023年9月9日","id":595,"categories":["歩行・移動","評価・分析","セミナー・実技"]},{"date":"9月11日","theme":"セミナーの共有化⑧","content":"追評価の技術","link":"https://vimeo.com/862966817/7988c5fa6a","year":2023,"month":9,"day":11,"date_sort":"2023-09-11","date_display":"2023年9月11日","id":596,"categories":["評価・分析","セミナー・実技"]},{"date":"9月13日","theme":"セミナーの共有化番外編②","content":"正常歩行の知識","link":"https://vimeo.com/863775330/1a7656da58","year":2023,"month":9,"day":13,"date_sort":"2023-09-13","date_display":"2023年9月13日","id":597,"categories":["歩行・移動","セミナー・実技"]},{"date":"9月15日","theme":"セミナーの共有化⑨","content":"準備の段階の介入","link":"https://vimeo.com/864233593/1b9e09a85a","year":2023,"month":9,"day":15,"date_sort":"2023-09-15","date_display":"2023年9月15日","id":598,"categories":["セミナー・実技"]},{"date":"9月17日","theme":"セミナーの共有化番外編③","content":"腸腰筋の準備","link":"https://vimeo.com/864991876/08d7edf7e8","year":2023,"month":9,"day":17,"date_sort":"2023-09-17","date_display":"2023年9月17日","id":599,"categories":["筋・解剖学","セミナー・実技"]},{"date":"9月19日","theme":"セミナーの共有化⑩","content":"腸腰筋を自動的に使う練習","link":"https://vimeo.com/865509063/659ce07d39","year":2023,"month":9,"day":19,"date_sort":"2023-09-19","date_display":"2023年9月19日","id":600,"categories":["筋・解剖学","セミナー・実技"]},{"date":"9月21日","theme":"セミナーの共有化⑪","content":"介入結果","link":"https://vimeo.com/866552500/d7743a9577","year":2023,"month":9,"day":21,"date_sort":"2023-09-21","date_display":"2023年9月21日","id":601,"categories":["セミナー・実技"]},{"date":"9月23日","theme":"セミナーの共有化⑫","content":"基本動作の分析・解決する練習","link":"https://vimeo.com/866984206/356118f9ab","year":2023,"month":9,"day":23,"date_sort":"2023-09-23","date_display":"2023年9月23日","id":602,"categories":["評価・分析","セミナー・実技"]},{"date":"9月25日","theme":"セミナー共有化番外編③","content":"姿勢評価の解説","link":"https://vimeo.com/867561553/9c25fd327f","year":2023,"month":9,"day":25,"date_sort":"2023-09-25","date_display":"2023年9月25日","id":603,"categories":["姿勢制御・姿勢緊張","評価・分析","セミナー・実技"]},{"date":"9月27日","theme":"セミナー共有化⑬","content":"作業療法的視点","link":"https://vimeo.com/868188837/c7ba07e819","year":2023,"month":9,"day":27,"date_sort":"2023-09-27","date_display":"2023年9月27日","id":604,"categories":["セミナー・実技"]},{"date":"9月29日","theme":"セミナーの症例歩行について","content":"対象者の状況とその獲得経過","link":"https://vimeo.com/868950902/d7aa712568","year":2023,"month":9,"day":29,"date_sort":"2023-09-29","date_display":"2023年9月29日","id":605,"categories":["歩行・移動","ケーススタディ","セミナー・実技"]},{"date":"2023年10月1日","theme":"重症例から学ぶ","content":"回復度合い・状況理解・療法士の態度","link":"https://vimeo.com/869916249/7f5e4d5813","year":2023,"month":10,"day":1,"date_sort":"2023-10-01","date_display":"2023年10月1日","id":606,"categories":["ケーススタディ"]},{"date":"10月3日","theme":"急性期の症状と小脳機能","content":"急性期はどんな時期","link":"https://vimeo.com/870172775/6e86692320","year":2023,"month":10,"day":3,"date_sort":"2023-10-03","date_display":"2023年10月3日","id":607,"categories":["小脳・神経系"]},{"date":"10月5日","theme":"小脳機能を整理する","content":"急性期の麻痺は小脳由来では？","link":"https://vimeo.com/870877854/5bd0c64b8c","year":2023,"month":10,"day":5,"date_sort":"2023-10-05","date_display":"2023年10月5日","id":608,"categories":["小脳・神経系"]},{"date":"10月7日","theme":"小脳が障害されて起こる現象①","content":"前庭小脳","link":"https://vimeo.com/871993802/fa6e41b0b7","year":2023,"month":10,"day":7,"date_sort":"2023-10-07","date_display":"2023年10月7日","id":609,"categories":["小脳・神経系"]},{"date":"10月9日","theme":"小脳が障害されて起こる現象②","content":"前庭小脳","link":"https://vimeo.com/872203573/b75cec9066","year":2023,"month":10,"day":9,"date_sort":"2023-10-09","date_display":"2023年10月9日","id":610,"categories":["小脳・神経系"]},{"date":"10月11日","theme":"小脳が障害されて起こる現象③","content":"脊髄小脳システム","link":"https://vimeo.com/873102912/4df45a3e73","year":2023,"month":10,"day":11,"date_sort":"2023-10-11","date_display":"2023年10月11日","id":611,"categories":["小脳・神経系"]},{"date":"10月13日","theme":"小脳が障害されて起こる現象④","content":"大脳小脳システム","link":"https://vimeo.com/873535287/a64d062840","year":2023,"month":10,"day":13,"date_sort":"2023-10-13","date_display":"2023年10月13日","id":612,"categories":["小脳・神経系"]},{"date":"10月15日","theme":"小脳が障害されて起こる現象⑤","content":"大脳小脳システムの認知的側面","link":"https://vimeo.com/874243025/f0cba9eb2c","year":2023,"month":10,"day":15,"date_sort":"2023-10-15","date_display":"2023年10月15日","id":613,"categories":["小脳・神経系","認知・心理"]},{"date":"10月17日","theme":"遂行機能と作業記憶","content":"トイレ動作に伴う作業記憶","link":"https://vimeo.com/874966302/ef5f0a986f","year":2023,"month":10,"day":17,"date_sort":"2023-10-17","date_display":"2023年10月17日","id":614,"categories":[]},{"date":"10月19日","theme":"空間認知とは？","content":"今、私、ここにいる","link":"https://vimeo.com/875756448/aa95b95fc1","year":2023,"month":10,"day":19,"date_sort":"2023-10-19","date_display":"2023年10月19日","id":615,"categories":["認知・心理"]},{"date":"10月21日","theme":"言語機能は「私」を意識化する","content":"自分を知るツール","link":"https://vimeo.com/876547860/569d043ccd","year":2023,"month":10,"day":21,"date_sort":"2023-10-21","date_display":"2023年10月21日","id":616,"categories":[]},{"date":"10月23日","theme":"小脳性認知情動症候群の人格障害","content":"人格障害って？","link":"https://vimeo.com/876821753/ee8c6a3770","year":2023,"month":10,"day":23,"date_sort":"2023-10-23","date_display":"2023年10月23日","id":617,"categories":["小脳・神経系","疾患・病態","認知・心理"]},{"date":"10月25日","theme":"小脳の学習を助ける技術","content":"フィードバックメカニズム","link":"https://vimeo.com/877352112/979b565662","year":2023,"month":10,"day":25,"date_sort":"2023-10-25","date_display":"2023年10月25日","id":618,"categories":["小脳・神経系"]},{"date":"10月27日","theme":"小脳機能の整理","content":"まとめ①","link":"https://vimeo.com/878092462/8def3a0355","year":2023,"month":10,"day":27,"date_sort":"2023-10-27","date_display":"2023年10月27日","id":619,"categories":["小脳・神経系"]},{"date":"10月29日","theme":"小脳機能の整理","content":"まとめ②","link":"https://vimeo.com/878865492/f39e1c2ba7","year":2023,"month":10,"day":29,"date_sort":"2023-10-29","date_display":"2023年10月29日","id":620,"categories":["小脳・神経系"]},{"date":"2023年11月2日","theme":"痺れを研究する①","content":"方向性・目的・目標","link":"https://vimeo.com/880325187/60289ee073","year":2023,"month":11,"day":2,"date_sort":"2023-11-02","date_display":"2023年11月2日","id":621,"categories":["感覚・知覚"]},{"date":"11月4日","theme":"痺れを研究する②","content":"痺れの原因","link":"https://vimeo.com/881044867/6fb913524e","year":2023,"month":11,"day":4,"date_sort":"2023-11-04","date_display":"2023年11月4日","id":622,"categories":["感覚・知覚"]},{"date":"11月6日","theme":"痺れを研究する③","content":"痺れと感覚障害","link":"https://vimeo.com/881296782/8656b86e80","year":2023,"month":11,"day":6,"date_sort":"2023-11-06","date_display":"2023年11月6日","id":623,"categories":["感覚・知覚"]},{"date":"11月8日","theme":"痺れを研究する④","content":"レイノー現象と姿勢緊張","link":"https://vimeo.com/882019680/0887251757","year":2023,"month":11,"day":8,"date_sort":"2023-11-08","date_display":"2023年11月8日","id":624,"categories":["姿勢制御・姿勢緊張","感覚・知覚"]},{"date":"11月10日","theme":"痺れを研究する⑤","content":"神経の走行・栄養血管・自律神経の過剰反応","link":"https://vimeo.com/883072353/1b22aa2006","year":2023,"month":11,"day":10,"date_sort":"2023-11-10","date_display":"2023年11月10日","id":625,"categories":["小脳・神経系","感覚・知覚"]},{"date":"11月12日","theme":"痺れを研究する⑥","content":"痺れ感を感じる身体状況","link":"https://vimeo.com/883470570/a70842af8e","year":2023,"month":11,"day":12,"date_sort":"2023-11-12","date_display":"2023年11月12日","id":626,"categories":["感覚・知覚"]},{"date":"11月14日","theme":"痺れを研究する⑦","content":"表情筋と胸鎖乳突筋","link":"https://vimeo.com/883920393/6d79c6811f","year":2023,"month":11,"day":14,"date_sort":"2023-11-14","date_display":"2023年11月14日","id":627,"categories":["感覚・知覚","筋・解剖学"]},{"date":"11月16日","theme":"痺れを研究する⑧","content":"中枢神経系の判別と判断","link":"https://vimeo.com/884584746/c73f719b54","year":2023,"month":11,"day":16,"date_sort":"2023-11-16","date_display":"2023年11月16日","id":628,"categories":["小脳・神経系","感覚・知覚"]},{"date":"11月18日","theme":"痺れを研究する⑨","content":"自己身体の知覚は表在・深部感覚がない","link":"https://vimeo.com/885439856/ceb05cff47","year":2023,"month":11,"day":18,"date_sort":"2023-11-18","date_display":"2023年11月18日","id":629,"categories":["感覚・知覚"]},{"date":"11月21日","theme":"痺れを研究する⑩","content":"現象と痺れ","link":"https://vimeo.com/886393116/29773cc60c","year":2023,"month":11,"day":21,"date_sort":"2023-11-21","date_display":"2023年11月21日","id":630,"categories":["感覚・知覚"]},{"date":"11月23日","theme":"11月19日セミナー①","content":"日常生活の中の歩行","link":"https://vimeo.com/887158077/18223c237b","year":2023,"month":11,"day":23,"date_sort":"2023-11-23","date_display":"2023年11月23日","id":631,"categories":["歩行・移動","セミナー・実技"]},{"date":"11月25日","theme":"セミナー②","content":"達成目標","link":"https://vimeo.com/887945030/431cf8fa02","year":2023,"month":11,"day":25,"date_sort":"2023-11-25","date_display":"2023年11月25日","id":632,"categories":["セミナー・実技"]},{"date":"11月27日","theme":"セミナー③","content":"言語化して説明してみる","link":"https://vimeo.com/888498079/378c49370b","year":2023,"month":11,"day":27,"date_sort":"2023-11-27","date_display":"2023年11月27日","id":633,"categories":["セミナー・実技"]},{"date":"11月29日","theme":"セミナー④","content":"坂道を登る・掃除機をかける","link":"https://vimeo.com/889010930/3c3d2446e4","year":2023,"month":11,"day":29,"date_sort":"2023-11-29","date_display":"2023年11月29日","id":634,"categories":["セミナー・実技"]},{"date":"2023年12月1日","theme":"歩行①","content":"移動と最低限の歩行能力","link":"https://vimeo.com/889687249/49c8ce40a2","year":2023,"month":12,"day":1,"date_sort":"2023-12-01","date_display":"2023年12月1日","id":635,"categories":["歩行・移動"]},{"date":"12月3日","theme":"セミナー⑤","content":"真似る","link":"https://vimeo.com/890490899/6faf4b0bfd","year":2023,"month":12,"day":3,"date_sort":"2023-12-03","date_display":"2023年12月3日","id":636,"categories":["セミナー・実技"]},{"date":"12月5日","theme":"セミナー⑥","content":"療法士の手の練習","link":"https://vimeo.com/890887664/90657ed9d9","year":2023,"month":12,"day":5,"date_sort":"2023-12-05","date_display":"2023年12月5日","id":637,"categories":["セミナー・実技"]},{"date":"12月7日","theme":"セミナー⑦","content":"技術を活かす視点","link":"https://vimeo.com/892027414/e14943414e","year":2023,"month":12,"day":7,"date_sort":"2023-12-07","date_display":"2023年12月7日","id":638,"categories":["セミナー・実技"]},{"date":"12月9日","theme":"セミナー⑧","content":"歩容を邪魔している「痙縮」","link":"https://vimeo.com/892768528/cb0468177d","year":2023,"month":12,"day":9,"date_sort":"2023-12-09","date_display":"2023年12月9日","id":639,"categories":["歩行・移動","セミナー・実技","疾患・病態"]},{"date":"12月12日","theme":"歩行は非線形","content":"ASIMは川原を歩けるか","link":"https://vimeo.com/892958489/16a355232a","year":2023,"month":12,"day":12,"date_sort":"2023-12-12","date_display":"2023年12月12日","id":640,"categories":["歩行・移動"]},{"date":"12月14日","theme":"片麻痺者が歩行で困ること","content":"訴えと現象と要因①","link":"https://vimeo.com/894295105/138aede2b9","year":2023,"month":12,"day":14,"date_sort":"2023-12-14","date_display":"2023年12月14日","id":641,"categories":["歩行・移動"]},{"date":"12月16日","theme":"片麻痺者が歩行で困ること","content":"訴えと現象と要因②","link":"https://vimeo.com/894854878/2ba022c813","year":2023,"month":12,"day":16,"date_sort":"2023-12-16","date_display":"2023年12月16日","id":642,"categories":["歩行・移動"]},{"date":"12月18日","theme":"片麻痺者が歩行で困ること","content":"訴えと現象と要因③","link":"https://vimeo.com/895402297/cf80ae8c1b","year":2023,"month":12,"day":18,"date_sort":"2023-12-18","date_display":"2023年12月18日","id":643,"categories":["歩行・移動"]},{"date":"12月20日","theme":"下肢伸展は支持性にならない","content":"肩甲帯を固定すると","link":"https://vimeo.com/896143284/4503f9f0f7","year":2023,"month":12,"day":20,"date_sort":"2023-12-20","date_display":"2023年12月20日","id":644,"categories":["上肢機能"]},{"date":"12月22日","theme":"支持基底面の変化に対応できない","content":"先行随伴性姿勢調整","link":"https://vimeo.com/896713467/b2ffd63672","year":2023,"month":12,"day":22,"date_sort":"2023-12-22","date_display":"2023年12月22日","id":645,"categories":["姿勢制御・姿勢緊張"]},{"date":"12月24日","theme":"現象の解釈から仮説検証まで","content":"環境要因への過剰反応","link":"https://vimeo.com/897472118/faa4056136","year":2023,"month":12,"day":24,"date_sort":"2023-12-24","date_display":"2023年12月24日","id":646,"categories":[]},{"date":"12月26日","theme":"段差昇降を深掘り","content":"個別性","link":"https://vimeo.com/897776075/b9edb38f8a","year":2023,"month":12,"day":26,"date_sort":"2023-12-26","date_display":"2023年12月26日","id":647,"categories":[]},{"date":"12月28日","theme":"12月まとめ","content":"感覚ー知覚のスペクトル","link":"https://vimeo.com/898210649/1d46229e34","year":2023,"month":12,"day":28,"date_sort":"2023-12-28","date_display":"2023年12月28日","id":648,"categories":["感覚・知覚"]},{"date":"2024年1月5日","theme":"疼痛を科学する①","content":"圧痛","link":"https://vimeo.com/899785968/41634e4d16","year":2024,"month":1,"day":5,"date_sort":"2024-01-05","date_display":"2024年1月5日","id":649,"categories":["疾患・病態"]},{"date":"1月7日","theme":"疼痛を科学する②","content":"トリガーポイント","link":"https://vimeo.com/900294761/528a502b3c","year":2024,"month":1,"day":7,"date_sort":"2024-01-07","date_display":"2024年1月7日","id":650,"categories":["疾患・病態"]},{"date":"1月9日","theme":"疼痛を科学する③","content":"筋硬結のメカニズム","link":"https://vimeo.com/900957335/95bc448daf","year":2024,"month":1,"day":9,"date_sort":"2024-01-09","date_display":"2024年1月9日","id":651,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月11日","theme":"疼痛を科学する④","content":"炎症症状と筋筋膜症状","link":"https://vimeo.com/901677189/81d37c0f7f","year":2024,"month":1,"day":11,"date_sort":"2024-01-11","date_display":"2024年1月11日","id":652,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月13日","theme":"疼痛を科学する⑤","content":"疼痛は痛覚受容器の発火","link":"https://vimeo.com/902226112/ba1f8f9e26","year":2024,"month":1,"day":13,"date_sort":"2024-01-13","date_display":"2024年1月13日","id":653,"categories":["疾患・病態"]},{"date":"1月15日","theme":"疼痛を科学する⑥","content":"変形性関節症と疼痛","link":"https://vimeo.com/902616348/472879b9f9","year":2024,"month":1,"day":15,"date_sort":"2024-01-15","date_display":"2024年1月15日","id":654,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月17日","theme":"疼痛を科学する⑦","content":"回外筋と対立の関係","link":"https://vimeo.com/903131659/7b0f48bd51","year":2024,"month":1,"day":17,"date_sort":"2024-01-17","date_display":"2024年1月17日","id":655,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月19日","theme":"疼痛を科学する⑧","content":"姿勢コントロールレベルの疼痛","link":"https://vimeo.com/904254398/df5226da17","year":2024,"month":1,"day":19,"date_sort":"2024-01-19","date_display":"2024年1月19日","id":656,"categories":["姿勢制御・姿勢緊張","疾患・病態"]},{"date":"1月21日","theme":"疼痛を科学する⑨","content":"姿勢コントロールの基礎","link":"https://vimeo.com/904652789/4029e764e0","year":2024,"month":1,"day":21,"date_sort":"2024-01-21","date_display":"2024年1月21日","id":657,"categories":["姿勢制御・姿勢緊張","疾患・病態"]},{"date":"1月23日","theme":"肩関節のメカニズム","content":"肩複合体のメカニズム","link":"https://vimeo.com/905138801/a4a0b61015","year":2024,"month":1,"day":23,"date_sort":"2024-01-23","date_display":"2024年1月23日","id":658,"categories":["筋・解剖学"]},{"date":"1月25日","theme":"安静時痛を考える","content":"人は動いている","link":"https://vimeo.com/905788592/ddece6fd30","year":2024,"month":1,"day":25,"date_sort":"2024-01-25","date_display":"2024年1月25日","id":659,"categories":[]},{"date":"1月27日","theme":"股関節と肩の疼痛","content":"中殿筋の萎縮が肩の疼痛を引き起こす","link":"https://vimeo.com/906875280/7fd5289220","year":2024,"month":1,"day":27,"date_sort":"2024-01-27","date_display":"2024年1月27日","id":660,"categories":["筋・解剖学","疾患・病態"]},{"date":"1月29日","theme":"疼痛と心理","content":"カタルシス効果","link":"https://vimeo.com/907266777/a2733494af","year":2024,"month":1,"day":29,"date_sort":"2024-01-29","date_display":"2024年1月29日","id":661,"categories":["疾患・病態","認知・心理"]},{"date":"2024年2月1日","theme":"上肢機能再考","content":"麻痺側上肢の具体的な目標","link":"https://vimeo.com/908421761/d3fdd5511d","year":2024,"month":2,"day":1,"date_sort":"2024-02-01","date_display":"2024年2月1日","id":662,"categories":["上肢機能"]},{"date":"2月3日","theme":"上肢機能","content":"上肢の屈曲の意味","link":"https://vimeo.com/908880194/bd6ef89d19","year":2024,"month":2,"day":3,"date_sort":"2024-02-03","date_display":"2024年2月3日","id":663,"categories":["上肢機能"]},{"date":"2月5日","theme":"基本動作の連結","content":"Core Stability","link":"https://vimeo.com/909599516/bb903ef284","year":2024,"month":2,"day":5,"date_sort":"2024-02-05","date_display":"2024年2月5日","id":664,"categories":[]},{"date":"2月7日","theme":"基本動作の中身","content":"動作練習は筋トレではない","link":"https://vimeo.com/910253604/040b117ef8","year":2024,"month":2,"day":7,"date_sort":"2024-02-07","date_display":"2024年2月7日","id":665,"categories":["筋・解剖学"]},{"date":"2月9日","theme":"麻痺側上肢の目標","content":"Core Stabilityの獲得","link":"https://vimeo.com/911053930/460a5c2a76","year":2024,"month":2,"day":9,"date_sort":"2024-02-09","date_display":"2024年2月9日","id":666,"categories":["上肢機能"]},{"date":"2月11日","theme":"リーチの基礎知識①","content":"肘の運動学","link":"https://vimeo.com/911799627/6f236c81a6","year":2024,"month":2,"day":11,"date_sort":"2024-02-11","date_display":"2024年2月11日","id":667,"categories":["上肢機能","筋・解剖学"]},{"date":"2月13日","theme":"リーチの基礎知識②","content":"筋肉編","link":"https://vimeo.com/912172642/75a4daa3f8","year":2024,"month":2,"day":13,"date_sort":"2024-02-13","date_display":"2024年2月13日","id":668,"categories":["上肢機能","筋・解剖学"]},{"date":"2月16日","theme":"肘関節の運動学","content":"伸筋","link":"https://vimeo.com/913209733/7196c336cc","year":2024,"month":2,"day":16,"date_sort":"2024-02-16","date_display":"2024年2月16日","id":669,"categories":["筋・解剖学"]},{"date":"2月18日","theme":"肘関節の運動学","content":"前腕回内外","link":"https://vimeo.com/914049530/62fa228e57","year":2024,"month":2,"day":18,"date_sort":"2024-02-18","date_display":"2024年2月18日","id":670,"categories":["筋・解剖学"]},{"date":"2月20日","theme":"三角筋賦活技術","content":"手関節の状態","link":"https://vimeo.com/914571068/1c5e1a18a9","year":2024,"month":2,"day":20,"date_sort":"2024-02-20","date_display":"2024年2月20日","id":671,"categories":["上肢機能","筋・解剖学"]},{"date":"2月22日","theme":"リーチングは放す","content":"末梢の操作は中枢部の安定","link":"https://vimeo.com/914968768/cfb3ef7413","year":2024,"month":2,"day":22,"date_sort":"2024-02-22","date_display":"2024年2月22日","id":672,"categories":["上肢機能"]},{"date":"2月24日","theme":"示指からの誘導","content":"示指の痙縮と全身の姿勢緊張","link":"https://vimeo.com/915831294/01dda0ea75","year":2024,"month":2,"day":24,"date_sort":"2024-02-24","date_display":"2024年2月24日","id":673,"categories":["姿勢制御・姿勢緊張","疾患・病態"]},{"date":"2月26日","theme":"示指への介入：科学的視点","content":"CHOR","link":"https://vimeo.com/916512954/7d15d3b020","year":2024,"month":2,"day":26,"date_sort":"2024-02-26","date_display":"2024年2月26日","id":674,"categories":[]},{"date":"2月29日","theme":"麻痺側上肢に触れる理由","content":"リハビリの立ち位置","link":"https://vimeo.com/916927424/45d5a5602b","year":2024,"month":2,"day":29,"date_sort":"2024-02-29","date_display":"2024年2月29日","id":675,"categories":["上肢機能"]},{"date":"2024年3月2日","theme":"脳に介入する具体案","content":"どの様なリハビリプログラムを提供するか","link":"https://vimeo.com/918142872/4bd996b2ef","year":2024,"month":3,"day":2,"date_sort":"2024-03-02","date_display":"2024年3月2日","id":676,"categories":[]},{"date":"3月4日","theme":"脳に介入する具体案②","content":"連結した感覚","link":"https://vimeo.com/918746745/bd2ce454f4","year":2024,"month":3,"day":4,"date_sort":"2024-03-04","date_display":"2024年3月4日","id":677,"categories":["感覚・知覚"]},{"date":"3月6日","theme":"回復期の特徴","content":"亜急性期","link":"https://vimeo.com/919358781/cbc458df50","year":2024,"month":3,"day":6,"date_sort":"2024-03-06","date_display":"2024年3月6日","id":678,"categories":[]},{"date":"3月8日","theme":"基本的定位と姿勢保持の要","content":"動作は姿勢変化の連続性","link":"https://vimeo.com/920254105/8d5c195740","year":2024,"month":3,"day":8,"date_sort":"2024-03-08","date_display":"2024年3月8日","id":679,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月10日","theme":"回復期で実践したいこと","content":"感覚-運動経験","link":"https://vimeo.com/921327672/f13a31f967","year":2024,"month":3,"day":10,"date_sort":"2024-03-10","date_display":"2024年3月10日","id":680,"categories":["感覚・知覚"]},{"date":"3月12日","theme":"片麻痺者のtoneに介入する","content":"感覚系に介入する基本方針","link":"https://vimeo.com/921904818/c79bdb3ffe","year":2024,"month":3,"day":12,"date_sort":"2024-03-12","date_display":"2024年3月12日","id":681,"categories":["姿勢制御・姿勢緊張","感覚・知覚"]},{"date":"3月14日","theme":"回復期：基本動作とADL獲得で念頭におくべき思考","content":"脳活動の回復をねらう","link":"https://vimeo.com/923104848/10899d0aa9","year":2024,"month":3,"day":14,"date_sort":"2024-03-14","date_display":"2024年3月14日","id":682,"categories":[]},{"date":"3月16日","theme":"回復期：症例ごとのギャップ","content":"対象者の理解を深める","link":"https://vimeo.com/923895810/80d423ba16","year":2024,"month":3,"day":16,"date_sort":"2024-03-16","date_display":"2024年3月16日","id":683,"categories":["ケーススタディ"]},{"date":"3月19日","theme":"筋緊張に変化しないケースの知覚","content":"探索活動","link":"https://vimeo.com/924474219/df5f3b431a","year":2024,"month":3,"day":19,"date_sort":"2024-03-19","date_display":"2024年3月19日","id":684,"categories":["感覚・知覚","筋・解剖学","ケーススタディ"]},{"date":"3月21日","theme":"身体知覚","content":"支持基底面と側面構造、接触と抵抗感の変化","link":"https://vimeo.com/925610101/6e8158214f","year":2024,"month":3,"day":21,"date_sort":"2024-03-21","date_display":"2024年3月21日","id":685,"categories":["感覚・知覚"]},{"date":"3月23日","theme":"回復期のADLに意味を込める","content":"知覚を促す","link":"https://vimeo.com/926038028/a5e000e3fe","year":2024,"month":3,"day":23,"date_sort":"2024-03-23","date_display":"2024年3月23日","id":686,"categories":["感覚・知覚"]},{"date":"3月24日","theme":"身体知覚と長下肢装具での立位","content":"長下肢装具の特徴","link":"https://vimeo.com/926448771/94c11fb02c","year":2024,"month":3,"day":24,"date_sort":"2024-03-24","date_display":"2024年3月24日","id":687,"categories":["歩行・移動","感覚・知覚"]},{"date":"3月25日","theme":"姿勢アライメントの正常・異常を決める要因","content":"姿勢制御は生きている","link":"https://vimeo.com/926914829/2afb79314d","year":2024,"month":3,"day":25,"date_sort":"2024-03-25","date_display":"2024年3月25日","id":688,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月27日","theme":"姿勢が良ければいいわけではない","content":"姿勢アライメントの多様性とADL動作","link":"https://vimeo.com/927336581/60faada6b4","year":2024,"month":3,"day":27,"date_sort":"2024-03-27","date_display":"2024年3月27日","id":689,"categories":["姿勢制御・姿勢緊張"]},{"date":"3月30日","theme":"3年間のまとめ","content":"知らないから始めよう","link":"https://vimeo.com/928161807/fe9c1be35d","year":2024,"month":3,"day":30,"date_sort":"2024-03-30","date_display":"2024年3月30日","id":690,"categories":[]}];
+
+/* ===================================================================
+   CONSTANTS & HELPERS
+   =================================================================== */
+const CATEGORIES = [
+  '筋・解剖学','姿勢制御・姿勢緊張','上肢機能','小脳・神経系','評価・分析',
+  '疾患・病態','歩行・移動','感覚・知覚','セミナー・実技','ケーススタディ',
+  '認知・心理','リハビリ概論','嚥下・口腔'
+];
+
+const CAT_COLORS = {
+  '筋・解剖学': '#dc2626',
+  '姿勢制御・姿勢緊張': '#7c3aed',
+  '上肢機能': '#2563eb',
+  '小脳・神経系': '#db2777',
+  '評価・分析': '#ea580c',
+  '疾患・病態': '#0891b2',
+  '歩行・移動': '#16a34a',
+  '感覚・知覚': '#ca8a04',
+  'セミナー・実技': '#4f46e5',
+  'ケーススタディ': '#be185d',
+  '認知・心理': '#059669',
+  'リハビリ概論': '#7c2d12',
+  '嚥下・口腔': '#6d28d9'
+};
+
+const SERIES_RE = /[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳]/g;
+
+// Pre-compute series info
+const seriesMap = new Map();
+SEMINARS.forEach(s => {
+  if (SERIES_RE.test(s.theme)) {
+    const base = s.theme.replace(SERIES_RE, '').trim();
+    if (!seriesMap.has(base)) seriesMap.set(base, []);
+    seriesMap.get(base).push(s.id);
+    s._seriesBase = base;
+    s._isSeries = true;
+  } else {
+    s._isSeries = false;
+    s._seriesBase = null;
+  }
+});
+
+// Pre-compute search text
+SEMINARS.forEach(s => {
+  s._searchText = (s.theme + ' ' + s.content + ' ' + (s.categories || []).join(' ')).toLowerCase();
+});
+
+/* ===================================================================
+   STATE
+   =================================================================== */
+// デモモード: true=リンク無効（トースト表示）、false=実際のリンクに遷移
+const DEMO_MODE = true;
+
+const state = {
+  search: '',
+  year: null,
+  month: null,
+  category: null,
+  sort: 'date-desc',
+  seriesOnly: false,
+  relatedTo: null,
+  renderBatch: 0
+};
+
+const BATCH_SIZE = 60;
+let filteredData = [];
+let renderedCount = 0;
+let isRendering = false;
+
+/* ===================================================================
+   DOM REFS
+   =================================================================== */
+const $ = id => document.getElementById(id);
+const searchInput = $('searchInput');
+const searchClear = $('searchClear');
+const yearTabs = $('yearTabs');
+const monthRow = $('monthRow');
+const catTags = $('catTags');
+const activeChips = $('activeChips');
+const sortSelect = $('sortSelect');
+const seriesTogle = $('seriesTogle');
+const clearAllBtn = $('clearAllBtn');
+const cardGrid = $('cardGrid');
+const resultsCount = $('resultsCount');
+const relatedBanner = $('relatedBanner');
+const relatedBannerText = $('relatedBannerText');
+const relatedBannerClose = $('relatedBannerClose');
+const filterSection = $('filterSection');
+const scrollTopBtn = $('scrollTopBtn');
+const themeToggle = $('themeToggle');
+const themeIcon = $('themeIcon');
+
+/* ===================================================================
+   THEME
+   =================================================================== */
+function initTheme() {
+  const saved = localStorage.getItem('wl-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateThemeIcon();
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('wl-theme', next);
+  updateThemeIcon();
+}
+
+function updateThemeIcon() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  themeIcon.innerHTML = isDark ? '&#9788;' : '&#9790;';
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+
+/* ===================================================================
+   ANIMATED COUNTERS
+   =================================================================== */
+function animateCounters() {
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    const duration = 1200;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ===================================================================
+   BUILD FILTER UI
+   =================================================================== */
+function buildFilters() {
+  // Year tabs
+  const years = ['ALL', 2020, 2021, 2022, 2023, 2024];
+  yearTabs.innerHTML = years.map(y => {
+    const label = y === 'ALL' ? '全て' : y + '年';
+    const val = y === 'ALL' ? '' : y;
+    const active = (state.year === null && y === 'ALL') || (state.year === y) ? ' active' : '';
+    return `<button class="year-tab${active}" data-year="${val}">${label}</button>`;
+  }).join('');
+
+  // Month buttons
+  monthRow.innerHTML = Array.from({length: 12}, (_, i) => {
+    const m = i + 1;
+    const active = state.month === m ? ' active' : '';
+    return `<button class="month-btn${active}" data-month="${m}">${m}月</button>`;
+  }).join('');
+
+  // Category tags
+  catTags.innerHTML = CATEGORIES.map(c => {
+    const color = CAT_COLORS[c] || '#6b7280';
+    const active = state.category === c ? ' active' : '';
+    return `<button class="cat-tag${active}" data-cat="${c}" style="background:${color}22;color:${color};border:1px solid ${color}44;">${c}</button>`;
+  }).join('');
+}
+
+/* ===================================================================
+   FILTER EVENTS
+   =================================================================== */
+yearTabs.addEventListener('click', e => {
+  const btn = e.target.closest('.year-tab');
+  if (!btn) return;
+  const val = btn.dataset.year;
+  state.year = val ? parseInt(val) : null;
+  state.relatedTo = null;
+  applyFilters();
+});
+
+monthRow.addEventListener('click', e => {
+  const btn = e.target.closest('.month-btn');
+  if (!btn) return;
+  const m = parseInt(btn.dataset.month);
+  state.month = state.month === m ? null : m;
+  state.relatedTo = null;
+  applyFilters();
+});
+
+catTags.addEventListener('click', e => {
+  const btn = e.target.closest('.cat-tag');
+  if (!btn) return;
+  const c = btn.dataset.cat;
+  state.category = state.category === c ? null : c;
+  state.relatedTo = null;
+  applyFilters();
+});
+
+seriesTogle.addEventListener('click', () => {
+  state.seriesOnly = !state.seriesOnly;
+  state.relatedTo = null;
+  applyFilters();
+});
+
+sortSelect.addEventListener('change', () => {
+  state.sort = sortSelect.value;
+  applyFilters();
+});
+
+clearAllBtn.addEventListener('click', () => {
+  state.search = '';
+  state.year = null;
+  state.month = null;
+  state.category = null;
+  state.sort = 'date-desc';
+  state.seriesOnly = false;
+  state.relatedTo = null;
+  searchInput.value = '';
+  sortSelect.value = 'date-desc';
+  applyFilters();
+});
+
+relatedBannerClose.addEventListener('click', () => {
+  state.relatedTo = null;
+  applyFilters();
+});
+
+// Search with debounce
+let searchTimer;
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    state.search = searchInput.value.trim().toLowerCase();
+    state.relatedTo = null;
+    applyFilters();
+  }, 300);
+  searchClear.classList.toggle('visible', searchInput.value.length > 0);
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  state.search = '';
+  state.relatedTo = null;
+  searchClear.classList.remove('visible');
+  applyFilters();
+  searchInput.focus();
+});
+
+/* ===================================================================
+   FILTER + SORT LOGIC
+   =================================================================== */
+function computeFiltered() {
+  let data = SEMINARS;
+
+  // Related mode
+  if (state.relatedTo) {
+    const src = SEMINARS.find(s => s.id === state.relatedTo);
+    if (src) {
+      data = findRelated(src);
+    }
+  }
+
+  // Search
+  if (state.search) {
+    const terms = state.search.split(/\s+/).filter(Boolean);
+    data = data.filter(s => terms.every(t => s._searchText.includes(t)));
+  }
+
+  // Year
+  if (state.year) {
+    data = data.filter(s => s.year === state.year);
+  }
+
+  // Month
+  if (state.month) {
+    data = data.filter(s => s.month === state.month);
+  }
+
+  // Category
+  if (state.category) {
+    data = data.filter(s => s.categories && s.categories.includes(state.category));
+  }
+
+  // Series only
+  if (state.seriesOnly) {
+    data = data.filter(s => s._isSeries);
+  }
+
+  // Sort
+  switch (state.sort) {
+    case 'date-desc':
+      data = [...data].sort((a, b) => b.date_sort.localeCompare(a.date_sort) || b.id - a.id);
+      break;
+    case 'date-asc':
+      data = [...data].sort((a, b) => a.date_sort.localeCompare(b.date_sort) || a.id - b.id);
+      break;
+    case 'theme-asc':
+      data = [...data].sort((a, b) => a.theme.localeCompare(b.theme, 'ja'));
+      break;
+  }
+
+  return data;
+}
+
+function findRelated(src) {
+  const srcCats = new Set(src.categories || []);
+  const srcWords = new Set(
+    (src.theme + ' ' + src.content)
+      .replace(/[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳]/g, '')
+      .split(/[\s、。・：:（）()「」\u3000]+/)
+      .filter(w => w.length >= 2)
+  );
+
+  const scored = SEMINARS
+    .filter(s => s.id !== src.id)
+    .map(s => {
+      let score = 0;
+      // Same series bonus
+      if (src._seriesBase && s._seriesBase === src._seriesBase) score += 10;
+      // Category overlap
+      (s.categories || []).forEach(c => { if (srcCats.has(c)) score += 3; });
+      // Word overlap
+      const sText = s.theme + ' ' + s.content;
+      srcWords.forEach(w => { if (sText.includes(w)) score += 1; });
+      return { ...s, _relScore: score };
+    })
+    .filter(s => s._relScore > 0)
+    .sort((a, b) => b._relScore - a._relScore);
+
+  return scored.slice(0, 50);
+}
+
+/* ===================================================================
+   RENDER
+   =================================================================== */
+function applyFilters() {
+  // Show skeletons briefly
+  showSkeletons();
+
+  filteredData = computeFiltered();
+  renderedCount = 0;
+
+  // Update UI
+  buildFilters();
+  updateActiveChips();
+  updateRelatedBanner();
+  updateHash();
+
+  // Slight delay for skeleton effect
+  requestAnimationFrame(() => {
+    renderCards();
+  });
+}
+
+function showSkeletons() {
+  cardGrid.innerHTML = Array.from({length: 6}, () =>
+    `<div class="skeleton-card">
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    </div>`
+  ).join('');
+}
+
+function highlightText(text, search) {
+  if (!search) return escapeHtml(text);
+  const escaped = escapeHtml(text);
+  const terms = search.split(/\s+/).filter(Boolean);
+  let result = escaped;
+  terms.forEach(t => {
+    const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    result = result.replace(re, '<mark>$1</mark>');
+  });
+  return result;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderCards() {
+  const total = filteredData.length;
+  resultsCount.innerHTML = `<strong>${total}</strong> 件 表示中`;
+
+  if (total === 0) {
+    cardGrid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">&#x1F50D;</div>
+        <h3>該当するセミナーが見つかりません</h3>
+        <p>検索条件を変更してお試しください</p>
+      </div>`;
+    return;
+  }
+
+  const toRender = filteredData.slice(0, BATCH_SIZE);
+  renderedCount = toRender.length;
+  cardGrid.innerHTML = toRender.map((s, i) => buildCard(s, i)).join('');
+}
+
+function renderMoreCards() {
+  if (renderedCount >= filteredData.length || isRendering) return;
+  isRendering = true;
+  const nextBatch = filteredData.slice(renderedCount, renderedCount + BATCH_SIZE);
+  const fragment = document.createDocumentFragment();
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = nextBatch.map((s, i) => buildCard(s, renderedCount + i)).join('');
+  while (tempDiv.firstChild) {
+    fragment.appendChild(tempDiv.firstChild);
+  }
+  cardGrid.appendChild(fragment);
+  renderedCount += nextBatch.length;
+  isRendering = false;
+}
+
+function buildCard(s, index) {
+  const delay = Math.min(index * 20, 300);
+  const cats = (s.categories || []).map(c => {
+    const color = CAT_COLORS[c] || '#6b7280';
+    return `<span class="card-cat" style="background:${color}">${escapeHtml(c)}</span>`;
+  }).join('');
+
+  const seriesBadge = s._isSeries
+    ? `<span class="series-badge">&#x1F4DA; シリーズ</span>`
+    : '';
+
+  const themeHtml = highlightText(s.theme, state.search);
+  const contentHtml = highlightText(s.content, state.search);
+
+  const watchBtn = s.link
+    ? (DEMO_MODE
+      ? `<button class="btn-watch btn-watch-demo" data-demo-link="${escapeHtml(s.link)}">
+           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>
+           動画を見る
+         </button>`
+      : `<a href="${escapeHtml(s.link)}" target="_blank" rel="noopener" class="btn-watch">
+           <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>
+           動画を見る
+         </a>`)
+    : '';
+
+  return `<article class="card" style="animation-delay:${delay}ms" data-id="${s.id}">
+    <div class="card-header">
+      <span class="date-badge" data-year="${s.year}">${escapeHtml(s.date_display)}</span>
+      ${seriesBadge}
+    </div>
+    <div class="card-theme">${themeHtml}</div>
+    <div class="card-content">${contentHtml}</div>
+    <div class="card-categories">${cats}</div>
+    <div class="card-actions">
+      ${watchBtn}
+      <button class="btn-related" data-related="${s.id}">&#x1F517; 関連を探す</button>
+    </div>
+  </article>`;
+}
+
+// Demo mode: show toast instead of navigating
+cardGrid.addEventListener('click', e => {
+  const demoBtn = e.target.closest('.btn-watch-demo');
+  if (!demoBtn) return;
+  e.preventDefault();
+  showDemoToast();
+});
+
+function showDemoToast() {
+  let toast = document.getElementById('demo-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'demo-toast';
+    toast.style.cssText = `
+      position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: linear-gradient(135deg, #1e40af, #7c3aed); color: #fff;
+      padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3); z-index: 10000;
+      opacity: 0; transition: opacity 0.3s, transform 0.3s; pointer-events: none;
+      white-space: nowrap;
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.textContent = '\u{1F512} デモモードのため動画リンクは無効です';
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(20px)';
+  }, 2000);
+}
+
+// Related button delegation
+cardGrid.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-related');
+  if (!btn) return;
+  const id = parseInt(btn.dataset.related);
+  state.relatedTo = id;
+  // Clear other filters when finding related
+  state.year = null;
+  state.month = null;
+  state.category = null;
+  state.seriesOnly = false;
+  state.search = '';
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+  applyFilters();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ===================================================================
+   ACTIVE CHIPS
+   =================================================================== */
+function updateActiveChips() {
+  const chips = [];
+  if (state.search) {
+    chips.push(makeChip(`検索: "${state.search}"`, () => {
+      state.search = '';
+      searchInput.value = '';
+      searchClear.classList.remove('visible');
+      applyFilters();
+    }));
+  }
+  if (state.year) {
+    chips.push(makeChip(`${state.year}年`, () => { state.year = null; applyFilters(); }));
+  }
+  if (state.month) {
+    chips.push(makeChip(`${state.month}月`, () => { state.month = null; applyFilters(); }));
+  }
+  if (state.category) {
+    chips.push(makeChip(state.category, () => { state.category = null; applyFilters(); }));
+  }
+  if (state.seriesOnly) {
+    chips.push(makeChip('シリーズのみ', () => { state.seriesOnly = false; applyFilters(); }));
+  }
+  activeChips.innerHTML = chips.join('');
+  seriesTogle.classList.toggle('active', state.seriesOnly);
+}
+
+function makeChip(label, onRemove) {
+  const id = 'chip_' + Math.random().toString(36).slice(2, 8);
+  setTimeout(() => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', onRemove);
+  }, 0);
+  return `<span class="chip">${escapeHtml(label)} <button id="${id}">&times;</button></span>`;
+}
+
+/* ===================================================================
+   RELATED BANNER
+   =================================================================== */
+function updateRelatedBanner() {
+  if (state.relatedTo) {
+    const src = SEMINARS.find(s => s.id === state.relatedTo);
+    if (src) {
+      relatedBannerText.innerHTML = `&#x1F517; 「<strong>${escapeHtml(src.theme)}</strong>」に関連するセミナー`;
+      relatedBanner.classList.add('visible');
+      return;
+    }
+  }
+  relatedBanner.classList.remove('visible');
+}
+
+/* ===================================================================
+   INFINITE SCROLL (lazy render)
+   =================================================================== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      renderMoreCards();
+    }
+  });
+}, { rootMargin: '400px' });
+
+// Sentinel element
+const sentinel = document.createElement('div');
+sentinel.style.height = '1px';
+document.querySelector('.results-area').appendChild(sentinel);
+io.observe(sentinel);
+
+/* ===================================================================
+   SCROLL EFFECTS
+   =================================================================== */
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  // Sticky filter shadow
+  filterSection.classList.toggle('scrolled', y > 200);
+  // Scroll-to-top button
+  scrollTopBtn.classList.toggle('visible', y > 500);
+  lastScroll = y;
+}, { passive: true });
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ===================================================================
+   URL HASH STATE
+   =================================================================== */
+function updateHash() {
+  const params = new URLSearchParams();
+  if (state.search) params.set('q', state.search);
+  if (state.year) params.set('y', state.year);
+  if (state.month) params.set('m', state.month);
+  if (state.category) params.set('c', state.category);
+  if (state.sort !== 'date-desc') params.set('s', state.sort);
+  if (state.seriesOnly) params.set('series', '1');
+  if (state.relatedTo) params.set('rel', state.relatedTo);
+  const hash = params.toString();
+  history.replaceState(null, '', hash ? '#' + hash : window.location.pathname);
+}
+
+function readHash() {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+  const params = new URLSearchParams(hash);
+  if (params.has('q')) { state.search = params.get('q'); searchInput.value = state.search; searchClear.classList.add('visible'); }
+  if (params.has('y')) state.year = parseInt(params.get('y'));
+  if (params.has('m')) state.month = parseInt(params.get('m'));
+  if (params.has('c')) state.category = params.get('c');
+  if (params.has('s')) { state.sort = params.get('s'); sortSelect.value = state.sort; }
+  if (params.has('series')) state.seriesOnly = params.get('series') === '1';
+  if (params.has('rel')) state.relatedTo = parseInt(params.get('rel'));
+}
+
+/* ===================================================================
+   INIT
+   =================================================================== */
+initTheme();
+readHash();
+buildFilters();
+applyFilters();
+animateCounters();
+</script>
+</body>
+</html>
