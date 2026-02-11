@@ -1017,6 +1017,57 @@ SEMINARS.forEach(s => {
   s._searchText = (s.theme + ' ' + s.content + ' ' + (s.categories || []).join(' ')).toLowerCase();
 });
 
+// Synonym groups for medical/rehabilitation terms
+const SYNONYM_GROUPS = [
+  ['痛み', '疼痛'],
+  ['歩行', '歩く', '歩き'],
+  ['嚥下', '飲み込み', '飲み込む'],
+  ['麻痺', 'まひ', 'マヒ'],
+  ['しびれ', '痺れ'],
+  ['rom', '関節可動域'],
+  ['adl', '日常生活'],
+  ['筋緊張', 'トーン', 'tone', '筋トーン'],
+  ['感覚', '知覚'],
+  ['上肢', '腕', '手'],
+  ['下肢', '足', '脚'],
+  ['姿勢制御', 'バランス', '平衡'],
+  ['脳卒中', '脳血管障害', '脳梗塞', '脳出血'],
+  ['痙縮', 'けいしゅく', 'スパスティシティ'],
+  ['パーキンソン', 'pd'],
+  ['リハビリテーション', 'リハビリ'],
+  ['立位', '立ち上がり', '起立'],
+  ['座位', '坐位'],
+  ['臥位', '寝返り'],
+  ['片麻痺', '半身麻痺'],
+  ['関節', '可動域'],
+  ['屈曲', '曲げる'],
+  ['伸展', '伸ばす'],
+  ['失語', '言語障害'],
+  ['構音', '発話'],
+  ['脊髄', '脊椎'],
+  ['前庭', '平衡感覚'],
+  ['小脳', '協調', '運動失調'],
+];
+
+// Build lookup: term → all synonyms (including itself)
+const SYNONYM_MAP = new Map();
+SYNONYM_GROUPS.forEach(group => {
+  const lowerGroup = group.map(t => t.toLowerCase());
+  lowerGroup.forEach(term => {
+    const existing = SYNONYM_MAP.get(term) || new Set();
+    lowerGroup.forEach(t => existing.add(t));
+    SYNONYM_MAP.set(term, existing);
+  });
+});
+
+// Expand a search term to include its synonyms (exact match only)
+function expandTerm(term) {
+  const lower = term.toLowerCase();
+  const synonyms = SYNONYM_MAP.get(lower);
+  if (synonyms) return [...synonyms];
+  return [lower];
+}
+
 /* ===================================================================
    STATE
    =================================================================== */
@@ -1231,10 +1282,13 @@ function computeFiltered() {
     }
   }
 
-  // Search
+  // Search (with synonym expansion)
   if (state.search) {
     const terms = state.search.split(/\s+/).filter(Boolean);
-    data = data.filter(s => terms.every(t => s._searchText.includes(t)));
+    data = data.filter(s => terms.every(t => {
+      const expanded = expandTerm(t);
+      return expanded.some(et => s._searchText.includes(et));
+    }));
   }
 
   // Year
@@ -1339,8 +1393,13 @@ function highlightText(text, search) {
   if (!search) return escapeHtml(text);
   const escaped = escapeHtml(text);
   const terms = search.split(/\s+/).filter(Boolean);
-  let result = escaped;
+  // Collect all terms + their synonyms for highlighting
+  const allTerms = new Set();
   terms.forEach(t => {
+    expandTerm(t).forEach(et => allTerms.add(et));
+  });
+  let result = escaped;
+  allTerms.forEach(t => {
     const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
     result = result.replace(re, '<mark>$1</mark>');
   });
